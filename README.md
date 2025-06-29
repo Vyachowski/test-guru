@@ -1,6 +1,6 @@
 # TestGuru
 
-Учебный проект для онлайн-школы [Thinknetica](http://www.thinknetica.com)
+Учебный проект для онлайн-школы [Thinknetica](https://thinknetica.com)
 
 ## Сущности проекта
 
