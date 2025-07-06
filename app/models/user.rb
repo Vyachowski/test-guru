@@ -1,20 +1,20 @@
 class User < ApplicationRecord
-    def find_by_difficulty_level(difficulty_level)
-        test_ids = TestPassage.where(user_id: id).pluck(:test_id)
-        Test.where(id: test_ids, level: difficulty_level)
-    end
+  def find_by_difficulty_level(difficulty_level)
+    test_ids = TestPassage.where(user_id: id).pluck(:test_id)
+    Test.where(id: test_ids, level: difficulty_level)
+  end
 end
 
 # Результат:
 # test-guru(dev)> user = User.find_by(email: 'ivan@example.com')
 #   User Load (0.7ms)  SELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?  [["email", "[FILTERED]"], ["LIMIT", 1]]
-# => 
+# =>
 # #<User:0x00007f038fbbebc8
 # ...
 # test-guru(dev)> user.find_by_difficulty_level(1)
 #   TestPassage Pluck (0.1ms)  SELECT "test_passages"."test_id" FROM "test_passages" WHERE "test_passages"."user_id" = ?  [["user_id", 1]]
 #   Test Load (0.1ms)  SELECT "tests".* FROM "tests" WHERE "tests"."id" IN (?, ?) AND "tests"."level" = ? /* loading for pp */ LIMIT ?  [["id", 1], ["id", 2], ["level", 1], ["LIMIT", 11]]
-# => 
+# =>
 # [#<Test:0x00007f038e9e7530
 #   id: 1,
 #   name: "Frontend Basics",
