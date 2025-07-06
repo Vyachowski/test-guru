@@ -39,7 +39,7 @@ test_records = tests.map do |test|
   [ test[:name], Test.find_or_create_by!(name: test[:name]) { |t| t.assign_attributes(test) } ]
 end.to_h
 
-# == Создаем вопросы и сохраняем хэш с имейлами для создания вопросов
+# == Создаем вопросы и сохраняем хэш с имейлами для создания ответов
 questions = [
   # === Уровень 1 (базовый) ===
 
@@ -107,6 +107,7 @@ questions.each_slice(3).with_index do |question_group, index|
   end
 end
 
+# == Создаем ответы
 answers = [
   # === Уровень 1 ===
 
@@ -273,17 +274,18 @@ answers = [
   { body: 'Название компании', correct: false, question_id: nil }
 ]
 
-answer_records = []
 answers.each_slice(4).with_index do |answer_group, index|
   question = question_records[index]
+
   answer_group.each do |answer|
     answer[:question_id] = question.id
-    answer_records << Answer.find_or_create_by!(body: answer[:body], question_id: question[:question_id]) do |a|
+    Answer.find_or_create_by!(body: answer[:body], question_id: question.id) do |a|
       a.correct = answer[:correct]
     end
   end
 end
 
+# == Создаем результаты прохождения тестов
 test_passages_data = [
   { user_email: 'ivan@example.com', test_name: 'Frontend Basics', passed: true },
   { user_email: 'ivan@example.com', test_name: 'Backend Basics', passed: false },
@@ -298,3 +300,20 @@ test_passages_data.each do |tp|
     tp_record.passed = tp[:passed]
   end
 end
+
+# Результат сидирования
+# test-guru(dev)> User.count
+#   User Count (0.1ms)  SELECT COUNT(*) FROM "users"
+# => 3
+# test-guru(dev)> Test.count
+#   Test Count (0.0ms)  SELECT COUNT(*) FROM "tests"
+# => 10
+# test-guru(dev)> Question.count
+#   Question Count (0.1ms)  SELECT COUNT(*) FROM "questions"
+# => 30
+# test-guru(dev)> Answer.count
+#   Answer Count (0.0ms)  SELECT COUNT(*) FROM "answers"
+# => 120
+# test-guru(dev)> TestPassage.count
+#   TestPassage Count (0.0ms)  SELECT COUNT(*) FROM "test_passages"
+# => 3
