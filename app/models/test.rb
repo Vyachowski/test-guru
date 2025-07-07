@@ -6,7 +6,3 @@ class Test < ApplicationRecord
       .pluck(:name)
   end
 end
-
-# test-guru(dev)> Test.find_all_by_category_name(:Frontend)
-#   Test Pluck (0.6ms)  SELECT "tests"."name" FROM "tests" INNER JOIN categories ON categories.id = tests.category_id WHERE "categories"."title" = ? ORDER BY "tests"."name" DESC  [["title", "Frontend"]]
-# => ["Frontend Intermediate", "Frontend Basics"]
