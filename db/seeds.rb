@@ -18,7 +18,7 @@ user_records = users.map do |user|
   [ user[:email], User.find_or_create_by!(email: user[:email]) { |u| u.assign_attributes(user) } ]
 end.to_h
 
-# == Создаем тесты и сохраняем хэш с имейлами для создания вопросов
+# == Создаем юзеров и сохраняем хэш с имейлами для создания тестов и результатов
 tests = [
   # === Уровень 1 ===
   { name: 'Frontend Basics', level: 1, category: category_records['Frontend'], creator: user_records['ivan@example.com'] },
