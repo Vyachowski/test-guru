@@ -6,10 +6,10 @@ class Test < ApplicationRecord
   has_many :test_passages, dependent: :destroy
   has_many :users, through: :test_passages
 
-  def self.find_all_by_category_name(category_name)
-    joins(:category)
-      .where(categories: { title: category_name })
-      .order(name: :desc)
-      .pluck(:name)
-  end
+  scope :easy, -> { where(level: 0..1) }
+  scope :medium, -> { where(level: 2..4) }
+  scope :hard, -> { where(level: 5..FLOAT::INFINITY) }
+  scope :by_category_name, ->(name) {
+    joins(:category).where(categories: { title: name }).order(name: :desc)
+  }
 end
