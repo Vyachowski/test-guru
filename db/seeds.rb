@@ -18,21 +18,21 @@ user_records = users.map do |user|
   [ user[:email], User.find_or_create_by!(email: user[:email]) { |u| u.assign_attributes(user) } ]
 end.to_h
 
-# == Создаем тесты и сохраняем хэш с имейлами для создания вопросов
+# == Создаем юзеров и сохраняем хэш с имейлами для создания тестов и результатов
 tests = [
   # === Уровень 1 ===
-  { name: 'Frontend Basics', level: 1, category_id: category_records['Frontend'].id, creator_id: user_records['ivan@example.com'].id },
-  { name: 'Backend Basics', level: 1, category_id: category_records['Backend'].id, creator_id: user_records['ivan@example.com'].id },
-  { name: 'Mobile Basics', level: 1, category_id: category_records['Mobile Development'].id, creator_id: user_records['ivan@example.com'].id },
-  { name: 'DevOps Basics', level: 1, category_id: category_records['DevOps'].id, creator_id: user_records['ivan@example.com'].id },
-  { name: 'Game Development Basics', level: 1, category_id: category_records['Game Development'].id, creator_id: user_records['ivan@example.com'].id },
+  { name: 'Frontend Basics', level: 1, category: category_records['Frontend'], creator: user_records['ivan@example.com'] },
+  { name: 'Backend Basics', level: 1, category: category_records['Backend'], creator: user_records['ivan@example.com'] },
+  { name: 'Mobile Basics', level: 1, category: category_records['Mobile Development'], creator: user_records['ivan@example.com'] },
+  { name: 'DevOps Basics', level: 1, category: category_records['DevOps'], creator: user_records['ivan@example.com'] },
+  { name: 'Game Development Basics', level: 1, category: category_records['Game Development'], creator: user_records['ivan@example.com'] },
 
   # === Уровень 2 ===
-  { name: 'Frontend Intermediate', level: 2, category_id: category_records['Frontend'].id, creator_id: user_records['svetlana@example.com'].id },
-  { name: 'Backend Intermediate', level: 2, category_id: category_records['Backend'].id, creator_id: user_records['svetlana@example.com'].id },
-  { name: 'Mobile Intermediate', level: 2, category_id: category_records['Mobile Development'].id, creator_id: user_records['svetlana@example.com'].id },
-  { name: 'DevOps Intermediate', level: 2, category_id: category_records['DevOps'].id, creator_id: user_records['svetlana@example.com'].id },
-  { name: 'Game Development Intermediate', level: 2, category_id: category_records['Game Development'].id, creator_id: user_records['svetlana@example.com'].id }
+  { name: 'Frontend Intermediate', level: 2, category: category_records['Frontend'], creator: user_records['svetlana@example.com'] },
+  { name: 'Backend Intermediate', level: 2, category: category_records['Backend'], creator: user_records['svetlana@example.com'] },
+  { name: 'Mobile Intermediate', level: 2, category: category_records['Mobile Development'], creator: user_records['svetlana@example.com'] },
+  { name: 'DevOps Intermediate', level: 2, category: category_records['DevOps'], creator: user_records['svetlana@example.com'] },
+  { name: 'Game Development Intermediate', level: 2, category: category_records['Game Development'], creator: user_records['svetlana@example.com'] }
 ]
 
 test_records = tests.map do |test|
@@ -99,11 +99,11 @@ questions = [
 question_records = []
 questions.each_slice(3).with_index do |question_group, index|
   test = tests[index]
-  test_id = test_records[test[:name]].id
+  test_record = test_records[test[:name]]
 
   question_group.each do |question|
-    question[:test_id] = test_id
-    question_records << Question.find_or_create_by!(body: question[:body], test_id: test_id)
+    question[:test] = test_record
+    question_records << Question.find_or_create_by!(body: question[:body], test: test_record)
   end
 end
 
@@ -278,8 +278,7 @@ answers.each_slice(4).with_index do |answer_group, index|
   question = question_records[index]
 
   answer_group.each do |answer|
-    answer[:question_id] = question.id
-    Answer.find_or_create_by!(body: answer[:body], question_id: question.id) do |a|
+    Answer.find_or_create_by!(body: answer[:body], question: question) do |a|
       a.correct = answer[:correct]
     end
   end
@@ -296,24 +295,7 @@ test_passages_data.each do |tp|
   user = user_records[tp[:user_email]]
   test = test_records[tp[:test_name]]
 
-  TestPassage.find_or_create_by!(user_id: user.id, test_id: test.id) do |tp_record|
+  TestPassage.find_or_create_by!(user: user, test: test) do |tp_record|
     tp_record.passed = tp[:passed]
   end
 end
-
-# Результат сидирования
-# test-guru(dev)> User.count
-#   User Count (0.1ms)  SELECT COUNT(*) FROM "users"
-# => 3
-# test-guru(dev)> Test.count
-#   Test Count (0.0ms)  SELECT COUNT(*) FROM "tests"
-# => 10
-# test-guru(dev)> Question.count
-#   Question Count (0.1ms)  SELECT COUNT(*) FROM "questions"
-# => 30
-# test-guru(dev)> Answer.count
-#   Answer Count (0.0ms)  SELECT COUNT(*) FROM "answers"
-# => 120
-# test-guru(dev)> TestPassage.count
-#   TestPassage Count (0.0ms)  SELECT COUNT(*) FROM "test_passages"
-# => 3
