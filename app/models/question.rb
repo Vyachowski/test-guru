@@ -7,13 +7,13 @@ class Question < ApplicationRecord
 
   private
 
-  def validate_answers_limit
-    size = answers.reject(&:marked_for_destruction?).size
+    def validate_answers_limit
+      size = answers.reject(&:marked_for_destruction?).size
 
-    if size < 1
-      errors.add(:answers, "should have at least one answer")
-    elsif size > 4
-      errors.add(:answers, "cannot have more than 4 answers")
+      if size < 1
+        errors.add(:answers, "should have at least one answer")
+      elsif size > 4
+        errors.add(:answers, "cannot have more than 4 answers")
+      end
     end
-  end
 end
