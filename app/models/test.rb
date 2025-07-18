@@ -17,4 +17,8 @@ class Test < ApplicationRecord
 
   scope :by_difficulty,    ->(level) { where(level: level) }
   scope :by_category_name, ->(name)  { joins(:category).where(categories: { title: name }).order(name: :desc) }
+
+  def self.names_by_category(name)
+    by_category_name(name).pluck(:name)
+  end
 end
