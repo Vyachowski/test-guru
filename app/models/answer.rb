@@ -2,10 +2,9 @@ class Answer < ApplicationRecord
   belongs_to :question
 
   validates :body, presence: true
+  validate :validate_answers_limit
 
   scope :correct, -> { where(correct: true) }
-
-  validate :validate_answers_limit
 
   private
 
