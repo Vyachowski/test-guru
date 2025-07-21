@@ -23,6 +23,6 @@ class QuestionsController < ApplicationController
   end
 
   def render_not_found
-    render json: { errors: "Record not found" }, status: :not_found
+    render json: { error: "Record not found" }, status: :not_found
   end
 end
