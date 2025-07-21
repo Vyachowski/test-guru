@@ -1,20 +1,26 @@
 class QuestionsController < ApplicationController
-  before_action :find_test
   rescue_from ActiveRecord::RecordNotFound, with: :render_not_found
+
+  before_action :set_test
+  before_action :set_question, only: :show
 
   def index
     render json: @test.questions
   end
 
   def show
-    render json: @test.questions.find(params[:id])
-  end
-
-  def find_test
-    @test = Test.find(params[:test_id])
+    render json: @question
   end
 
   private
+
+  def set_test
+    @test = Test.find(params[:test_id])
+  end
+
+  def set_question
+    @question = @test.questions.find(params[:id])
+  end
 
   def render_not_found
     render json: { errors: "Record not found" }, status: :not_found
