@@ -3,6 +3,8 @@ class User < ApplicationRecord
   has_many :test_passages, dependent: :destroy
   has_many :tests, through: :test_passages
 
+  validates :email, presence: true
+
   def tests_by_difficulty(difficulty_level)
     tests.where(level: difficulty_level)
   end
