@@ -1,6 +1,22 @@
 # Omakase Ruby styling for Rails
 inherit_gem: { rubocop-rails-omakase: rubocop.yml }
 
+Layout/SpaceInsideArrayLiteralBrackets:
+  Description: 'Checks the spacing inside array literal brackets.'
+  Enabled: true
+  VersionAdded: '0.52'
+  EnforcedStyle: no_space
+  SupportedStyles:
+    - space
+    - no_space
+    # 'compact' normally requires a space inside the brackets, with the exception
+    # that successive left brackets or right brackets are collapsed together
+    - compact
+  EnforcedStyleForEmptyBrackets: no_space
+  SupportedStylesForEmptyBrackets:
+    - space
+    - no_space
+
 Layout/IndentationConsistency:
   Description: 'Keep indentation straight.'
   StyleGuide: '#spaces-indentation'
