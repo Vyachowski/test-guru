@@ -1,7 +1,7 @@
 # Создаем тестовые данные
 
 # == Создаем категории и сохраняем хэш с айди для создания тестов
-categories = [ 'Frontend', 'Backend', 'Mobile Development', 'DevOps', 'Game Development' ]
+categories = ['Frontend', 'Backend', 'Mobile Development', 'DevOps', 'Game Development']
 
 category_records = categories.index_with do |title|
   Category.find_or_create_by!(title: title)
@@ -15,7 +15,7 @@ users = [
 ]
 
 user_records = users.map do |user|
-  [ user[:email], User.find_or_create_by!(email: user[:email]) { |u| u.assign_attributes(user) } ]
+  [user[:email], User.find_or_create_by!(email: user[:email]) { |u| u.assign_attributes(user) }]
 end.to_h
 
 # == Создаем юзеров и сохраняем хэш с имейлами для создания тестов и результатов
@@ -36,7 +36,7 @@ tests = [
 ]
 
 test_records = tests.map do |test|
-  [ test[:name], Test.find_or_create_by!(name: test[:name]) { |t| t.assign_attributes(test) } ]
+  [test[:name], Test.find_or_create_by!(name: test[:name]) { |t| t.assign_attributes(test) }]
 end.to_h
 
 # == Создаем вопросы и сохраняем хэш с имейлами для создания ответов
