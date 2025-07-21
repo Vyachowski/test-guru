@@ -1,12 +1,52 @@
 # Omakase Ruby styling for Rails
 inherit_gem: { rubocop-rails-omakase: rubocop.yml }
 
-Layout/IndentationWidth:
+Layout/IndentationConsistency:
+  Description: 'Keep indentation straight.'
+  StyleGuide: '#spaces-indentation'
   Enabled: true
-  Width: 2
+  VersionAdded: '0.49'
+  # The difference between `indented` and `normal` is that the `indented_internal_methods`
+  # style prescribes that in classes and modules the `protected` and `private`
+  # modifier keywords shall be indented the same as public methods and that
+  # protected and private members shall be indented one step more than the
+  # modifiers. Other than that, both styles mean that entities on the same
+  # logical depth shall have the same indentation.
+  EnforcedStyle: normal
+  SupportedStyles:
+    - normal
+    - indented_internal_methods
+  References:
+    # A reference to `EnforcedStyle: indented_internal_methods`.
+    - https://edgeguides.rubyonrails.org/contributing_to_ruby_on_rails.html#follow-the-coding-conventions
 
-# Overwrite or add rules to create your own house style
-#
-# # Use `[a, [b, c]]` not `[ a, [ b, c ] ]`
-# Layout/SpaceInsideArrayLiteralBrackets:
-#   Enabled: false
+Layout/IndentationStyle:
+  Description: 'Consistent indentation either with tabs only or spaces only.'
+  StyleGuide: '#spaces-indentation'
+  Enabled: true
+  VersionAdded: '0.49'
+  VersionChanged: '0.82'
+  # By default the indentation width from `Layout/IndentationWidth` is used,
+  # but it can be overridden by setting this parameter.
+  # It is used during autocorrection to determine how many spaces should
+  # replace each tab.
+  IndentationWidth: ~
+  EnforcedStyle: spaces
+  SupportedStyles:
+    - spaces
+    - tabs
+
+Layout/IndentationWidth:
+  Description: 'Use 2 spaces for indentation.'
+  StyleGuide: '#spaces-indentation'
+  Enabled: true
+  VersionAdded: '0.49'
+  # Number of spaces for each indentation level.
+  Width: 2
+  AllowedPatterns: []
+
+Layout/InitialIndentation:
+  Description: >-
+    Checks the indentation of the first non-blank non-comment line in a file.
+  Enabled: true
+  VersionAdded: '0.49'
