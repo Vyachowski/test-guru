@@ -17,7 +17,13 @@ class QuestionsController < ApplicationController
   end
 
   def create
-    render plain: "Confirmed!"
+    @question = @test.questions.new(params.require(:question).permit(:body))
+
+    if @question.save
+      redirect_to test_question_path(@test, @question), notice: "Вопрос успешно создан"
+    else
+      render :new
+    end
   end
 
   private

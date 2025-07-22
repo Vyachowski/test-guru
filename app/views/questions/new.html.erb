@@ -11,6 +11,21 @@
   </div>
 
   <div>
-    <%= form.submit "Добавить вопрос" %>
+    <%= form.submit "Добавить вопрос", id: "submit_button", disabled: true %>
   </div>
 <% end %>
+
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const textarea = document.getElementById("question_body");
+    const submitBtn = document.getElementById("submit_button");
+
+    function setDisabled() {
+      submitBtn.disabled = textarea.value.trim() === "";
+    }
+
+    textarea.addEventListener("input", setDisabled);
+
+    setDisabled();
+  });
+</script>
