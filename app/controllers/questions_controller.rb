@@ -1,7 +1,7 @@
 class QuestionsController < ApplicationController
   rescue_from ActiveRecord::RecordNotFound, with: :render_not_found
 
-  before_action :set_test
+  before_action :set_test, only: [:index, :new, :create]
   before_action :set_question, only: [:show, :destroy]
 
   def index
@@ -29,7 +29,7 @@ class QuestionsController < ApplicationController
   def destroy
     @question.destroy
 
-    redirect_to test_questions_path(@test), notice: "Вопрос удалён"
+    redirect_to questions_path, notice: "Вопрос удалён"
   end
 
   private
@@ -39,7 +39,7 @@ class QuestionsController < ApplicationController
   end
 
   def set_question
-    @question = @test.questions.find(params[:id])
+    @question = Question.find(params[:id])
   end
 
   def render_not_found
