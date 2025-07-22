@@ -22,7 +22,7 @@ class QuestionsController < ApplicationController
     if @question.save
       redirect_to test_question_path(@test, @question), notice: "Вопрос успешно создан"
     else
-      render :new
+      render :new, status: :unprocessable_entity
     end
   end
 
