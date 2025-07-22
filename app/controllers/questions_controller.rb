@@ -12,6 +12,14 @@ class QuestionsController < ApplicationController
     render json: @question
   end
 
+  def new
+    @question = Question.new
+  end
+
+  def create
+    render plain: "Confirmed!"
+  end
+
   private
 
   def set_test
