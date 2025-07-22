@@ -2,7 +2,7 @@ class QuestionsController < ApplicationController
   rescue_from ActiveRecord::RecordNotFound, with: :render_not_found
 
   before_action :set_test
-  before_action :set_question, only: :show
+  before_action :set_question, only: [:show, :destroy]
 
   def index
     render json: @test.questions
@@ -24,6 +24,12 @@ class QuestionsController < ApplicationController
     else
       render :new, status: :unprocessable_entity
     end
+  end
+
+  def destroy
+    @question.destroy
+
+    redirect_to test_questions_path(@test), notice: "Вопрос удалён"
   end
 
   private
