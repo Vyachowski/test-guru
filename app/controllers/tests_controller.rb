@@ -7,9 +7,7 @@ class TestsController < ApplicationController
     @tests = Test.all
   end
 
-  def show
-    render json: @test
-  end
+  def show; end
 
   def new
   end

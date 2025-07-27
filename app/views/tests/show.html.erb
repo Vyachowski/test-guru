@@ -1,2 +1,14 @@
-<h1>Tests#show</h1>
-<p>Find me in app/views/tests/show.html.erb</p>
+<h1><%= @test.name %></h1>
+<p>Level - <%= @test.level %></p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Title</th>
+    </tr>
+  </thead>
+
+  <tbody>
+  <%= render @test.questions %>
+  </tbody>
+</table>
