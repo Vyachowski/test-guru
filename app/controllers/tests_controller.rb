@@ -1,13 +1,14 @@
 class TestsController < ApplicationController
   rescue_from ActiveRecord::RecordNotFound, with: :render_not_found
 
-  before_action :set_test, only: [:index, :new, :create]
-  before_action :set_question, only: [:show, :destroy]
+  before_action :set_test, only: [:show, :edit, :update, :destroy]
 
   def index
+    @tests = Test.all
   end
 
   def show
+    render json: @test
   end
 
   def new
@@ -28,11 +29,7 @@ class TestsController < ApplicationController
   private
 
   def set_test
-    @test = Test.find(params[:test_id])
-  end
-
-  def set_question
-    @question = Question.find(params[:id])
+    @test = Test.find(params[:id])
   end
 
   def render_not_found
