@@ -1,14 +1,14 @@
 <%= link_to 'Back', tests_path %>
 
 <h1><%= @test.title %></h1>
-<p>Уровень - <%= @test.level %></p>
+<p>Уровень - <%= test_level @test %></p>
 
 <table>
-  <caption>Test questions</caption>
+  <caption>Вопросы теста</caption>
 
   <thead>
     <tr>
-      <th>Title</th>
+      <th>Название</th>
     </tr>
   </thead>
 

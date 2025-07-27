@@ -5,7 +5,7 @@ module TestsHelper
       1 => "elementary",
       2 => "advanced",
       3 => "hard"
-    }
+  }.freeze
 
     levels.fetch(test.level, "hero")
   end

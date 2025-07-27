@@ -11,11 +11,11 @@
     <%= form.label :body, "Название теста:" %><br>
     <%= form.text_field :name, id: :test_name %>
 
-    <%= form.label :level %>
-    <%= form.number_field :level, id: :test_level, min: 1, max: 4 %>
+    <%= form.label :level, "Уровень" %>
+    <%= form.number_field :level, id: :test_level, min: 0, max: 4 %>
 
-    <%= form.label :category_id %>:
-    <%= form.collection_select :category_id, Category.all, :id, :title, prompt: true %>
+    <%= form.label :category_id, "Категория" %>:
+    <%= form.collection_select :category_id, Category.all, :id, :title %>
   </fieldset>
 
   <div>
