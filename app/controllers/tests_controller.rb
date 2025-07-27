@@ -10,18 +10,33 @@ class TestsController < ApplicationController
   def show; end
 
   def new
+    @test = Test.new
   end
 
   def edit
   end
 
   def create
+    @test = Test.new(params.require(:test).permit(:body))
+
+    if @test.save
+      redirect_to test_path(@test), notice: "Тест успешно создан"
+    else
+      render :new, status: :unprocessable_entity
+    end
   end
 
   def update
+    if @test.update(params.require(:test).permit(:body))
+      redirect_to test_path(@test), notice: "Тест успешно обновлен"
+    else
+      render :edit, status: :unprocessable_entity
+    end
   end
 
   def destroy
+    @test.destroy
+    redirect_to tests_path, notice: "Тест удален"
   end
 
   private
