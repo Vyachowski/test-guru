@@ -14,7 +14,7 @@ class TestsController < ApplicationController
   end
 
   def create
-    @test = Test.new(params.require(:test).permit(:body))
+    @test = Test.new(test_params)
 
     if @test.save
       redirect_to test_path(@test), notice: "Тест успешно создан"
@@ -26,7 +26,7 @@ class TestsController < ApplicationController
   def edit; end
 
   def update
-    if @test.update(params.require(:test).permit(:body))
+    if @test.update(test_params)
       redirect_to test_path(@test), notice: "Тест успешно обновлен"
     else
       render :edit, status: :unprocessable_entity
@@ -47,5 +47,9 @@ class TestsController < ApplicationController
 
   def render_not_found
     render json: { error: "Record not found" }, status: :not_found
+  end
+
+  def test_params
+    params.require(:test).permit(:title, :level, :category_id, :creator_id)
   end
 end

@@ -9,4 +9,8 @@ module TestsHelper
 
     levels.fetch(test.level, "hero")
   end
+
+  def test_header(test_title, is_edit_form)
+    is_edit_form ? "Edit #{test_title} Test" : "Create New #{test_title} Test"
+  end
 end

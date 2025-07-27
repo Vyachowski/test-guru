@@ -1,5 +1,5 @@
 module QuestionsHelper
-  def question_header(is_edit_form, test_title)
-    is_edit_form ? "Edit #{test_title} Question" : "Create New #{test_title} Question"
+  def question_header(question_title, is_edit_form)
+    is_edit_form ? "Edit #{question_title} Question" : "Create New #{question_title} Question"
   end
 end
