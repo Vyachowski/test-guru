@@ -7,7 +7,7 @@
 <%= form_with model: @test, data: { turbo: false } do |form| %>
   <fieldset>
     <%= form.label :body, "Название теста:" %><br>
-    <%= form.text_field :title, id: :test_name %>
+    <%= form.text_field :name, id: :test_name %>
 
     <%= form.label :level %>
     <%= form.number_field :level, id: :test_level, min: 1, max: 4 %>
