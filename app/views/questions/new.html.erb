@@ -1,8 +1,8 @@
 <% content_for :title do %>
-  Добавить вопрос к тесту <%= @test.name %>
+  Добавить вопрос к тесту <%= @test.title %>
 <% end %>
 
-<h1>Добавьте вопрос к тесту "<%= @test.name %>"</h1>
+<h1>Добавьте вопрос к тесту "<%= @test.title %>"</h1>
 
 <%= form_with model: [@test, @question], data: { turbo: false } do |form| %>
   <div>
