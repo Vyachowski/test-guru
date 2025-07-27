@@ -2,6 +2,8 @@
   Добавить новый тесту <%= @test.name %>
 <% end %>
 
+<%= link_to 'Back', tests_path %>
+
 <h1>Добавьте новый тест</h1>
 
 <%= form_with model: @test, data: { turbo: false } do |form| %>

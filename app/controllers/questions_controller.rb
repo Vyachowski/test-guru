@@ -2,7 +2,7 @@ class QuestionsController < ApplicationController
   rescue_from ActiveRecord::RecordNotFound, with: :render_not_found
 
   before_action :set_test, only: [:index, :new, :create]
-  before_action :set_question, only: [:show, :destroy]
+  before_action :set_question, only: [:show, :edit, :update, :destroy]
 
   def index
     render json: @test.questions
@@ -26,10 +26,20 @@ class QuestionsController < ApplicationController
     end
   end
 
+  def edit; end
+
+  def update
+    if @question.update(params.require(:question).permit(:body))
+      redirect_to test_questions_path(@question.test), notice: "Вопрос успешно обновлён"
+    else
+      render :edit, status: :unprocessable_entity
+    end
+  end
+
   def destroy
     @question.destroy
 
-    redirect_to questions_path, notice: "Вопрос удалён"
+    redirect_to test_questions_path(@question.test), notice: "Вопрос удалён"
   end
 
   private

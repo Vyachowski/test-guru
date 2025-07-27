@@ -13,9 +13,6 @@ class TestsController < ApplicationController
     @test = Test.new
   end
 
-  def edit
-  end
-
   def create
     @test = Test.new(params.require(:test).permit(:body))
 
@@ -25,6 +22,8 @@ class TestsController < ApplicationController
       render :new, status: :unprocessable_entity
     end
   end
+
+  def edit; end
 
   def update
     if @test.update(params.require(:test).permit(:body))
@@ -36,7 +35,8 @@ class TestsController < ApplicationController
 
   def destroy
     @test.destroy
-    redirect_to tests_path, notice: "Тест удален"
+
+    redirect_to tests_path
   end
 
   private
