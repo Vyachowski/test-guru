@@ -5,12 +5,10 @@ class QuestionsController < ApplicationController
   before_action :set_question, only: [:show, :edit, :update, :destroy]
 
   def index
-    render json: @test.questions
+    @questions = @test.questions.all
   end
 
-  def show
-    render json: @question
-  end
+  def show; end
 
   def new
     @question = Question.new
@@ -26,7 +24,9 @@ class QuestionsController < ApplicationController
     end
   end
 
-  def edit; end
+  def edit
+    @test = Test.find @question.test_id
+  end
 
   def update
     if @question.update(params.require(:question).permit(:body))

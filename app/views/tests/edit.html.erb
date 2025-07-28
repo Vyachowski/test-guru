@@ -1,6 +1,7 @@
 <%= link_to 'Назад', test_path %>
 
 <h1><%= test_header @test.title, true %></h1>
+
 <%= form_with model: @test, local: true do |form| %>
   <% if @test.errors.present? %>
     <div>
