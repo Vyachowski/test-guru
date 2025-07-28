@@ -2,6 +2,8 @@
   Добавить вопрос к тесту <%= @test.title %>
 <% end %>
 
+<%= link_to 'Назад', test_questions_path %>
+
 <h1>Добавьте вопрос к тесту "<%= @test.title %>"</h1>
 
 <%= form_with model: [@test, @question], data: { turbo: false } do |form| %>
