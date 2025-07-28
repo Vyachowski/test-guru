@@ -1,38 +1,51 @@
 require "test_helper"
 
 class TestsControllerTest < ActionDispatch::IntegrationTest
+  setup do
+    @test = tests(:one)
+  end
+
   test "should get index" do
-    get tests_index_url
+    get tests_url
     assert_response :success
   end
 
   test "should get show" do
-    get tests_show_url
+    get test_url(@test)
     assert_response :success
   end
 
   test "should get new" do
-    get tests_new_url
+    get new_test_url
     assert_response :success
   end
 
   test "should get edit" do
-    get tests_edit_url
+    get edit_test_url(@test)
     assert_response :success
   end
 
-  test "should get create" do
-    get tests_create_url
-    assert_response :success
+  test "should create test" do
+    category = categories(:one)
+    creator = users(:one)
+
+    assert_difference("Test.count") do
+      post tests_url, params: { test: { title: "New title", level: 1, category_id: category.id, creator_id: creator.id } }
+    end
+
+    assert_redirected_to test_url(Test.last)
   end
 
-  test "should get update" do
-    get tests_update_url
-    assert_response :success
+  test "should update test" do
+    patch test_url(@test), params: { test: { title: "Updated title" } }
+    assert_redirected_to test_url(@test)
   end
 
-  test "should get destroy" do
-    get tests_destroy_url
-    assert_response :success
+  test "should destroy test" do
+    assert_difference("Test.count", -1) do
+      delete test_url(@test)
+    end
+
+    assert_redirected_to tests_url
   end
 end
