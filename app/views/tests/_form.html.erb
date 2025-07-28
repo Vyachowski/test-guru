@@ -12,13 +12,13 @@
 
   <fieldset>
     <%= form.label :title, "Название теста:" %><br>
-    <%= form.text_field :title, id: "test_title" %>
+    <%= form.text_field :title, id: "test_title", required: true %>
 
     <%= form.label :level, "Уровень" %>
-    <%= form.number_field :level, id: "test_level", min: 0, max: 4 %>
+    <%= form.number_field :level, id: "test_level", min: 0, max: 4, required: true %>
 
     <%= form.label :category_id, "Категория" %>:
-    <%= form.collection_select :category_id, Category.all, :id, :title %>
+    <%= form.collection_select :category_id, Category.all, :id, :title, required: true %>
 
     <%= form.hidden_field :creator_id, value: 1 %>
   </fieldset>
@@ -27,17 +27,3 @@
     <%= form.submit submit_text || "Сохранить", id: "submit_button" %>
   </div>
 <% end %>
-
-<script>
-    document.addEventListener("DOMContentLoaded", () => {
-        const input = document.getElementById("test_title");
-        const submitBtn = document.getElementById("submit_button");
-
-        function setDisabled() {
-        submitBtn.disabled = input.value.trim() === "";
-        }
-
-        input.addEventListener("input", setDisabled);
-        setDisabled();
-    });
-</script>

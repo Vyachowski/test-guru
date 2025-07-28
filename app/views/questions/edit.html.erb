@@ -2,21 +2,4 @@
 
 <h1><%= question_header @test.title %></h1>
 
-<%= form_with model: @question, local: true do |form| %>
-  <% if @question.errors.present? %>
-    <div>
-      <h2><%= pluralize(@question.errors.count, 'error') %> detected:</h2>
-      <ul>
-        <% @question.errors.full_messages.each do |message| %>
-          <li><%= message %></li>
-        <% end %>
-      </ul>
-    </div>
-  <% end %>
-  <p>
-    <%= form.label :body, "Текст вопроса" %><br>
-    <%= form.text_area :body, rows: 4, id: "question_body" %>
-  </p>
-
-  <p><%= form.submit "Обновить вопрос" %></p>
-<% end %>
+<%= render 'form', question: @question, submit_text: "Обновить вопрос" %>
