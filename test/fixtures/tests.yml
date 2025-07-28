@@ -4,8 +4,10 @@ one:
   title: "Frontend Basics"
   level: 1
   category: one
+  creator_id: one
 
 two:
   title: "Backend Basics"
   level: 1
   category: two
+  creator_id: one
