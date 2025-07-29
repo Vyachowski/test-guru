@@ -15,7 +15,7 @@ class QuestionsController < ApplicationController
   end
 
   def create
-    @question = @test.questions.new(params.require(:question).permit(:body))
+    @question = @test.questions.new(question_params)
 
     if @question.save
       redirect_to test_question_path(@test, @question), notice: "Вопрос успешно создан"
@@ -27,7 +27,7 @@ class QuestionsController < ApplicationController
   def edit; end
 
   def update
-    if @question.update(params.require(:question).permit(:body))
+    if @question.update(question_params)
       redirect_to test_questions_path(@question.test), notice: "Вопрос успешно обновлён"
     else
       render :edit, status: :unprocessable_entity
@@ -48,6 +48,10 @@ class QuestionsController < ApplicationController
 
   def set_question
     @question = Question.find(params[:id])
+  end
+
+  def question_params
+    params.require(:question).permit(:body)
   end
 
   def render_not_found
