@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.2].define(version: 2025_07_16_074742) do
+ActiveRecord::Schema[7.2].define(version: 2025_07_27_195822) do
   create_table "answers", force: :cascade do |t|
     t.text "body", null: false
     t.boolean "correct", default: false, null: false
@@ -45,15 +45,15 @@ ActiveRecord::Schema[7.2].define(version: 2025_07_16_074742) do
   end
 
   create_table "tests", force: :cascade do |t|
-    t.string "name", null: false
-    t.integer "level", default: 1, null: false
+    t.string "title", null: false
+    t.integer "level", default: 0, null: false
     t.integer "category_id", null: false
     t.integer "creator_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["category_id"], name: "index_tests_on_category_id"
     t.index ["creator_id"], name: "index_tests_on_creator_id"
-    t.index ["name", "level"], name: "index_tests_on_name_and_level", unique: true
+    t.index ["title", "level"], name: "index_tests_on_title_and_level", unique: true
   end
 
   create_table "users", force: :cascade do |t|

@@ -21,22 +21,22 @@ end.to_h
 # == Создаем юзеров и сохраняем хэш с имейлами для создания тестов и результатов
 tests = [
   # === Уровень 1 ===
-  { name: 'Frontend Basics', level: 1, category: category_records['Frontend'], creator: user_records['ivan@example.com'] },
-  { name: 'Backend Basics', level: 1, category: category_records['Backend'], creator: user_records['ivan@example.com'] },
-  { name: 'Mobile Basics', level: 1, category: category_records['Mobile Development'], creator: user_records['ivan@example.com'] },
-  { name: 'DevOps Basics', level: 1, category: category_records['DevOps'], creator: user_records['ivan@example.com'] },
-  { name: 'Game Development Basics', level: 1, category: category_records['Game Development'], creator: user_records['ivan@example.com'] },
+  { title: 'Frontend Basics', level: 1, category: category_records['Frontend'], creator: user_records['ivan@example.com'] },
+  { title: 'Backend Basics', level: 1, category: category_records['Backend'], creator: user_records['ivan@example.com'] },
+  { title: 'Mobile Basics', level: 1, category: category_records['Mobile Development'], creator: user_records['ivan@example.com'] },
+  { title: 'DevOps Basics', level: 1, category: category_records['DevOps'], creator: user_records['ivan@example.com'] },
+  { title: 'Game Development Basics', level: 1, category: category_records['Game Development'], creator: user_records['ivan@example.com'] },
 
   # === Уровень 2 ===
-  { name: 'Frontend Intermediate', level: 2, category: category_records['Frontend'], creator: user_records['svetlana@example.com'] },
-  { name: 'Backend Intermediate', level: 2, category: category_records['Backend'], creator: user_records['svetlana@example.com'] },
-  { name: 'Mobile Intermediate', level: 2, category: category_records['Mobile Development'], creator: user_records['svetlana@example.com'] },
-  { name: 'DevOps Intermediate', level: 2, category: category_records['DevOps'], creator: user_records['svetlana@example.com'] },
-  { name: 'Game Development Intermediate', level: 2, category: category_records['Game Development'], creator: user_records['svetlana@example.com'] }
+  { title: 'Frontend Intermediate', level: 2, category: category_records['Frontend'], creator: user_records['svetlana@example.com'] },
+  { title: 'Backend Intermediate', level: 2, category: category_records['Backend'], creator: user_records['svetlana@example.com'] },
+  { title: 'Mobile Intermediate', level: 2, category: category_records['Mobile Development'], creator: user_records['svetlana@example.com'] },
+  { title: 'DevOps Intermediate', level: 2, category: category_records['DevOps'], creator: user_records['svetlana@example.com'] },
+  { title: 'Game Development Intermediate', level: 2, category: category_records['Game Development'], creator: user_records['svetlana@example.com'] }
 ]
 
 test_records = tests.map do |test|
-  [test[:name], Test.find_or_create_by!(name: test[:name]) { |t| t.assign_attributes(test) }]
+  [test[:title], Test.find_or_create_by!(title: test[:title]) { |t| t.assign_attributes(test) }]
 end.to_h
 
 # == Создаем вопросы и сохраняем хэш с имейлами для создания ответов
@@ -99,7 +99,7 @@ questions = [
 question_records = []
 questions.each_slice(3).with_index do |question_group, index|
   test = tests[index]
-  test_record = test_records[test[:name]]
+  test_record = test_records[test[:title]]
 
   question_group.each do |question|
     question[:test] = test_record
@@ -286,14 +286,14 @@ end
 
 # == Создаем результаты прохождения тестов
 test_passages_data = [
-  { user_email: 'ivan@example.com', test_name: 'Frontend Basics', passed: true },
-  { user_email: 'ivan@example.com', test_name: 'Backend Basics', passed: false },
-  { user_email: 'svetlana@example.com', test_name: 'Mobile Basics', passed: true }
+  { user_email: 'ivan@example.com', test_title: 'Frontend Basics', passed: true },
+  { user_email: 'ivan@example.com', test_title: 'Backend Basics', passed: false },
+  { user_email: 'svetlana@example.com', test_title: 'Mobile Basics', passed: true }
 ]
 
 test_passages_data.each do |tp|
   user = user_records[tp[:user_email]]
-  test = test_records[tp[:test_name]]
+  test = test_records[tp[:test_title]]
 
   TestPassage.find_or_create_by!(user: user, test: test) do |tp_record|
     tp_record.passed = tp[:passed]
