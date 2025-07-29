@@ -1,5 +1,5 @@
 <%= link_to 'Назад', test_path %>
 
-<h1><%= test_header @test.title, true %></h1>
+<h1><%= test_header @test %></h1>
 
 <%= render 'form', test: @test, submit_text: "Обновить тест" %>
