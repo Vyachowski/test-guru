@@ -9,4 +9,11 @@
         test_path(test),
         data: { "turbo-method": :delete, turbo_confirm: 'Вы уверены?' } %>
   </td>
+  <td>
+    <ul>
+      <% test.questions.each do |question| %>
+        <li><%= question.body %></li>
+      <% end %>
+    </ul>
+  </td>
 </tr>
