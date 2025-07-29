@@ -2,7 +2,7 @@
   Добавить вопрос к тесту <%= @test.title %>
 <% end %>
 
-<%= link_to 'Назад', test_questions_path %>
+<%= link_to 'Назад', test_path(@test) %>
 
 <h1>Добавьте вопрос к тесту "<%= @test.title %>"</h1>
 

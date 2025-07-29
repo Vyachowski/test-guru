@@ -1,12 +1,8 @@
 class QuestionsController < ApplicationController
   rescue_from ActiveRecord::RecordNotFound, with: :render_not_found
 
-  before_action :set_test, only: [:index, :new, :create]
+  before_action :set_test, only: [:new, :create]
   before_action :set_question, only: [:show, :edit, :update, :destroy]
-
-  def index
-    @questions = @test.questions.all
-  end
 
   def show; end
 
@@ -28,7 +24,7 @@ class QuestionsController < ApplicationController
 
   def update
     if @question.update(question_params)
-      redirect_to test_questions_path(@question.test), notice: "Вопрос успешно обновлён"
+      redirect_to test_path(@question.test), notice: "Вопрос успешно обновлён"
     else
       render :edit, status: :unprocessable_entity
     end
@@ -37,7 +33,7 @@ class QuestionsController < ApplicationController
   def destroy
     @question.destroy
 
-    redirect_to test_questions_path(@question.test), notice: "Вопрос удалён"
+    redirect_to test_path(@question.test), notice: "Вопрос удалён"
   end
 
   private
