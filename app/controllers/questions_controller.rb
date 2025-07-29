@@ -24,9 +24,7 @@ class QuestionsController < ApplicationController
     end
   end
 
-  def edit
-    @test = Test.find @question.test_id
-  end
+  def edit; end
 
   def update
     if @question.update(params.require(:question).permit(:body))
