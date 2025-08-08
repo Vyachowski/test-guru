@@ -1,3 +1,11 @@
-<%= link_to 'Back', tests_path %>
+<%= link_to 'Назад', test_path(@question.test) %>
 
 <h1><%= @question.body %></h1>
+
+<h2>Варианты ответов</h2>
+
+<%= link_to 'Новый вариант ответа', new_question_answer_path(@question) %>
+
+<ol>
+  <%= render @question.answers %>
+</ol>
