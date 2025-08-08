@@ -1,0 +1,18 @@
+<%= link_to 'Back', tests_path %>
+
+<h1><%= @test.title %></h1>
+<p>Уровень - <%= test_level @test %></p>
+
+<table>
+  <caption>Вопросы теста</caption>
+
+  <thead>
+    <tr>
+      <th>Название</th>
+    </tr>
+  </thead>
+
+  <tbody>
+  <%= render @test.questions %>
+  </tbody>
+</table>

@@ -1,0 +1,9 @@
+<% content_for :title do %>
+  Добавить новый тест <%= @test.title %>
+<% end %>
+
+<%= link_to 'Назад', tests_path %>
+
+<h1><%= test_header @test %></h1>
+
+<%= render 'form', test: @test, submit_text: "Добавить тест" %>

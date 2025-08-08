@@ -1,31 +1,9 @@
 <% content_for :title do %>
-  Добавить вопрос к тесту <%= @test.name %>
+  Добавить вопрос к тесту <%= @test.title %>
 <% end %>
 
-<h1>Добавьте вопрос к тесту "<%= @test.name %>"</h1>
+<%= link_to 'Назад', test_path(@test) %>
 
-<%= form_with model: [@test, @question], data: { turbo: false } do |form| %>
-  <div>
-    <%= form.label :body, "Текст вопроса" %><br>
-    <%= form.text_area :body, rows: 4, id: "question_body" %>
-  </div>
+<h1>Добавьте вопрос к тесту "<%= @test.title %>"</h1>
 
-  <div>
-    <%= form.submit "Добавить вопрос", id: "submit_button", disabled: true %>
-  </div>
-<% end %>
-
-<script>
-  document.addEventListener("DOMContentLoaded", () => {
-    const textarea = document.getElementById("question_body");
-    const submitBtn = document.getElementById("submit_button");
-
-    function setDisabled() {
-      submitBtn.disabled = textarea.value.trim() === "";
-    }
-
-    textarea.addEventListener("input", setDisabled);
-
-    setDisabled();
-  });
-</script>
+<%= render 'form', question: @question, submit_text: "Создать вопрос" %>

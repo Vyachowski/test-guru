@@ -1,0 +1,12 @@
+<%= form_with model: question, local: true, data: { turbo: false } do |form| %>
+  <%= render "shared/errors", resource: question %>
+
+  <fieldset>
+    <%= form.label :body, "Текст вопроса:" %><br>
+    <%= form.text_area :body, id: "question_body", rows: 4, required: true %>
+  </fieldset>
+
+  <div>
+    <%= form.submit submit_text || "Сохранить вопрос", id: "submit_question" %>
+  </div>
+<% end %>
