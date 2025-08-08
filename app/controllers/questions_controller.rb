@@ -1,8 +1,8 @@
 class QuestionsController < ApplicationController
   rescue_from ActiveRecord::RecordNotFound, with: :render_not_found
 
-  before_action :set_test, only: [:new, :create]
-  before_action :set_question, only: [:show, :edit, :update, :destroy]
+  before_action :set_test, only: %i[new create]
+  before_action :set_question, only: %i[show edit update destroy]
 
   def show; end
 

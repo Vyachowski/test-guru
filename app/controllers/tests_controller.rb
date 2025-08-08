@@ -1,7 +1,7 @@
 class TestsController < ApplicationController
   rescue_from ActiveRecord::RecordNotFound, with: :render_not_found
 
-  before_action :set_test, only: [:show, :edit, :update, :destroy]
+  before_action :set_test, only: %i[show edit update destroy]
 
   def index
     @tests = Test.all
