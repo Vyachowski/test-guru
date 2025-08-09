@@ -3,9 +3,7 @@
 one:
   user: one
   test: one
-  passed: false
 
 two:
   user: two
   test: two
-  passed: false

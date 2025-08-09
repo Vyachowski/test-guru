@@ -1,0 +1,9 @@
+<% content_for :title do %>
+  Добавить ответ к вопросу <%= @answer.question.body %>
+<% end %>
+
+<%= link_to 'Назад', question_path(@answer.question) %>
+
+<h1>Добавьте вопрос к тесту "<%= @answer.question.body %>"</h1>
+
+<%= render 'form', question: @answer.question, submit_text: "Создать вопрос" %>
