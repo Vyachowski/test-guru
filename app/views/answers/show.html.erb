@@ -1,18 +1,17 @@
 <%= link_to 'Назад', question_path(@answer.question) %>
 
-<h1>Question</h1>
+<h1>Вопрос</h1>
 
 <p>
   <%= @answer.question.body %>
 </p>
 
 <p>
-  <b>Answer:</b>
+  <b>Ответ:</b>
   <%= @answer.body %>
 </p>
 
 <p>
-  <b>Correct:</b>
+  <b>Правильный?</b>
   <%= @answer.correct %>
 </p>
-
