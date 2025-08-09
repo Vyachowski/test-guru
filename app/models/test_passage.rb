@@ -18,6 +18,9 @@ class TestPassage < ApplicationRecord
     save!
   end
 
+  def current_question_number
+    test.questions.order(:id).pluck(:id).index(current_question.id) + 1
+  end
 
   private
 
