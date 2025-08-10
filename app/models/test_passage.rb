@@ -1,4 +1,6 @@
 class TestPassage < ApplicationRecord
+  TEST_THRESHOLD = 85
+
   belongs_to :user
   belongs_to :test
   belongs_to :current_question, class_name: "Question", optional: true
@@ -20,6 +22,14 @@ class TestPassage < ApplicationRecord
 
   def current_question_number
     test.questions.order(:id).pluck(:id).index(current_question.id) + 1
+  end
+
+  def successful?
+    correct_answer_percentage >= TEST_THRESHOLD.round(1)
+  end
+
+  def correct_answer_percentage
+    (correct_questions.to_f / test.questions.count) * 100
   end
 
   private

@@ -1,13 +1,11 @@
 <h1><%= @test_passage.test.title %> тест закончен!</h1>
 
-<% percentage = (@test_passage.correct_questions.to_f / @test_passage.test.questions.count) * 100 %>
-
-<% if percentage >= 85 %>
+  <% if @test_passage.successful? %>
   <p style="color: green; font-weight: bold;">
-    Тест успешно пройден — <%= @test_passage.correct_questions %> правильных ответов (<%= percentage.round(1) %>%)
+    Тест успешно пройден — <%= @test_passage.correct_questions %> правильных ответов (<%= @test_passage.correct_answer_percentage %>%)
   </p>
 <% else %>
   <p style="color: red; font-weight: bold;">
-    Тест не пройден — <%= @test_passage.correct_questions %> правильных ответов (<%= percentage.round(1) %>%)
+    Тест не пройден — <%= @test_passage.correct_questions %> правильных ответов (<%= @test_passage.correct_answer_percentage %>%)
   </p>
 <% end %>
