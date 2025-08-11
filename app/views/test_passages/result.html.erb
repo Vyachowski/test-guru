@@ -1,0 +1,11 @@
+<h1><%= @test_passage.test.title %> тест закончен!</h1>
+
+  <% if @test_passage.successful? %>
+  <p style="color: green; font-weight: bold;">
+    Тест успешно пройден — <%= @test_passage.correct_questions %> правильных ответов (<%= @test_passage.correct_answer_percentage %>%)
+  </p>
+<% else %>
+  <p style="color: red; font-weight: bold;">
+    Тест не пройден — <%= @test_passage.correct_questions %> правильных ответов (<%= @test_passage.correct_answer_percentage %>%)
+  </p>
+<% end %>
