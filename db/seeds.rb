@@ -9,13 +9,16 @@ end
 
 # == Создаем юзеров и сохраняем хэш с имейлами для создания вопросов
 users = [
-  { email: 'ivan@example.com', password_digest: '$2a$12$OrusLKGZZ26cqn/2Dszf6eRo7rS2NvnKyFgDtGvVZD9y9AuVXQt7a' },
-  { email: 'petr@example.com', password_digest: '$2a$12$OrusLKGZZ26cqn/2Dszf6eRo7rS2NvnKyFgDtGvVZD9y9AuVXQt7a' },
-  { email: 'svetlana@example.com', password_digest: '$2a$12$OrusLKGZZ26cqn/2Dszf6eRo7rS2NvnKyFgDtGvVZD9y9AuVXQt7a' }
+  { email: 'ivan@example.com' },
+  { email: 'petr@example.com' },
+  { email: 'svetlana@example.com' }
 ]
 
 user_records = users.map do |user|
-  [user[:email], User.find_or_create_by!(email: user[:email]) { |u| u.assign_attributes(user) }]
+  [user[:email], User.find_or_create_by!(email: user[:email]) do |u|
+    u.password = "password"
+    u.password_confirmation = "password"
+  end]
 end.to_h
 
 # == Создаем юзеров и сохраняем хэш с имейлами для создания тестов и результатов
