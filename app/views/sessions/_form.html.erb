@@ -1,9 +1,9 @@
-<%= form_with url: sessions_path, local: true do |form| %>
+<%= form_with url: sessions_path, local: true, data: { turbo: false } do |form| %>
   <%= flash_message(:alert) %>
 
   <p>
     <%= form.label :email %><br>
-    <%= form.text_field :email, id: :email %>
+    <%= form.text_field :email, id: :email, value: @email %>
   </p>
 
   <p>

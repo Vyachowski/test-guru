@@ -8,7 +8,7 @@ class SessionsController < ApplicationController
       redirect_to tests_path
     else
       flash.now[:alert] = "Вы Гуру? Подтвердите, пожалуйста, ваш имейл и пароль"
-      @email = user_params[:email]
+      @email = params[:email]
 
       render :new
     end
