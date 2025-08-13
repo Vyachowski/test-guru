@@ -3,9 +3,10 @@ require "test_helper"
 class TestsControllerTest < ActionDispatch::IntegrationTest
   setup do
     @user = users(:one)
+    @test = tests(:one)
 
     post login_path, params: { email: @user.email, password: "password" }
-    @test = tests(:one)
+    follow_redirect!
   end
 
   test "should get index" do
