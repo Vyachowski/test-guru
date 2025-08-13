@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  get :signup, to: "users#new"
+
+  resources :users, only: :create
+
   resources :tests do
     resources :questions, shallow: true, except: :index do
       resources :answers, shallow: true, except: :index
@@ -10,4 +14,6 @@ Rails.application.routes.draw do
   resources :test_passages, only: %i[show update] do
     get :result, on: :member
   end
+
+  root "tests#index"
 end
