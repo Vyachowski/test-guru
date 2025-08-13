@@ -5,6 +5,8 @@ class User < ApplicationRecord
 
   validates :email, presence: true
 
+  has_secure_password
+
   def tests_by_difficulty(difficulty_level)
     tests.where(level: difficulty_level)
   end
