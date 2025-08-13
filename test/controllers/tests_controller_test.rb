@@ -2,6 +2,9 @@ require "test_helper"
 
 class TestsControllerTest < ActionDispatch::IntegrationTest
   setup do
+    @user = users(:one)
+
+    post login_path, params: { email: @user.email, password: "password" }
     @test = tests(:one)
   end
 
