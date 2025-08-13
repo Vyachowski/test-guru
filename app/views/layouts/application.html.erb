@@ -19,10 +19,14 @@
 
   <body>
     <header>
-    <% if logged_in? %>
-      <p class="nav user">Добро пожаловать, <b><%= current_user.email %></b></p>
-      <%= button_to "Выйти", logout_path, method: :delete %>
-    <% end %>
+      <%= link_to "Test Guru", root_path %>
+      <% if logged_in? %>
+        <p class="nav user">Добро пожаловать, <b><%= current_user.email %></b></p>
+        <%= button_to "Выйти", logout_path, method: :delete %>
+      <% else %>
+        <%= link_to "Войти", login_path %>
+        <%= link_to "Регистрация", signup_path %>
+      <% end %>
     </header>
     <%= yield %>
     <%= render "layouts/footer" %>
