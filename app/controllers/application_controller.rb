@@ -11,6 +11,8 @@ class ApplicationController < ActionController::Base
 
   def authenticate_user!
     unless current_user
+      cookies[:redirect_to] = request.fullpath
+
       redirect_to login_path, alert: "Вы точно Гуру? Пожалуйста, подтвердите свой имейл и пароль"
     end
   end
@@ -21,5 +23,9 @@ class ApplicationController < ActionController::Base
 
   def logged_in?
     current_user.present?
+  end
+
+  def redirect_back_or_to_root
+    redirect_to(cookies.delete(:redirect_to) || root_path)
   end
 end
