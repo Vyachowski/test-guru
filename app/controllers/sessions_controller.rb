@@ -4,6 +4,7 @@ class SessionsController < ApplicationController
 
     if user&.authenticate(params[:password])
       session[:user_id] = user.id
+
       redirect_to tests_path
     else
       flash.now[:alert] = "Вы Гуру? Подтвердите, пожалуйста, ваш имейл и пароль"
@@ -15,6 +16,7 @@ class SessionsController < ApplicationController
 
   def destroy
     session.delete(:user_id)
+
     redirect_to root_path, notice: "Вы вышли из системы"
   end
 end

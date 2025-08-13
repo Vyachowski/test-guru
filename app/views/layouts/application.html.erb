@@ -18,9 +18,12 @@
   </head>
 
   <body>
+    <header>
     <% if logged_in? %>
-      <p class="nav user">Welcome, <b><%= current_user.email %></b> Guru</p>
+      <p class="nav user">Добро пожаловать, <b><%= current_user.email %></b></p>
+      <%= button_to "Выйти", logout_path, method: :delete %>
     <% end %>
+    </header>
     <%= yield %>
     <%= render "layouts/footer" %>
   </body>
