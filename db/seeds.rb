@@ -9,9 +9,9 @@ end
 
 # == Создаем юзеров и сохраняем хэш с имейлами для создания вопросов
 users = [
-  { email: 'ivan@example.com', password_digest: '$2a$12$clSVugx.w.oGEArQJvPTgezTRqQuw3RvT5OqCvnIlPnLQ9eGLBKom' },
-  { email: 'petr@example.com', password_digest: '$2a$12$clSVugx.w.oGEArQJvPTgezTRqQuw3RvT5OqCvnIlPnLQ9eGLBKom' },
-  { email: 'svetlana@example.com', password_digest: '$2a$12$clSVugx.w.oGEArQJvPTgezTRqQuw3RvT5OqCvnIlPnLQ9eGLBKom' }
+  { email: 'ivan@example.com', password_digest: '$2a$12$OrusLKGZZ26cqn/2Dszf6eRo7rS2NvnKyFgDtGvVZD9y9AuVXQt7a' },
+  { email: 'petr@example.com', password_digest: '$2a$12$OrusLKGZZ26cqn/2Dszf6eRo7rS2NvnKyFgDtGvVZD9y9AuVXQt7a' },
+  { email: 'svetlana@example.com', password_digest: '$2a$12$OrusLKGZZ26cqn/2Dszf6eRo7rS2NvnKyFgDtGvVZD9y9AuVXQt7a' }
 ]
 
 user_records = users.map do |user|
