@@ -4,6 +4,7 @@ class User < ApplicationRecord
   has_many :tests, through: :test_passages
 
   validates :email, presence: true
+  validates :password, confirmation: true
 
   has_secure_password
 
