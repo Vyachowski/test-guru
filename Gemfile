@@ -55,3 +55,7 @@ group :test do
   gem "capybara"
   gem "selenium-webdriver"
 end
+
+gem "bcrypt", "~> 3.1"
+
+gem "sassc-rails", "~> 2.1"

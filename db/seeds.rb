@@ -9,13 +9,16 @@ end
 
 # == Создаем юзеров и сохраняем хэш с имейлами для создания вопросов
 users = [
-  { first_name: 'Ivan', last_name: 'Ivanov', email: 'ivan@example.com', password_digest: '$2a$12$clSVugx.w.oGEArQJvPTgezTRqQuw3RvT5OqCvnIlPnLQ9eGLBKom' },
-  { first_name: 'Petr', last_name: 'Petrov', email: 'petr@example.com', password_digest: '$2a$12$clSVugx.w.oGEArQJvPTgezTRqQuw3RvT5OqCvnIlPnLQ9eGLBKom' },
-  { first_name: 'Svetlana', last_name: 'Svetlanovich', email: 'svetlana@example.com', password_digest: '$2a$12$clSVugx.w.oGEArQJvPTgezTRqQuw3RvT5OqCvnIlPnLQ9eGLBKom' }
+  { email: 'ivan@example.com' },
+  { email: 'petr@example.com' },
+  { email: 'svetlana@example.com' }
 ]
 
 user_records = users.map do |user|
-  [user[:email], User.find_or_create_by!(email: user[:email]) { |u| u.assign_attributes(user) }]
+  [user[:email], User.find_or_create_by!(email: user[:email]) do |u|
+    u.password = "password"
+    u.password_confirmation = "password"
+  end]
 end.to_h
 
 # == Создаем юзеров и сохраняем хэш с имейлами для создания тестов и результатов
@@ -286,16 +289,14 @@ end
 
 # == Создаем результаты прохождения тестов
 test_passages_data = [
-  { user_email: 'ivan@example.com', test_title: 'Frontend Basics', passed: true },
-  { user_email: 'ivan@example.com', test_title: 'Backend Basics', passed: false },
-  { user_email: 'svetlana@example.com', test_title: 'Mobile Basics', passed: true }
+  { user_email: 'ivan@example.com', test_title: 'Frontend Basics' },
+  { user_email: 'ivan@example.com', test_title: 'Backend Basics' },
+  { user_email: 'svetlana@example.com', test_title: 'Mobile Basics' }
 ]
 
 test_passages_data.each do |tp|
   user = user_records[tp[:user_email]]
   test = test_records[tp[:test_title]]
 
-  TestPassage.find_or_create_by!(user: user, test: test) do |tp_record|
-    tp_record.passed = tp[:passed]
-  end
+  TestPassage.find_or_create_by!(user: user, test: test)
 end

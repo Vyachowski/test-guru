@@ -6,4 +6,10 @@ module ApplicationHelper
   def github_url(author, repo)
     link_to repo.tr("-", " ").titleize, "https://github.com/#{author}/#{repo}", target: "_blank", rel: "noopener"
   end
+
+  def flash_message(type)
+    if flash[type].present?
+      content_tag :p, flash[type], class: "flash #{type}"
+    end
+  end
 end
