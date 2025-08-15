@@ -19,16 +19,16 @@
 
   <body>
     <header>
+      <%= render 'shared/flash' %>
       <%= link_to "Test Guru", root_path, class: 'logo' %>
-      <% if logged_in? %>
-        <div class="user-panel">
-          <p class="nav user">Добро пожаловать, <b><%= current_user.email %></b></p>
-          <%= button_to "Выйти", logout_path, method: :delete %>
-        </div>
-      <% else %>
-        <%= link_to "Войти", login_path %>
-        <%= link_to "Регистрация", signup_path %>
+
+      <% if user_signed_in? %>
+        <p class="nav user">
+          Welcome, <b><%= current_user.email %></b> Guru
+          <%= link_to 'Logout', destroy_user_session_path, method: :delete %>
+        </p>
       <% end %>
+
     </header>
     <%= yield %>
     <%= render "layouts/footer" %>
