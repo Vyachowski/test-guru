@@ -56,6 +56,8 @@ group :test do
   gem "selenium-webdriver"
 end
 
-gem "bcrypt", "~> 3.1"
+# gem "bcrypt", "~> 3.1"
 
 gem "sassc-rails", "~> 2.1"
+
+gem "devise", "~> 4.9"
