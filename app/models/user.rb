@@ -1,4 +1,13 @@
 class User < ApplicationRecord
+  # Include default devise modules. Others available are:
+  # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
+  devise :database_authenticatable,
+         :registerable,
+         :recoverable,
+         :rememberable,
+         :validatable,
+         :confirmable
+
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
 
   has_many :created_tests, class_name: "Test", foreign_key: :creator_id, dependent: :destroy
@@ -7,8 +16,6 @@ class User < ApplicationRecord
 
   validates :email, presence: true, uniqueness: { case_sensitive: false }, format: { with: VALID_EMAIL_REGEX, message: "невалидный формат" }
   validates :password, confirmation: true
-
-  has_secure_password
 
   def tests_by_difficulty(difficulty_level)
     tests.where(level: difficulty_level)
