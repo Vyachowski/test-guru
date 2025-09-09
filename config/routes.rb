@@ -13,5 +13,9 @@ Rails.application.routes.draw do
     get :result, on: :member
   end
 
+  namespace :admin do
+    resources :tests
+  end
+
   root "tests#index"
 end
