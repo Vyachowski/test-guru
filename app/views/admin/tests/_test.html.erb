@@ -1,0 +1,20 @@
+<tr>
+  <td><%= test.title %></td>
+  <td><%= test.level %></td>
+  <td><%= test.questions.size %></td>
+  <td><%= link_to 'Показать', test_path(test) %></td>
+  <td><%= link_to 'Редактировать', edit_test_path(test) %></td>
+  <td>
+    <%= link_to 'Удалить',
+        test_path(test),
+        data: { "turbo-method": :delete, turbo_confirm: 'Вы уверены?' } %>
+  </td>
+  <td>
+    <ul>
+      <% test.questions.each do |question| %>
+        <li><%= question.body %></li>
+      <% end %>
+    </ul>
+  </td>
+  <td><%= button_to 'Начать', start_test_path(test) %></td>
+</tr>
