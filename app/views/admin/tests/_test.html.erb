@@ -6,7 +6,7 @@
   <td><%= link_to 'Редактировать', edit_admin_test_path(test) %></td>
   <td>
     <%= link_to 'Удалить',
-        test_path(test),
+        admin_test_path(test),
         data: { "turbo-method": :delete, turbo_confirm: 'Вы уверены?' } %>
   </td>
 </tr>
