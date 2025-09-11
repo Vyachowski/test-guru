@@ -10,8 +10,6 @@
 
     <%= form.label :category_id, "Категория" %>:
     <%= form.collection_select :category_id, Category.all, :id, :title, required: true %>
-
-    <%= form.hidden_field :creator_id, value: 1 %>
   </fieldset>
 
   <div>
