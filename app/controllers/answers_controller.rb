@@ -1,5 +1,5 @@
 class AnswersController < ApplicationController
-  before_action :set_answer, only: %i[show]
+  before_action :set_answer, only: %i[show edit update destroy]
   before_action :find_question, only: %i[new create]
 
   def show; end
@@ -17,6 +17,8 @@ class AnswersController < ApplicationController
       render :new
     end
   end
+
+  def edit; end
 
   def update
     if @answer.update(answer_params)
