@@ -29,6 +29,10 @@ class AddDeviseToUsers < ActiveRecord::Migration[7.2]
       t.datetime :confirmation_sent_at
       t.string   :unconfirmed_email # Only if using reconfirmable
 
+      t.string :first_name, default: nil
+      t.string :last_name, default: nil
+      t.string :type, null: false, default: "User"
+
       ## Lockable
       # t.integer  :failed_attempts, default: 0, null: false # Only if lock strategy is :failed_attempts
       # t.string   :unlock_token # Only if unlock strategy is :email or :both
@@ -48,7 +52,7 @@ class AddDeviseToUsers < ActiveRecord::Migration[7.2]
   def self.down
     remove_columns(:users, :encrypted_password, :reset_password_token, :reset_password_sent_at,
     :remember_created_at, :sign_in_count, :current_sign_in_at, :last_sign_in_at, :current_sign_in_ip,
-    :last_sign_in_ip, :confirmation_token, :confirmed_at, :confirmation_sent_at, :unconfirmed_email)
+    :last_sign_in_ip, :confirmation_token, :confirmed_at, :confirmation_sent_at, :unconfirmed_email, :first_name, :last_name, :type)
 
     add_column :users, :password_digest, :string
     remove_index(:users, :email)
