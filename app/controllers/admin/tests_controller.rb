@@ -44,12 +44,6 @@ class Admin::TestsController < Admin::BaseController
     redirect_to admin_tests_path
   end
 
-  def start
-    @test_passage = current_user.test_passages.create!(test: @test, correct_questions: 0)
-
-    redirect_to test_passage_path(@test_passage)
-  end
-
   private
 
   def set_user
