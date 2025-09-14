@@ -14,7 +14,7 @@ class AnswersController < ApplicationController
     @answer = @question.answers.new(answer_params)
 
     if @answer.save
-      redirect_to @answer, notice: "Ответ успешно создан."
+      redirect_to [:admin, @answer.question], notice: "Ответ успешно создан."
     else
       render :new
     end
@@ -24,7 +24,7 @@ class AnswersController < ApplicationController
 
   def update
     if @answer.update(answer_params)
-      redirect_to @answer, notice: "Ответ успешно обновлён."
+      redirect_to [:admin, @answer.question], notice: "Ответ успешно обновлён."
     else
       render :edit
     end
