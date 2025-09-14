@@ -1,4 +1,4 @@
-class AnswersController < ApplicationController
+class Admin::AnswersController < ApplicationController
   rescue_from ActiveRecord::RecordNotFound, with: :render_not_found
 
   before_action :set_answer, only: %i[show edit update destroy]

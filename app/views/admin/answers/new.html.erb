@@ -2,7 +2,7 @@
   Добавить ответ к вопросу <%= @answer.question.body %>
 <% end %>
 
-<%= link_to 'Назад', question_path(@answer.question) %>
+<%= link_to 'Назад', admin_question_path(@answer.question) %>
 
 <h1>Добавьте вопрос к тесту "<%= @answer.question.body %>"</h1>
 
