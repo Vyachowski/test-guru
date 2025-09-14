@@ -9,10 +9,11 @@
   <thead>
     <tr>
       <th>Название</th>
+      <th colspan="3">Действия</th>
     </tr>
   </thead>
 
   <tbody>
-  <%= render partial: 'questions/question', collection: @test.questions %>
+  <%= render partial: 'admin/questions/question', collection: @test.questions %>
   </tbody>
 </table>

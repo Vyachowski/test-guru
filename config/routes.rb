@@ -3,10 +3,6 @@ Rails.application.routes.draw do
 
   resources :tests, only: [:index, :show] do
     post :start, on: :member
-
-    resources :questions, only: [:show], shallow: true do
-      resources :answers, only: [:show], shallow: true
-    end
   end
 
   resources :test_passages, only: %i[show update] do
