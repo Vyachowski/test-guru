@@ -1,0 +1,17 @@
+<%= link_to 'Назад', admin_question_path(@answer.question) %>
+
+<h1>Вопрос</h1>
+
+<p>
+  <%= @answer.question.body %>
+</p>
+
+<p>
+  <b>Ответ:</b>
+  <%= @answer.body %>
+</p>
+
+<p>
+  <b>Правильный ответ:</b>
+  <%= @answer.correct ? "Да" : "Нет" %>
+</p>

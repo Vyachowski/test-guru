@@ -1,9 +1,0 @@
-<% content_for :title do %>
-  Добавить вопрос к тесту <%= @test.title %>
-<% end %>
-
-<%= link_to 'Назад', test_path(@test) %>
-
-<h1>Добавьте вопрос к тесту "<%= @test.title %>"</h1>
-
-<%= render 'form', question: @question, submit_text: "Создать вопрос" %>
