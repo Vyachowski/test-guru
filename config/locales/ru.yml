@@ -1,2 +1,29 @@
 ru:
-  hello: "Привет, Мир"
+  activerecord:
+    models:
+      test: "Тест"
+    attributes:
+      test:
+        title: "Название"
+        level: "Уровень"
+        category: "Категория"
+  helpers:
+    submit:
+      create: "Создать %{model}"
+      update: "Сохранить %{model}"
+  common:
+    back: "Назад"
+  tests:
+      index:
+        header: "Доступные тесты"
+        add_test: "Добавить тест"
+        table:
+          name_column: "Название"
+          level_column: "Уровень"
+          questions_quantity_column: "Количество вопросов"
+          actions_column: "Действия"
+      test:
+        show: "Показать"
+        edit: "Редактировать"
+        delete: "Удалить"
+        confirmation: "Вы уверены?"

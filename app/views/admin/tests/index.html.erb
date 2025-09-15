@@ -1,16 +1,16 @@
-<h1>Тесты по программированию</h1>
+<h1><%= t("tests.index.header") %></h1>
 
 <p>
-  <%= link_to 'Добавить тест', new_admin_test_path %>
+  <%= link_to t("tests.index.add_test"), new_admin_test_path %>
 </p>
 
 <table>
   <thead>
     <tr>
-      <th>Название</th>
-      <th>Уровень</th>
-      <th>Количество вопросов</th>
-      <th>Действия</th>
+      <th><%=t("tests.index.table.name_column") %></th>
+      <th><%=t("tests.index.table.level_column") %></th>
+      <th><%=t("tests.index.table.questions_quantity_column") %></th>
+      <th><%=t("tests.index.table.actions_column") %></th>
     </tr>
   </thead>
 
