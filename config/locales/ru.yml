@@ -7,12 +7,33 @@ ru:
         title: "Название"
         level: "Уровень"
         category: "Категория"
+
   helpers:
     submit:
       create: "Создать %{model}"
       update: "Сохранить %{model}"
+    tests:
+      levels:
+        0: "Лёгкий"
+        1: "Элементарный"
+        2: "Продвинутый"
+        3: "Сложный"
+        hero: "Герой"
+      header:
+        new: "Создайте новый тест"
+        edit: "Отредактируйте тест %{title}"
+    answers:
+      header:
+        edit: "Отредактируйте ответ к вопросу \"%{question}\""
+        new: "Добавьте ответ к вопросу \"%{question}\""
+    questions:
+      header:
+        edit: "Отредактируйте вопрос к тесту \"%{test}\""
+        new: "Добавьте вопрос к тесту \"%{test}\""
+
   common:
     back: "Назад"
+
   tests:
       index:
         header: "Доступные тесты"

@@ -1,5 +1,5 @@
 module AnswersHelper
-  def answer_header(asnwer)
-    asnwer.persisted? ? "Отредактируйте ответ к вопросу \"#{asnwer.question.body}\"" : "Добавьте ответ к вопросу \"#{answer.question.body}\""
+  def answer_header(answer)
+    answer.persisted? ? I18n.t("helpers.answers.header.edit", question: answer.question.body) : I18n.t("helpers.answers.header.new", question: answer.question.body)
   end
 end

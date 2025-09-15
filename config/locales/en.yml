@@ -7,12 +7,33 @@ en:
         title: "Name"
         level: "Level"
         category: "Category"
+
   helpers:
     submit:
       create: "Create %{model}"
       update: "Save %{model}"
+    tests:
+      levels:
+        0: "Easy"
+        1: "Elementary"
+        2: "Advanced"
+        3: "Hard"
+        hero: "Hero"
+      header:
+        new: "Create new test"
+        edit: "Edit test %{title}"
+    answers:
+      header:
+        edit: "Edit the answer for question \"%{question}\""
+        new: "Add an answer to question \"%{question}\""
+    questions:
+      header:
+        edit: "Edit the question for test \"%{test}\""
+        new: "Add a question to test \"%{test}\""
+
   common:
     back: "Back"
+
   tests:
       index:
         header: "Tricky Tests"
