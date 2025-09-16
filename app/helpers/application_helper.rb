@@ -12,4 +12,17 @@ module ApplicationHelper
       content_tag :p, flash[type], class: "flash #{type}"
     end
   end
+
+  def bootstrap_class_for(flash_type)
+    case flash_type.to_sym
+    when :notice
+      "alert alert-success"
+    when :alert
+      "alert alert-danger"
+    when :error
+      "alert alert-danger"
+    else
+      "alert alert-primary"
+    end
+  end
 end
