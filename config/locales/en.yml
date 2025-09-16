@@ -74,6 +74,12 @@ en:
       failure: "Test failed — %{correct} correct answers (%{percent}%)"
       try_again: "Try again"
 
+  shared:
+    errors:
+      header:
+        one: "%{count} error detected"
+        other: "%{count} errors detected"
+
   devise:
     registrations:
       new:  

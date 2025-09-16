@@ -74,6 +74,14 @@ ru:
       failure: "Тест не пройден — %{correct} правильных ответов (%{percent}%)"
       try_again: "Попробовать снова"
   
+  shared:
+    errors:
+      header:
+        one: "Обнаружена %{count} ошибка"
+        few: "Обнаружено %{count} ошибки"
+        many: "Обнаружено %{count} ошибок"
+        other: "Обнаружено %{count} ошибки"
+
   devise:
     registrations:
       new:
