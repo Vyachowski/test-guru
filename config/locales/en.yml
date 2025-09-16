@@ -21,6 +21,10 @@ en:
       header:
         edit: "Edit the question for test \"%{test}\""
         new: "Add a question to test \"%{test}\""
+    select:
+      prompt: "Select option"
+      test:
+        category_id: "Select category"
 
   common:
     back: "Back"
