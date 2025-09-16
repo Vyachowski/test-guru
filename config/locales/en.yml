@@ -44,6 +44,7 @@ en:
   common:
     back: "Back"
     guru: "Guru"
+    start: "start"
     logout: "Logout"
     yes: "Yes"
     no: "No"
