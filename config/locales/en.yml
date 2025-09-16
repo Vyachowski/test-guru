@@ -2,11 +2,21 @@ en:
   activerecord:
     models:
       test: "Test"
+      question: "Question"
+      answer: "Answer"
     attributes:
       test:
         title: "Name"
         level: "Level"
         category: "Category"
+      question:
+        body: "Body"
+      answer:
+        body: "Body"
+        correct: "Correct"
+    errors:
+      messages:
+        blank: "can't be blank"
 
   helpers:
     submit:
@@ -32,19 +42,26 @@ en:
         new: "Add a question to test \"%{test}\""
 
   common:
-    back: "Back"
+    back: "Назад"
+    yes: "да"
+    no: "нет"
+    tables:
+      name_column: "Name"
+      level_column: "Level"
+      actions_column: "Actions"
+    actions:
+      show: "Show"
+      edit: "Edit"
+      delete: "Delete"
+      confirmation: "Are you sure?"
 
-  tests:
+  admin:
+    tests:
       index:
         header: "Tricky Tests"
         add_test: "Add test"
         table:
-          name_column: "Name"
-          level_column: "Level"
           questions_quantity_column: "Questions amount"
-          actions_column: "Actions"
-      test:
-        show: "Show"
-        edit: "Edit"
-        delete: "Delete"
-        confirmation: "Are you sure?"
+      show:
+        level: "Level"
+        test_questions: "Test questions"

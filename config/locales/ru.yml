@@ -2,11 +2,21 @@ ru:
   activerecord:
     models:
       test: "Тест"
+      question: "Вопрос"
+      answer: "Ответ"
     attributes:
       test:
         title: "Название"
         level: "Уровень"
         category: "Категория"
+      question:
+        body: "Текст вопроса"
+      answer:
+        body: "Текст ответа"
+        correct: "Верный"
+    errors:
+      messages:
+        blank: "не может быть пустым"
 
   helpers:
     submit:
@@ -33,18 +43,26 @@ ru:
 
   common:
     back: "Назад"
+    yes: "да"
+    no: "нет"
+    tables:
+      name_column: "Название"
+      level_column: "Уровень"
+      actions_column: "Действия"
+    actions:
+      show: "Показать"
+      edit: "Редактировать"
+      delete: "Удалить"
+      confirmation: "Вы уверены?"
+      
 
-  tests:
+  admin:
+    tests:
       index:
         header: "Доступные тесты"
         add_test: "Добавить тест"
         table:
-          name_column: "Название"
-          level_column: "Уровень"
           questions_quantity_column: "Количество вопросов"
-          actions_column: "Действия"
-      test:
-        show: "Показать"
-        edit: "Редактировать"
-        delete: "Удалить"
-        confirmation: "Вы уверены?"
+      show:
+        level: "Уровень"
+        test_questions: "Вопросы теста"

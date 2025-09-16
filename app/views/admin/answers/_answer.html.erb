@@ -1,9 +1,9 @@
 <li>
   <%= answer.body %><br>
-  <%= link_to 'Показать', admin_answer_path(answer) %> |
-  <%= link_to 'Редактировать', edit_admin_answer_path(answer) %> |
-  <%= link_to 'Удалить',
+  <%= link_to t("common.actions.show"), admin_answer_path(answer) %> |
+  <%= link_to t("common.actions.edit"), edit_admin_answer_path(answer) %> |
+  <%= link_to t("common.actions.delete"),
         admin_answer_path(answer),
         method: :delete,
-        data: { "turbo-method": :delete, turbo_confirm: 'Вы уверены?' } %>
+        data: { "turbo-method": :delete, turbo_confirm: t("common.actions.confirmation") } %>
 </li>

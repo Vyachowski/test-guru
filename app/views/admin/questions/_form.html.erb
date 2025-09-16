@@ -2,7 +2,7 @@
   <%= render "shared/errors", resource: question %>
 
   <fieldset>
-    <%= form.label :body, "Текст вопроса:" %><br>
+    <%= form.label :body %><br>
     <%= form.text_area :body, id: "question_body", rows: 4, required: true %>
   </fieldset>
 
