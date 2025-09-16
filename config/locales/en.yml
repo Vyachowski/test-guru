@@ -92,3 +92,43 @@ en:
       success: "Test passed successfully — %{correct} correct answers (%{percent}%)"
       failure: "Test failed — %{correct} correct answers (%{percent}%)"
       try_again: "Try again"
+
+  devise:
+    registrations:
+      new:  
+        sign_up: "Sign up"
+        email: "Email"
+        password: "Password"
+        password_confirmation: "Password confirmation"
+        submit: "Sign up"
+        minimum_characters: "(%{count} characters minimum)"
+    passwords:
+      new:
+        header: "Forgot your password?"
+        email: "Email"
+        submit: "Send me reset password instructions"
+    sessions:
+      new:
+        header: "Log in"
+        email: "Email"
+        password: "Password"
+        remember_me: "Remember me"
+        submit: "Log in"
+    shared:
+      links:
+        log_in: "Log in"
+        sign_up: "Sign up"
+        forgot_password: "Forgot your password?"
+        didnt_receive_confirmation: "Didn't receive confirmation instructions?"
+        didnt_receive_unlock: "Didn't receive unlock instructions?"
+        sign_in_with: "Sign in with %{provider}"
+    confirmations:
+      new:
+        header: "Resend confirmation instructions"
+        email: "Email"
+        submit: "Resend confirmation instructions"
+    mailer:
+      confirmation_instructions:
+        welcome: "Welcome %{email}!"
+        message: "You can confirm your account email through the link below:"
+        confirm_link: "Confirm my account"

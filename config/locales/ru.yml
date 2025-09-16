@@ -92,3 +92,43 @@ ru:
       success: "Тест успешно пройден — %{correct} правильных ответов (%{percent}%)"
       failure: "Тест не пройден — %{correct} правильных ответов (%{percent}%)"
       try_again: "Попробовать снова"
+  
+  devise:
+    registrations:
+      new:
+        sign_up: "Регистрация"
+        email: "Email"
+        password: "Пароль"
+        password_confirmation: "Подтверждение пароля"
+        submit: "Зарегистрироваться"
+        minimum_characters: "(минимум %{count} символов)"
+    passwords:
+      new:
+        header: "Забыли пароль?"
+        email: "Email"
+        submit: "Отправить инструкции по восстановлению пароля"
+    sessions:
+      new:
+        header: "Вход"
+        email: "Email"
+        password: "Пароль"
+        remember_me: "Запомнить меня"
+        submit: "Войти"
+    shared:
+      links:
+        log_in: "Войти"
+        sign_up: "Регистрация"
+        forgot_password: "Забыли пароль?"
+        didnt_receive_confirmation: "Не получили письмо с подтверждением?"
+        didnt_receive_unlock: "Не получили инструкции по разблокировке?"
+        sign_in_with: "Войти через %{provider}"
+    confirmations:
+      new:
+        header: "Повторная отправка инструкций по подтверждению"
+        email: "Email"
+        submit: "Отправить инструкции повторно"
+    mailer:
+      confirmation_instructions:
+        welcome: "Добро пожаловать, %{email}!"
+        message: "Вы можете подтвердить свой email через ссылку ниже:"
+        confirm_link: "Подтвердить учётную запись"
