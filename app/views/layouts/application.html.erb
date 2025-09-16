@@ -25,7 +25,9 @@
         <%= render 'shared/flash' %>
         <%= render 'shared/nav' %>
       </header>
-      <%= yield %>
+      <main class="py-4">
+        <%= yield %>
+      </main>
       <%= render "layouts/footer" %>
     </div>
   </body>
