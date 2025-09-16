@@ -78,6 +78,10 @@ en:
     nav:
       admin_panel: "Admin panel"
       welcome: "Welcome"
+    questions:
+      show:
+        header: "Answer options"
+        new: "New answer option"
 
   test_passages:
     header: "Taking the test \"%{title}\""

@@ -78,6 +78,10 @@ ru:
     nav:
       admin_panel: "Панель администратора"
       welcome: "Добро пожаловать"
+    questions:
+      show:
+        header: "Варианты ответов"
+        new: "Новый вариант ответа"
 
   test_passages:
     header: "Проходим тест \"%{title}\""
