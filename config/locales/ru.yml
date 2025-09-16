@@ -48,10 +48,13 @@ ru:
     logout: "Выйти"
     yes: "Да"
     no: "Нет"
-    project: 
+    project:
+      author: "Андреев Вячеслав"
       name: "Test Guru"
       start_year: "2025"
       year: "Год"
+      description: "Набор тестов для разработчиков для проверки и подтверждения их знаний и навыков."
+      thinknetica_link_text: "Учебный проект в онлайн-школе Thinknetica"
     tables:
       name_column: "Название"
       level_column: "Уровень"

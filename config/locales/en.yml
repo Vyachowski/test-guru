@@ -44,14 +44,17 @@ en:
   common:
     back: "Back"
     guru: "Guru"
-    start: "start"
+    start: "Start"
     logout: "Logout"
     yes: "Yes"
     no: "No"
-    project: 
+    project:
+      author: "Slava Haikin"
       name: "Test Guru"
       start_year: "2025"
       year: "Year"
+      description: "A set of tests for developers to check and validate their knowledge and skills."
+      thinknetica_link_text: "Educational project at Thinknetica Online School"
     tables:
       name_column: "Name"
       level_column: "Level"
