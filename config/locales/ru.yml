@@ -1,23 +1,4 @@
 ru:
-  activerecord:
-    models:
-      test: "Тест"
-      question: "Вопрос"
-      answer: "Ответ"
-    attributes:
-      test:
-        title: "Название"
-        level: "Уровень"
-        category: "Категория"
-      question:
-        body: "Текст вопроса"
-      answer:
-        body: "Текст ответа"
-        correct: "Верный"
-    errors:
-      messages:
-        blank: "Не может быть пустым"
-
   helpers:
     submit:
       create: "Создать %{model}"

@@ -1,23 +1,4 @@
 en:
-  activerecord:
-    models:
-      test: "Test"
-      question: "Question"
-      answer: "Answer"
-    attributes:
-      test:
-        title: "Name"
-        level: "Level"
-        category: "Category"
-      question:
-        body: "Body"
-      answer:
-        body: "Body"
-        correct: "Correct"
-    errors:
-      messages:
-        blank: "Can't be blank"
-
   helpers:
     submit:
       create: "Create %{model}"
