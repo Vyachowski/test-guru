@@ -16,7 +16,7 @@ en:
         correct: "Correct"
     errors:
       messages:
-        blank: "can't be blank"
+        blank: "Can't be blank"
 
   helpers:
     submit:
@@ -42,9 +42,15 @@ en:
         new: "Add a question to test \"%{test}\""
 
   common:
-    back: "Назад"
-    yes: "да"
-    no: "нет"
+    back: "Back"
+    guru: "Guru"
+    logout: "Logout"
+    yes: "Yes"
+    no: "No"
+    project: 
+      name: "Test Guru"
+      start_year: "2025"
+      year: "Year"
     tables:
       name_column: "Name"
       level_column: "Level"
@@ -65,3 +71,6 @@ en:
       show:
         level: "Level"
         test_questions: "Test questions"
+    nav:
+      admin_panel: "Admin panel"
+      welcome: "Welcome"

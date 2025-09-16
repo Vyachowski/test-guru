@@ -16,7 +16,7 @@ ru:
         correct: "Верный"
     errors:
       messages:
-        blank: "не может быть пустым"
+        blank: "Не может быть пустым"
 
   helpers:
     submit:
@@ -43,8 +43,14 @@ ru:
 
   common:
     back: "Назад"
-    yes: "да"
-    no: "нет"
+    guru: "Гуру"
+    logout: "Выйти"
+    yes: "Да"
+    no: "Нет"
+    project: 
+      name: "Test Guru"
+      start_year: "2025"
+      year: "Год"
     tables:
       name_column: "Название"
       level_column: "Уровень"
@@ -54,7 +60,6 @@ ru:
       edit: "Редактировать"
       delete: "Удалить"
       confirmation: "Вы уверены?"
-      
 
   admin:
     tests:
@@ -66,3 +71,6 @@ ru:
       show:
         level: "Уровень"
         test_questions: "Вопросы теста"
+    nav:
+      admin_panel: "Панель администратора"
+      welcome: "Добро пожаловать"
