@@ -1,2 +1,127 @@
 ru:
-  hello: "Привет, Мир"
+  helpers:
+    submit:
+      create: "Создать %{model}"
+      update: "Сохранить %{model}"
+    tests:
+      levels:
+        0: "Лёгкий"
+        1: "Элементарный"
+        2: "Продвинутый"
+        3: "Сложный"
+        hero: "Герой"
+      header:
+        new: "Создайте новый тест"
+        edit: "Отредактируйте тест %{title}"
+    answers:
+      header:
+        edit: "Отредактируйте ответ к вопросу \"%{question}\""
+        new: "Добавьте ответ к вопросу \"%{question}\""
+    questions:
+      header:
+        edit: "Отредактируйте вопрос к тесту \"%{test}\""
+        new: "Добавьте вопрос к тесту \"%{test}\""
+    select:
+      prompt: "Выберите вариант"
+      test:
+        category_id: "Выберите категорию"
+
+  common:
+    back: "Назад"
+    guru: "Гуру"
+    start: "Начать"
+    logout: "Выйти"
+    yes: "Да"
+    no: "Нет"
+    project:
+      author: "Андреев Вячеслав"
+      name: "Test Guru"
+      start_year: "2025"
+      year: "Год"
+      description: "Набор тестов для разработчиков для проверки и подтверждения их знаний и навыков."
+      thinknetica_link_text: "Учебный проект в онлайн-школе Thinknetica"
+    tables:
+      name_column: "Название"
+      level_column: "Уровень"
+      actions_column: "Действия"
+    actions:
+      show: "Показать"
+      edit: "Редактировать"
+      delete: "Удалить"
+      confirmation: "Вы уверены?"
+
+  admin:
+    tests:
+      index:
+        header: "Доступные тесты"
+        add_test: "Добавить тест"
+        table:
+          questions_quantity_column: "Количество вопросов"
+      show:
+        level: "Уровень"
+        test_questions: "Вопросы теста"
+    nav:
+      admin_panel: "Панель администратора"
+      welcome: "Добро пожаловать"
+    questions:
+      show:
+        header: "Варианты ответов"
+        new: "Новый вариант ответа"
+
+  test_passages:
+    header: "Проходим тест \"%{title}\""
+    progress: "Вопрос номер %{current} из %{total}"
+    next: "Дальше"
+    finished:
+      header: "%{title} тест закончен!"
+      success: "Тест успешно пройден — %{correct} правильных ответов (%{percent}%)"
+      failure: "Тест не пройден — %{correct} правильных ответов (%{percent}%)"
+      try_again: "Попробовать снова"
+  
+  shared:
+    errors:
+      header:
+        one: "Обнаружена %{count} ошибка"
+        few: "Обнаружено %{count} ошибки"
+        many: "Обнаружено %{count} ошибок"
+        other: "Обнаружено %{count} ошибки"
+
+  devise:
+    registrations:
+      new:
+        sign_up: "Регистрация"
+        email: "Email"
+        password: "Пароль"
+        password_confirmation: "Подтверждение пароля"
+        submit: "Зарегистрироваться"
+        minimum_characters: "(минимум %{count} символов)"
+    passwords:
+      new:
+        header: "Забыли пароль?"
+        email: "Email"
+        submit: "Отправить инструкции по восстановлению пароля"
+    sessions:
+      new:
+        header: "Вход"
+        email: "Email"
+        password: "Пароль"
+        remember_me: "Запомнить меня"
+        submit: "Войти"
+    shared:
+      links:
+        log_in: "Войти"
+        sign_up: "Регистрация"
+        forgot_password: "Забыли пароль?"
+        didnt_receive_confirmation: "Не получили письмо с подтверждением?"
+        didnt_receive_unlock: "Не получили инструкции по разблокировке?"
+        sign_in_with: "Войти через %{provider}"
+    confirmations:
+      new:
+        header: "Повторная отправка инструкций по подтверждению"
+        email: "Email"
+        submit: "Отправить инструкции повторно"
+    mailer:
+      confirmation_instructions:
+        welcome: "Добро пожаловать, %{email}!"
+        message: "Вы можете подтвердить свой email через ссылку ниже:"
+        confirm_link: "Подтвердить учётную запись"

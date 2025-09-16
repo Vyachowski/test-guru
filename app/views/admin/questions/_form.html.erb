@@ -2,11 +2,11 @@
   <%= render "shared/errors", resource: question %>
 
   <fieldset>
-    <%= form.label :body, "Текст вопроса:" %><br>
+    <%= form.label :body %><br>
     <%= form.text_area :body, id: "question_body", rows: 4, required: true %>
   </fieldset>
 
   <div>
-    <%= form.submit submit_text || "Сохранить вопрос", id: "submit_question" %>
+    <%= form.submit id: "submit_question" %>
   </div>
 <% end %>

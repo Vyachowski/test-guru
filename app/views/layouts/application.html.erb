@@ -24,8 +24,8 @@
 
       <% if user_signed_in? %>
         <p class="nav user">
-          Добро пожаловать, <b><%= current_user.email %></b>
-          <%= button_to 'Выйти', destroy_user_session_path, method: :delete %>
+          <%= t('.welcome') %>, <b class="user-email"><%= "#{current_user.email}" %></b> <%= t('common.guru') %>
+          <%= link_to t('common.logout'), destroy_user_session_path, data: { turbo_method: :delete, turbo_confirm: t('common.actions.confirmation') } %>
         </p>
       <% end %>
 

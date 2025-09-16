@@ -2,8 +2,8 @@
   Добавить новый тест <%= @test.title %>
 <% end %>
 
-<%= link_to 'Назад', admin_tests_path %>
+<%= link_to t("common.back"), admin_tests_path %>
 
 <h1><%= test_header @test %></h1>
 
-<%= render 'form', test: @test, submit_text: "Добавить тест" %>
+<%= render 'form', test: @test %>

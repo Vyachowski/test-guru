@@ -1,9 +1,11 @@
 <% content_for :title do %>
-  Добавить вопрос к тесту <%= @test.title %>
+  <%= t("helpers.questions.header.new", test: @answer.question.test.title) %>
 <% end %>
 
-<%= link_to 'Назад', admin_test_path(@test) %>
+<%= link_to t("common.back"), admin_question_path(@answer.question) %>
 
-<h1>Добавьте вопрос к тесту "<%= @test.title %>"</h1>
+<h1>
+  <%= t("helpers.questions.header.new", test: @answer.question.test.title) %>
+</h1>
 
-<%= render 'form', question: @question, submit_text: "Создать вопрос" %>
+<%= render 'form', question: @answer.question, submit_text: t("helpers.submit.create", model: Question.model_name.human) %>

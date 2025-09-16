@@ -1,11 +1,17 @@
-<h1><%= @test_passage.test.title %> тест закончен!</h1>
+<h1><%= t("test_passages.finished.header", title: @test_passage.test.title) %></h1>
 
-  <% if @test_passage.successful? %>
+<% if @test_passage.successful? %>
   <p style="color: green; font-weight: bold;">
-    Тест успешно пройден — <%= @test_passage.correct_questions %> правильных ответов (<%= @test_passage.correct_answer_percentage %>%)
+    <%= t("test_passages.finished.success",
+           correct: @test_passage.correct_questions,
+           percent: @test_passage.correct_answer_percentage) %>
   </p>
 <% else %>
   <p style="color: red; font-weight: bold;">
-    Тест не пройден — <%= @test_passage.correct_questions %> правильных ответов (<%= @test_passage.correct_answer_percentage %>%)
+    <%= t("test_passages.finished.failure",
+           correct: @test_passage.correct_questions,
+           percent: @test_passage.correct_answer_percentage) %>
   </p>
 <% end %>
+
+<%= link_to t("test_passages.finished.try_again"), tests_path %>

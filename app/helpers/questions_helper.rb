@@ -1,5 +1,5 @@
 module QuestionsHelper
   def question_header(question)
-    question.persisted? ? "Отредактируйте вопрос к тесту #{question.test.title}" : "Добавьте вопрос к тесту #{question.test.title}"
+    question.persisted? ? I18n.t("helpers.questions.header.edit", test: question.test.title) : I18n.t("helpers.questions.header.new", test: question.test.title)
   end
 end

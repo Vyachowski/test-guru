@@ -1,0 +1,36 @@
+ru:
+  activerecord:
+    models:
+      test: "Тест"
+      question: "Вопрос"
+      answer: "Ответ"
+      user: "Пользователь"
+    attributes:
+      test:
+        title: "Название"
+        level: "Уровень"
+        category: "Категория"
+      question:
+        body: "Текст вопроса"
+      answer:
+        body: "Текст ответа"
+        correct: "Верный"
+      user:
+        email: "Email"
+        password: "Пароль"
+        password_confirmation: "Подтверждение пароля"
+    errors:
+      models:
+        user:
+          attributes:
+            email:
+              taken: "такой email уже зарегистрирован"
+            password:
+              too_short: "слишком короткий (не менее %{count} символов)"
+            password_confirmation:
+              confirmation: "не совпадает с подтверждением"
+      messages:
+        blank: "Не может быть пустым"
+        too_short: "слишком короткий (не менее %{count} символов)"
+        confirmation: "не совпадает с подтверждением"
+        taken: "уже используется"

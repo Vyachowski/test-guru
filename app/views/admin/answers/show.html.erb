@@ -1,17 +1,17 @@
-<%= link_to 'Назад', admin_question_path(@answer.question) %>
+<%= link_to t("common.back"), admin_question_path(@answer.question) %>
 
-<h1>Вопрос</h1>
+<h1><%= Question.model_name.human %></h1>
 
 <p>
   <%= @answer.question.body %>
 </p>
 
-<p>
-  <b>Ответ:</b>
+  <p>
+    <b><%= Answer.human_attribute_name(:body) %>:</b>
   <%= @answer.body %>
 </p>
 
 <p>
-  <b>Правильный ответ:</b>
+  <b><%= Answer.human_attribute_name(:correct) %>:</b>
   <%= @answer.correct ? "Да" : "Нет" %>
 </p>

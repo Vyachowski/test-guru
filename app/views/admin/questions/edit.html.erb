@@ -1,5 +1,5 @@
-<%= link_to 'Назад', admin_test_path %>
+<%= link_to t("common.back"), admin_test_path %>
 
 <h1><%= question_header @question %></h1>
 
-<%= render 'form', question: @question, submit_text: "Обновить вопрос" %>
+<%= render 'form', question: @question %>

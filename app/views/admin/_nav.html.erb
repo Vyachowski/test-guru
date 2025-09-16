@@ -1,8 +1,8 @@
 <div class="nav nav-admin">
-  <span class="nav-admin title">Панель администратора TestGuru</span>
+  <span class="nav-admin title"><%= "#{t('.admin_panel')} #{t('common.project.name')}" %></span>
 
   <div class="nav-admin user">
-    Добро пожаловать, <b class="nav-admin user-email"><%= "#{current_user.email}" %></b> Гуру
-    <%= link_to 'Выйти', destroy_user_session_path, data: { turbo_method: :delete, turbo_confirm: 'Вы уверены?' } %>
+    <%= t('.welcome') %>, <b class="nav-admin user-email"><%= "#{current_user.email}" %></b> <%= t('common.guru') %>
+    <%= link_to t('common.logout'), destroy_user_session_path, data: { turbo_method: :delete, turbo_confirm: t('common.actions.confirmation') } %>
   </div>
 </div>
