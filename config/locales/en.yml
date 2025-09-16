@@ -75,3 +75,13 @@ en:
     nav:
       admin_panel: "Admin panel"
       welcome: "Welcome"
+
+  test_passages:
+    header: "Taking the test \"%{title}\""
+    progress: "Question %{current} of %{total}"
+    next: "Next"
+    finished:
+      header: "Test \"%{title}\" is finished!"
+      success: "Test passed successfully — %{correct} correct answers (%{percent}%)"
+      failure: "Test failed — %{correct} correct answers (%{percent}%)"
+      try_again: "Try again"
