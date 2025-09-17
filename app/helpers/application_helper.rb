@@ -3,8 +3,8 @@ module ApplicationHelper
     Time.current.year
   end
 
-  def github_url(author, repo, classNames)
-    link_to repo.tr("-", " ").titleize, "https://github.com/#{author}/#{repo}", target: "_blank", rel: "noopener", class: classNames
+  def github_url(author, repo, class_names)
+    link_to repo.tr("-", " ").titleize, "https://github.com/#{author}/#{repo}", target: "_blank", rel: "noopener", class: class_names
   end
 
   def flash_message(type)
