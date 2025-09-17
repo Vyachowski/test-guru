@@ -1,17 +1,17 @@
-<h1><%= t("test_passages.finished.header", title: @test_passage.test.title) %></h1>
+<h1 class="mb-4"><%= t("test_passages.finished.header", title: @test_passage.test.title) %></h1>
 
 <% if @test_passage.successful? %>
-  <p style="color: green; font-weight: bold;">
+  <p class="lead text-success">
     <%= t("test_passages.finished.success",
            correct: @test_passage.correct_questions,
            percent: @test_passage.correct_answer_percentage) %>
   </p>
 <% else %>
-  <p style="color: red; font-weight: bold;">
+  <p class="lead text-danger">
     <%= t("test_passages.finished.failure",
            correct: @test_passage.correct_questions,
            percent: @test_passage.correct_answer_percentage) %>
   </p>
 <% end %>
 
-<%= link_to t("test_passages.finished.try_again"), tests_path %>
+<%= link_to t("test_passages.finished.try_again"), tests_path, class: "btn btn-primary" %>
