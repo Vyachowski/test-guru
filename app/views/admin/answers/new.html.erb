@@ -2,7 +2,7 @@
   <%= t("helpers.answers.header.new", question: @answer.question.body) %>
 <% end %>
 
-<%= link_to t("common.back"), admin_question_path(@answer.question) %>
+<%= link_to t("common.back"), admin_question_path(@answer.question), class: "btn btn-secondary mb-2" %>
 
 <h1>
   <%= t("helpers.answers.header.new", question: @answer.question.body) %>
