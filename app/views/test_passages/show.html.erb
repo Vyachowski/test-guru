@@ -25,6 +25,9 @@
       <% end %>
     </fieldset>
 
-    <%= form.submit t("test_passages.next"), class: "btn btn-primary" %>
+    <div class="d-flex justify-content-center align-items-center g-4">
+      <%= form.submit t("test_passages.next"), class: "btn btn-primary" %>
+      <%= button_to t('test_passages.gist_button') gist_test_passage_path(@test_passage), method: :post, class: "btn btn-secondary" %>
+    </div>
   <% end %>
 </div>

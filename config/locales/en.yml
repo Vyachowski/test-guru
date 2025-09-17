@@ -78,6 +78,10 @@ en:
       success: "Test passed successfully — %{correct} correct answers (%{percent}%)"
       failure: "Test failed — %{correct} correct answers (%{percent}%)"
       try_again: "Try again"
+    gist:
+      succes: "Gist was succesfully created!"
+      failure: "An error occured while saving gist"
+      gist_button: "Gist Question"
 
   shared:
     errors:

@@ -78,6 +78,10 @@ ru:
       success: "Тест успешно пройден — %{correct} правильных ответов (%{percent}%)"
       failure: "Тест не пройден — %{correct} правильных ответов (%{percent}%)"
       try_again: "Попробовать снова"
+    gist:
+      success: "Gist успешно сохранен"
+      failure: "Во время сохранения gist произошла ошибка"
+      gist_button: "Сохранить вопрос в Gist"
   
   shared:
     errors:
