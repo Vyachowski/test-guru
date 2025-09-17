@@ -1,11 +1,11 @@
-<%= link_to t("common.back"), admin_test_path(@question.test) %>
+<%= link_to t("common.back"), admin_test_path(@question.test), class: "btn btn-secondary mb-2" %>
 
-<h1><%= @question.body %></h1>
+<h1 class="mb-2"><%= @question.body %></h1>
 
-<h2><%= t(".header") %></h2>
+<p class="lead mb-4"><%= t(".header") %></p>
 
-<%= link_to t(".new"), new_admin_question_answer_path(@question) %>
+<%= link_to t(".new"), new_admin_question_answer_path(@question), class: "btn btn-info mb-4" %>
 
-<ol>
+<ol class="list-group">
   <%= render @question.answers %>
 </ol>

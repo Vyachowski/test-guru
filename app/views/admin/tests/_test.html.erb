@@ -1,12 +1,13 @@
 <tr>
-  <td><%= test.title %></td>
-  <td><%= test_level(test) %></td>
-  <td><%= test.questions.count %></td>
-  <td><%= link_to t("common.actions.show"), admin_test_path(test) %></td>
-  <td><%= link_to t("common.actions.edit"), edit_admin_test_path(test) %></td>
-  <td>
+  <td class="align-content-center"><%= test.title %></td>
+  <td class="align-content-center"><%= test_level(test) %></td>
+  <td class="align-content-center"><%= test.questions.count %></td>
+  <td class="align-content-center"><%= link_to t("common.actions.show"), admin_test_path(test), class: "btn btn-primary" %></td>
+  <td class="align-content-center"><%= link_to t("common.actions.edit"), edit_admin_test_path(test), class: "btn btn-secondary" %></td>
+  <td class="align-content-center">
     <%= link_to t("common.actions.delete"),
         admin_test_path(test),
-        data: { "turbo-method": :delete, turbo_confirm: t("common.actions.confirmation") } %>
+        data: { "turbo-method": :delete, turbo_confirm: t("common.actions.confirmation") },
+        class: "btn btn-danger" %>
   </td>
 </tr>

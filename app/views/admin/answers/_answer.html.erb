@@ -1,9 +1,12 @@
-<li>
-  <%= answer.body %><br>
-  <%= link_to t("common.actions.show"), admin_answer_path(answer) %> |
-  <%= link_to t("common.actions.edit"), edit_admin_answer_path(answer) %> |
-  <%= link_to t("common.actions.delete"),
-        admin_answer_path(answer),
-        method: :delete,
-        data: { "turbo-method": :delete, turbo_confirm: t("common.actions.confirmation") } %>
+<li class="list-group-item">
+  <p><%= answer.body %></p>
+  <div>
+    <%= link_to t("common.actions.show"), admin_answer_path(answer), class: "btn btn-primary" %>
+    <%= link_to t("common.actions.edit"), edit_admin_answer_path(answer), class: "btn btn-secondary" %>
+    <%= link_to t("common.actions.delete"),
+          admin_answer_path(answer),
+          method: :delete,
+          data: { "turbo-method": :delete, turbo_confirm: t("common.actions.confirmation") },
+          class: "btn btn-danger" %>
+  </div>
 </li>

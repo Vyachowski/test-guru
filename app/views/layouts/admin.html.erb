@@ -9,9 +9,14 @@
     <%= javascript_importmap_tags %>
   </head>
   <body>
-    <%= render 'admin/nav' %>
-    <%= render 'shared/flash' %>
-
-    <%= yield %>
-    </body>
+    <div class="container">
+      <header>
+        <%= render 'shared/flash' %>
+        <%= render 'admin/nav' %>
+      </header>
+      <main class="py-4">
+        <%= yield %>
+      </main>
+    </div>
+  </body>
 </html>

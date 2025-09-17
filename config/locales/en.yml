@@ -60,6 +60,7 @@ en:
       show:
         level: "Level"
         test_questions: "Test questions"
+        new_question: "Add question"
     nav:
       admin_panel: "Admin panel"
       welcome: "Welcome"

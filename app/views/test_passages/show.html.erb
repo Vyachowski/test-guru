@@ -1,26 +1,30 @@
-<h1><%= t("test_passages.header", title: @test_passage.test.title) %></h1>
+<h1 class="mb-4"><%= t("test_passages.header", title: @test_passage.test.title) %></h1>
 
 <b>
   <%= @test_passage.current_question.body %>
 </b>
 
-<p>
+<em class="d-block mb-2">
   <%= t("test_passages.progress",
          current: @test_passage.current_question_number,
          total: @test_passage.test.questions.count) %>
-</p>
+</em>
 
-<%= form_with url: test_passage_path(@test_passage), local: true, method: :put do |form| %>
-  <%= form.collection_check_boxes :answer_ids,
-                                  @test_passage.current_question.answers,
-                                  :id,
-                                  :body,
-                                  include_hidden: false do |b| %>
-    <p>
-      <%= b.check_box id: "answer_ids_#{b.object.id}" %>
-      <%= b.label %>
-    </p>
+<div class="container">
+  <%= form_with url: test_passage_path(@test_passage), local: true, method: :put do |form| %>
+    <fieldset class="mb-3">
+      <%= form.collection_check_boxes :answer_ids,
+                                      @test_passage.current_question.answers,
+                                      :id,
+                                      :body,
+                                      include_hidden: false do |b| %>
+        <div class="form-check mb-2">
+          <%= b.check_box class: "form-check-input", id: "answer_ids_#{b.object.id}" %>
+          <%= b.label class: "form-check-label" %>
+        </div>
+      <% end %>
+    </fieldset>
+
+    <%= form.submit t("test_passages.next"), class: "btn btn-primary" %>
   <% end %>
-
-  <p><%= form.submit t("test_passages.next") %></p>
-<% end %>
+</div>

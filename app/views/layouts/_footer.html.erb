@@ -1,11 +1,17 @@
-<footer>
-  <div>
-    <p><%= current_year %> <%= t("common.project.year") %></p>
-    <p><%= t("common.project.author") %></p>
-    <p><%= t("common.project.description") %></p>
-    <p><%= github_url('vyachowski', 'test-guru') %></p>
-    <%= link_to t("common.project.thinknetica_link_text"),
-                'https://thinknetica.com',
-                target: '_blank' %>
-  </div>
-</footer>
+<div class="container px-0">
+  <footer class="py-3 my-4">
+    <ul class="nav justify-content-center border-bottom pb-3 mb-3">
+      <li class="nav-item">
+        <%= github_url('vyachowski', 'test-guru', 'nav-link px-2 text-body-secondary') %></li>
+      <li class="nav-item">
+        <%= link_to t("common.project.thinknetica_link_text"),
+                    'https://thinknetica.com',
+                    target: '_blank',
+                    class: "nav-link px-2 text-body-secondary" %>
+      </li>
+    </ul>
+    <p class="text-center text-body-secondary"><%= current_year %> <%= t("common.project.year") %></p>
+    <p class="text-center text-body-secondary"><%= t("common.project.author") %></p>
+    <p class="text-center text-body-secondary"><%= t("common.project.description") %></p>
+  </footer>
+</div>

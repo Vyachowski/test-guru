@@ -1,11 +1,7 @@
-<% content_for :title do %>
-  <%= t("helpers.questions.header.new", test: @answer.question.test.title) %>
-<% end %>
+<%= link_to t("common.back"), admin_test_path(@test), class: "btn btn-secondary mb-2" %>
 
-<%= link_to t("common.back"), admin_question_path(@answer.question) %>
-
-<h1>
-  <%= t("helpers.questions.header.new", test: @answer.question.test.title) %>
+<h1 class="mb-4">
+  <%= t("helpers.questions.header.new", test: @test.title) %>
 </h1>
 
-<%= render 'form', question: @answer.question, submit_text: t("helpers.submit.create", model: Question.model_name.human) %>
+<%= render 'form', question: @question, submit_text: t("helpers.submit.create", model: Question.model_name.human) %>

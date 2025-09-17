@@ -60,6 +60,7 @@ ru:
       show:
         level: "Уровень"
         test_questions: "Вопросы теста"
+        new_question: "Добавить вопрос"
     nav:
       admin_panel: "Панель администратора"
       welcome: "Добро пожаловать"
