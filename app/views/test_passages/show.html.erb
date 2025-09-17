@@ -25,9 +25,13 @@
       <% end %>
     </fieldset>
 
-    <div class="d-flex justify-content-center align-items-center g-4">
+    <div class="d-flex justify-content-center align-items-center gap-4">
       <%= form.submit t("test_passages.next"), class: "btn btn-primary" %>
-      <%= button_to t('test_passages.gist_button') gist_test_passage_path(@test_passage), method: :post, class: "btn btn-secondary" %>
+      <%= link_to t('test_passages.gist.gist_button'),
+            test_passage_gist_path(@test_passage),
+            method: :post,
+            data: { "turbo-method": :post },
+            class: "btn btn-secondary" %>
     </div>
   <% end %>
 </div>
