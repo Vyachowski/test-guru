@@ -2,6 +2,7 @@
 
 <h1 class="mb-2"><%= @test.title %></h1>
 <p class="lead mb-4"><%= "#{t('.level')} - #{test_level @test}" %></p>
+<%= link_to t(".new_question"), new_admin_test_question_path(@test), class: "btn btn-info mb-4" %>
 
 <table class="table">
   <thead>

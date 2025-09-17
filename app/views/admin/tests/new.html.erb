@@ -1,9 +1,5 @@
-<% content_for :title do %>
-  Добавить новый тест <%= @test.title %>
-<% end %>
-
 <%= link_to t("common.back"), admin_tests_path, class: "btn btn-secondary mb-2" %>
 
-<h1><%= test_header @test %></h1>
+<h1 class="mb-4"><%= test_header @test %></h1>
 
 <%= render 'form', test: @test %>

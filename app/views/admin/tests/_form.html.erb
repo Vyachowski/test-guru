@@ -1,18 +1,18 @@
 <%= form_with model: [:admin, test], local: true, data: { turbo: false } do |form| %>
   <%= render "shared/errors", resource: test %>
 
-  <fieldset>
-    <%= form.label :title %><br>
-    <%= form.text_field :title, id: "test_title", required: true %>
+  <fieldset class="mb-4">
+    <%= form.label :title, class: "form-label" %>
+    <%= form.text_field :title, id: "test_title", required: true, class: "form-control" %>
 
-    <%= form.label :level %>
-    <%= form.number_field :level, id: "test_level", min: 0, max: 4, required: true %>
+    <%= form.label :level, class: "form-label" %>
+    <%= form.number_field :level, id: "test_level", min: 0, max: 4, required: true, class: "form-control" %>
 
-    <%= form.label :category %>
-    <%= form.collection_select :category_id, Category.all, :id, :title, { prompt: t('helpers.select.test.category_id') }, required: true %>
+    <%= form.label :category, class: "form-label" %>
+    <%= form.collection_select :category_id, Category.all, :id, :title, { prompt: t('helpers.select.test.category_id') }, required: true, class: "form-control" %>
   </fieldset>
 
   <div>
-    <%= form.submit id: "submit_button" %>
+    <%= form.submit id: "submit_button", class: "btn btn-primary" %>
   </div>
 <% end %>
