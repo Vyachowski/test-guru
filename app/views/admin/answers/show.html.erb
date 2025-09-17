@@ -1,17 +1,22 @@
 <%= link_to t("common.back"), admin_question_path(@answer.question), class: "btn btn-secondary mb-2" %>
 
-<h1><%= Question.model_name.human %></h1>
+<h1 class="mb-2"><%= Question.model_name.human %></h1>
 
-<p>
+<p class="lead mb-4">
   <%= @answer.question.body %>
 </p>
 
-  <p>
+<dl>
+  <dt>
     <b><%= Answer.human_attribute_name(:body) %>:</b>
-  <%= @answer.body %>
-</p>
-
-<p>
-  <b><%= Answer.human_attribute_name(:correct) %>:</b>
-  <%= @answer.correct ? "Да" : "Нет" %>
-</p>
+  </dt>
+  <dd>
+    <%= @answer.body %>
+  </dd>
+  <dt>
+    <b><%= Answer.human_attribute_name(:correct) %>:</b>
+  </dt>
+  <dd>
+    <%= @answer.correct ? "Да" : "Нет" %>
+  </dd>
+</dl>
