@@ -17,6 +17,6 @@
     <b><%= Answer.human_attribute_name(:correct) %>:</b>
   </dt>
   <dd>
-    <%= @answer.correct ? "Да" : "Нет" %>
+    <%= @answer.correct ? t('common.yes') : t('common.no') %>
   </dd>
 </dl>
