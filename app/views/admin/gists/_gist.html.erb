@@ -3,7 +3,7 @@
     <%= link_to gist_question_text(gist.question), admin_gist_path(gist), title: gist.question %>
   </td>
   <td class="align-content-center">
-    <%= link_to gist_url_text(gist.url), sanitize(gist.url), target: "_blank", rel: "noopener" %>
+    <%= link_to gist_url_text(gist.url), safe_link_to(gist.url), target: "_blank", rel: "noopener" %>
   </td>
   <td class="align-content-center"><%= gist.user.email %></td>
 </tr>
