@@ -82,6 +82,7 @@ ru:
       success: "Gist успешно сохранен"
       failure: "Во время сохранения gist произошла ошибка"
       gist_button: "Сохранить вопрос в Gist"
+      description: "Вопрос %{title} из приложения TestGuru"
   
   shared:
     errors:

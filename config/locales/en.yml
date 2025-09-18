@@ -82,6 +82,7 @@ en:
       succes: "Gist was succesfully created!"
       failure: "An error occured while saving gist"
       gist_button: "Gist Question"
+      description: "A question about %{title} from TestGuru"
 
   shared:
     errors:
