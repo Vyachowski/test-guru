@@ -1,0 +1,5 @@
+<%= link_to t("common.back"), admin_gists_path, class: "btn btn-secondary mb-2" %>
+
+<h1 class="mb-2"><%= @gist.question %></h1>
+<p class="lead mb-4"><%= @gist.url %></p>
+<p><%= @gist.user.email %></p>

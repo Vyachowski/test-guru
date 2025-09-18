@@ -16,7 +16,7 @@ Rails.application.routes.draw do
         resources :answers, shallow: true
       end
     end
-    resources :gists, only: [:index]
+    resources :gists, only: [:index, :show]
   end
 
   root "tests#index"

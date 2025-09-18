@@ -1,0 +1,15 @@
+<h1 class="mb-4"><%= t(".header") %></h1>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col"><%=t("common.tables.name_column") %></th>
+      <th scope="col"><%=t("common.tables.level_column") %></th>
+      <th scope="col"><%=t("common.tables.actions_column") %></th>
+    </tr>
+  </thead>
+
+  <tbody>
+  <%= render @gists %>
+  </tbody>
+</table>
