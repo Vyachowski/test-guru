@@ -68,6 +68,12 @@ ru:
       show:
         header: "Варианты ответов"
         new: "Новый вариант ответа"
+    gists:
+      index:
+        header: "Gists"
+        question_column: "Вопрос"
+        url_column: "Ссылка"
+        author_column: "Автор"
 
   test_passages:
     header: "Проходим тест \"%{title}\""

@@ -1,4 +1,4 @@
-class Admin::BaseController < ApplicationController
+class Admin::BaseController < Admin::BaseController
   before_action :authenticate_user!
   before_action :admin_required!
 

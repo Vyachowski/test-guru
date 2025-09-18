@@ -68,6 +68,12 @@ en:
       show:
         header: "Answer options"
         new: "New answer option"
+    gists:
+      index:
+        header: "Gists"
+        question_column: "Question"
+        url_column: "Url"
+        author_column: "Author"
 
   test_passages:
     header: "Taking the test \"%{title}\""
