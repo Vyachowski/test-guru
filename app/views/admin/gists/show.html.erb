@@ -3,7 +3,7 @@
 <h1 class="mb-2"><%= @gist.question %></h1>
 
 <p class="lead mb-4">
-  <%= link_to @gist.url, safe_link_to(@gist.url) %>
+  <%= safe_link_to(@gist.url, @gist.url) %>
 </p>
 
 <p>
