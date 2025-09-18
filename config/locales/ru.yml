@@ -55,6 +55,7 @@ ru:
       index:
         header: "Доступные тесты"
         add_test: "Добавить тест"
+        view_gists: "Показать gists"
         table:
           questions_quantity_column: "Количество вопросов"
       show:

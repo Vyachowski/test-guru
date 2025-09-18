@@ -1,8 +1,8 @@
 <h1 class="mb-4"><%= t(".header") %></h1>
 
-<div class="container p-0 justify-content-space-between">
-  <%= link_to t(".add_test"), new_admin_test_path, class: "btn btn-info mb-4" %>
-  <%= link_to t(".add_test"), new_admin_test_path, class: "btn btn-info mb-4" %>
+<div class="container p-0 d-flex justify-content-between mb-4">
+  <%= link_to t(".add_test"), new_admin_test_path, class: "btn btn-info" %>
+  <%= link_to t(".view_gists"), admin_gists_path, class: "btn btn-secondary" %>
 </div>
 
 

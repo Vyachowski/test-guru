@@ -55,6 +55,7 @@ en:
       index:
         header: "Tricky Tests"
         add_test: "Add test"
+        view_gists: "View gists"
         table:
           questions_quantity_column: "Questions amount"
       show:
