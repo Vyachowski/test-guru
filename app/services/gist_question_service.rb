@@ -1,12 +1,26 @@
 class GistQuestionService
-  def initialize(question, client: nil)
+  attr_accessor :success
+
+  def initialize(question,  user:, client: nil)
     @question = question
     @test = @question.test
+    @user = user
     @client = client || GitHubClient.new
+    @success = nil
   end
 
   def call
-    @client.create_gist(gist_params)
+    response = @client.create_gist(gist_params)
+
+    new_gist = Gist.create(question: @question.body, url: response.html_url, user: @user)
+
+    @success = new_gist.persisted?
+  rescue Octokit::Error
+    @success = false
+  end
+
+  def success?
+    @success
   end
 
   private
