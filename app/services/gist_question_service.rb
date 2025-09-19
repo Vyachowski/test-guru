@@ -6,7 +6,6 @@ class GistQuestionService
     @test = @question.test
     @user = user
     @client = client || GitHubClient.new
-    @success = nil
   end
 
   def call
@@ -14,13 +13,9 @@ class GistQuestionService
 
     new_gist = Gist.create(question: @question.body, url: response.html_url, user: @user)
 
-    @success = new_gist.persisted?
+    new_gist.persisted?
   rescue Octokit::Error
-    @success = false
-  end
-
-  def success?
-    @success
+    false
   end
 
   private

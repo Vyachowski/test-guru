@@ -10,9 +10,9 @@ class Admin::GistsController < Admin::BaseController
   def create
     @test_passage = TestPassage.find(params[:test_passage_id])
 
-    result = GistQuestionService.new(@test_passage.current_question, user: current_user).call
+    success = GistQuestionService.new(@test_passage.current_question, user: current_user).call
 
-    if result.success?
+    if success
       flash_options = { notice: t(".success") }
     else
       flash_options = { alert: t(".failure") }
