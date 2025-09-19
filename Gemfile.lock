@@ -350,7 +350,6 @@ DEPENDENCIES
   capybara
   debug
   devise (~> 4.9)
-  faraday (~> 2.13)
   importmap-rails
   jbuilder
   letter_opener
