@@ -1,22 +1,12 @@
 class GitHubClient
   ROOT_ENDPOINT = "https://api.github.com"
-  GIST_AUTH_TOKEN = Rails.application.credentials.gist_token
+  GIST_AUTH_TOKEN = ENV["GIST_AUTH_TOKEN"].presence || Rails.application.credentials.gist_token
 
   def initialize
-    @http_client = setup_http_client
+    @client = Octokit::Client.new(access_token: GIST_AUTH_TOKEN)
   end
 
   def create_gist(params)
-    @http_client.post("gists") do |request|
-      request.headers["Authorization"] = "token #{GIST_AUTH_TOKEN}"
-      request.headers["Content-Type"] = "application/json"
-      request.body = params.to_json
-    end
-  end
-
-  private
-
-  def setup_http_client
-    Faraday.new(url: ROOT_ENDPOINT)
+    @client.create_gist(params)
   end
 end
