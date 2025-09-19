@@ -7,7 +7,6 @@ Rails.application.routes.draw do
 
   resources :test_passages, only: %i[show update] do
     get :result, on: :member
-    post :gist
   end
 
   namespace :admin do
@@ -16,7 +15,7 @@ Rails.application.routes.draw do
         resources :answers, shallow: true
       end
     end
-    resources :gists, only: [:index, :show]
+    resources :gists, only: [:index, :show, :create]
   end
 
   root "tests#index"

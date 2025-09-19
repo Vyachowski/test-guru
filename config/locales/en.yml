@@ -75,6 +75,9 @@ en:
         question_column: "Question"
         url_column: "Url"
         author_column: "Author"
+      create:
+        succes: "Gist was succesfully created!"
+        failure: "An error occured while saving gist"
 
   test_passages:
     header: "Taking the test \"%{title}\""
@@ -86,8 +89,6 @@ en:
       failure: "Test failed — %{correct} correct answers (%{percent}%)"
       try_again: "Try again"
     gist:
-      succes: "Gist was succesfully created!"
-      failure: "An error occured while saving gist"
       gist_button: "Gist Question"
       description: "A question about %{title} from TestGuru"
 

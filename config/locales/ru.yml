@@ -75,6 +75,9 @@ ru:
         question_column: "Вопрос"
         url_column: "Ссылка"
         author_column: "Автор"
+      create:
+        success: "Gist успешно сохранен"
+        failure: "Во время сохранения gist произошла ошибка"
 
   test_passages:
     header: "Проходим тест \"%{title}\""
@@ -86,8 +89,6 @@ ru:
       failure: "Тест не пройден — %{correct} правильных ответов (%{percent}%)"
       try_again: "Попробовать снова"
     gist:
-      success: "Gist успешно сохранен"
-      failure: "Во время сохранения gist произошла ошибка"
       gist_button: "Сохранить вопрос в Gist"
       description: "Вопрос %{title} из приложения TestGuru"
   
