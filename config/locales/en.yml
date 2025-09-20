@@ -76,7 +76,7 @@ en:
         url_column: "Url"
         author_column: "Author"
       create:
-        succes: "Gist was succesfully created!"
+        success: "Gist was succesfully created! Link - %{link}"
         failure: "An error occured while saving gist"
 
   test_passages:

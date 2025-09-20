@@ -1,24 +1,43 @@
 class GistQuestionService
-  attr_accessor :success
+  Result = Struct.new(:success?, :gist)
 
   def initialize(question,  user:, client: nil)
     @question = question
     @test = @question.test
     @user = user
-    @client = client || GitHubClient.new
+    @client = client || Octokit::Client.new(access_token: git_token)
   end
 
   def call
-    response = @client.create_gist(gist_params)
+    response = create_gist(gist_params)
 
-    new_gist = Gist.create(question: @question.body, url: response.html_url, user: @user)
+    if response
+      new_gist = Gist.create(
+        question: @question.body,
+        url: response.html_url,
+        user: @user
+      )
 
-    new_gist.persisted?
-  rescue Octokit::Error
-    false
+      Result.new(new_gist.persisted?, new_gist)
+    else
+      Result.new(false, nil)
+    end
   end
 
   private
+
+  def create_gist(params)
+    response = @client.create_gist(params)
+
+    if response&.id && response&.html_url
+      response
+    else
+      nil
+    end
+  rescue Octokit::Error => e
+    Rails.logger.error("Gist creation error: #{e.message}")
+    nil
+  end
 
   def gist_params
     {
@@ -36,5 +55,9 @@ class GistQuestionService
 
   def gist_content
     [@question.body, *@question.answers.pluck(:body)].join("\n")
+  end
+
+  def git_token
+    ENV.fetch("GIST_AUTH_TOKEN", Rails.application.credentials.gist_token)
   end
 end

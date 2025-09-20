@@ -76,7 +76,7 @@ ru:
         url_column: "Ссылка"
         author_column: "Автор"
       create:
-        success: "Gist успешно сохранен"
+        success: "Gist успешно сохранен. Ссылка - %{link}"
         failure: "Во время сохранения gist произошла ошибка"
 
   test_passages:
