@@ -1,4 +1,6 @@
 class Admin::GistsController < Admin::BaseController
+  skip_before_action :admin_required!, only: [:create]
+
   def index
     @gists = Gist.all
   end
