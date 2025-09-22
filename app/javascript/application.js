@@ -4,3 +4,4 @@ import "controllers"
 
 import "bootstrap"
 import "utilities/sorting"
+import "utilities/password_check"
