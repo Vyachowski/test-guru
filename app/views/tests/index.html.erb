@@ -4,8 +4,10 @@
   <thead>
     <tr>
       <th scope="col">
-        <button class="sort-by-title pointer" type="button" id="test-table-sort">
+        <button class=" btn btn-light sort-by-title pointer" type="button" id="test-table-sort">
           <%=t("common.tables.name_column") %>
+          <%= octicon 'arrow-up', class: 'text-succes hide' %>
+          <%= octicon 'arrow-down', class: 'text-succes hide' %>
         </button>
       </th>
       <th scope="col"><%=t("common.tables.level_column") %></th>
@@ -14,7 +16,7 @@
     </tr>
   </thead>
 
-  <tbody>
+  <tbody id="user-tests-rows">
     <%= render @tests %>
   </tbody>
 </table>
