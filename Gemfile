@@ -40,6 +40,7 @@ gem "devise", "~> 4.9"
 gem "rails-i18n", "~> 7.0.9"
 gem "bootstrap", "~> 5.3.5"
 gem "octokit", "~> 10.0"
+gem "octicons_helper", "~> 19.18"
 
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
