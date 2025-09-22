@@ -55,6 +55,7 @@ ru:
       index:
         header: "Доступные тесты"
         add_test: "Добавить тест"
+        view_gists: "Показать gists"
         table:
           questions_quantity_column: "Количество вопросов"
       show:
@@ -68,6 +69,15 @@ ru:
       show:
         header: "Варианты ответов"
         new: "Новый вариант ответа"
+    gists:
+      index:
+        header: "Gists"
+        question_column: "Вопрос"
+        url_column: "Ссылка"
+        author_column: "Автор"
+      create:
+        success: "Gist успешно сохранен. Ссылка - %{link}"
+        failure: "Во время сохранения gist произошла ошибка"
 
   test_passages:
     header: "Проходим тест \"%{title}\""
@@ -78,6 +88,9 @@ ru:
       success: "Тест успешно пройден — %{correct} правильных ответов (%{percent}%)"
       failure: "Тест не пройден — %{correct} правильных ответов (%{percent}%)"
       try_again: "Попробовать снова"
+    gist:
+      gist_button: "Сохранить вопрос в Gist"
+      description: "Вопрос %{title} из приложения TestGuru"
   
   shared:
     errors:

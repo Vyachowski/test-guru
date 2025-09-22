@@ -1,0 +1,9 @@
+<tr>
+  <td class="align-content-center">
+    <%= link_to gist_question_text(gist.question), admin_gist_path(gist), title: gist.question %>
+  </td>
+  <td class="align-content-center">
+    <%= safe_link_to(gist_url_text(gist.url), gist.url) %>
+  </td>
+  <td class="align-content-center"><%= gist.user.email %></td>
+</tr>

@@ -1,0 +1,15 @@
+<h1 class="mb-4"><%= t("admin.gists.index.header") %></h1>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col"><%= t("admin.gists.index.question_column") %></th>
+      <th scope="col"><%= t("admin.gists.index.url_column") %></th>
+      <th scope="col"><%= t("admin.gists.index.author_column") %></th>
+    </tr>
+  </thead>
+
+  <tbody>
+  <%= render @gists %>
+  </tbody>
+</table>

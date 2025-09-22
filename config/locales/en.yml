@@ -55,6 +55,7 @@ en:
       index:
         header: "Tricky Tests"
         add_test: "Add test"
+        view_gists: "View gists"
         table:
           questions_quantity_column: "Questions amount"
       show:
@@ -68,6 +69,15 @@ en:
       show:
         header: "Answer options"
         new: "New answer option"
+    gists:
+      index:
+        header: "Gists"
+        question_column: "Question"
+        url_column: "Url"
+        author_column: "Author"
+      create:
+        success: "Gist was succesfully created! Link - %{link}"
+        failure: "An error occured while saving gist"
 
   test_passages:
     header: "Taking the test \"%{title}\""
@@ -78,6 +88,9 @@ en:
       success: "Test passed successfully — %{correct} correct answers (%{percent}%)"
       failure: "Test failed — %{correct} correct answers (%{percent}%)"
       try_again: "Try again"
+    gist:
+      gist_button: "Gist Question"
+      description: "A question about %{title} from TestGuru"
 
   shared:
     errors:
