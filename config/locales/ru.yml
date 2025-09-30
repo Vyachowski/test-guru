@@ -79,6 +79,11 @@ ru:
         success: "Gist успешно сохранен. Ссылка - %{link}"
         failure: "Во время сохранения gist произошла ошибка"
 
+  feedbacks:
+    header: "Форма обратной связи"
+    link: "Обратная связь"
+    submit: 'Отправить'
+
   test_passages:
     header: "Проходим тест \"%{title}\""
     progress: "Вопрос номер %{current} из %{total}"
