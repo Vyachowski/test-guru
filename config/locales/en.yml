@@ -79,7 +79,7 @@ en:
         success: "Gist was succesfully created! Link - %{link}"
         failure: "An error occured while saving gist"
 
-  feedback:
+  feedbacks:
     header: "Feedback form"
     link: "Send feedback"
     submit: "Submit"
