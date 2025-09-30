@@ -4,15 +4,21 @@ class FeedbacksController < ApplicationController
   end
 
   def create
-    feedback_params = params.require(:feedback).permit(:name, :email, :body)
     @feedback = Feedback.new(feedback_params)
 
     if @feedback.valid?
-      FeedbackMailer.feedback_email(@feedback).deliver_now
-      redirect_to new_feedback_path, notice: "Сообщение отправлено!"
+      FeedbackMailer.with(feedback: @feedback).send_feedback.deliver_later
+
+      redirect_to new_feedback_path, notice: t("feedbacks.sent")
     else
-      flash.now[:alert] = "Заполните все поля"
+      flash.now[:alert] = t("feedbacks.fill_all_fields")
       render :new, status: :unprocessable_entity
     end
+  end
+
+  private
+
+  def feedback_params
+    params.require(:feedback).permit(:name, :email, :body)
   end
 end

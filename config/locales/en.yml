@@ -84,6 +84,8 @@ en:
     link: "Send feedback"
     submit: "Submit"
     message: "New feedback message"
+    sent: "Feedback sent!"
+    fill_all_fields: "Please, fill in all fields"
 
   test_passages:
     header: "Taking the test \"%{title}\""
