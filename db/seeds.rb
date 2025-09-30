@@ -12,8 +12,8 @@ users = [
 
 user_records = users.map do |user|
   [user[:email], User.find_or_create_by!(email: user[:email]) do |u|
-    u.password = "user"
-    u.password_confirmation = "user"
+    u.password = "useruser"
+    u.password_confirmation = "useruser"
   end]
 end.to_h
 
