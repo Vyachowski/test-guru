@@ -82,7 +82,8 @@ ru:
   feedbacks:
     header: "Форма обратной связи"
     link: "Обратная связь"
-    submit: 'Отправить'
+    submit: "Отправить"
+    message: "Новое сообщение обратной связи"
 
   test_passages:
     header: "Проходим тест \"%{title}\""

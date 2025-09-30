@@ -83,6 +83,7 @@ en:
     header: "Feedback form"
     link: "Send feedback"
     submit: "Submit"
+    message: "New feedback message"
 
   test_passages:
     header: "Taking the test \"%{title}\""
