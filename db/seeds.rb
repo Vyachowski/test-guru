@@ -14,6 +14,8 @@ user_records = users.map do |user|
   [user[:email], User.find_or_create_by!(email: user[:email]) do |u|
     u.password = "useruser"
     u.password_confirmation = "useruser"
+
+    u.confirmed_at = Time.current if Rails.env.production?
   end]
 end.to_h
 
@@ -22,6 +24,7 @@ admin = Admin.find_or_create_by!(email: 'admin@admin.com') do |u|
   u.password_confirmation = 'adminadmin'
   u.first_name = 'Admin'
   u.last_name  = 'Admin'
+  u.confirmed_at = Time.current if Rails.env.production? # для Devise Admin
 end
 
 user_records['admin@admin.com'] = admin
