@@ -295,8 +295,8 @@ end
 
 # == Создаем результаты прохождения тестов
 test_passages_data = [
-  { user_email: 'ivan@example.com', test_title: 'Frontend Basics' },
-  { user_email: 'ivan@example.com', test_title: 'Backend Basics' },
+  { user_email: 'user@user.com', test_title: 'Frontend Basics' },
+  { user_email: 'user@user.com', test_title: 'Backend Basics' },
   { user_email: 'svetlana@example.com', test_title: 'Mobile Basics' }
 ]
 
