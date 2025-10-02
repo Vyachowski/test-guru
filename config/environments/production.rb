@@ -103,7 +103,7 @@ Rails.application.configure do
   # Skip DNS rebinding protection for the default health check endpoint.
   # config.host_authorization = { exclude: ->(request) { request.path == "/up" } }
 
-  # MAIL CONFIG, TEMPORARILLY DISABLED
+  # MAIL CONFIG
   # config.action_mailer.default_url_options = { host: ENV["APP_HOST"], protocol: "https" }
   # config.action_mailer.delivery_method = :smtp
   # config.action_mailer.smtp_settings = {
@@ -116,7 +116,20 @@ Rails.application.configure do
   #   enable_starttls_auto: true
   # }
 
-  config.action_mailer.perform_deliveries = false
-  config.action_mailer.raise_delivery_errors = false
-  config.action_mailer.delivery_method = :test
+  config.action_mailer.perform_caching = false
+  config.action_mailer.default_url_options = { host: ENV["APP_HOST"], protocol: "https" }
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.raise_delivery_errors = true
+  config.action_mailer.smtp_settings =
+    {
+      address: ENV.fetch("SMTP_ADDRESS", "smtp.yandex.ru"),
+      port: 465,
+      domain: ENV.fetch("SMTP_DOMAIN", "yandex.ru"),
+      user_name: ENV["SMTP_USER"],
+      password: ENV["SMTP_PASSWORD"],
+      authentication: "plain",
+      tls: true,
+      enable_starttls_auto: true,
+      ssl: true
+    }
 end
