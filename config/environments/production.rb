@@ -128,7 +128,6 @@ Rails.application.configure do
       user_name: ENV["SMTP_USER"],
       password: ENV["SMTP_PASSWORD"],
       authentication: "plain",
-      tls: true,
       ssl: true,
       enable_starttls_auto: false
     }
