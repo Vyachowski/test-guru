@@ -8,10 +8,10 @@
     <%= form.text_field :title, id: "test_title", required: true, class: "form-control" %>
 
     <div class="d-flex gap-1">
-      <%= button_tag type: "button", id: "cancel-button", class: "btn btn-secondary" do %>
+      <%= button_tag type: "button", class: "btn btn-secondary cancel-button", data: { test_id: test.id } do %>
         <%= octicon 'x' %>
       <% end %>
-      <%= button_tag type: "submit", id: "submit-button", class: "btn btn-primary" do %>
+      <%= button_tag type: "submit", class: "btn btn-primary submit-button" do %>
         <%= octicon 'check' %>
       <% end %>
     </div>
