@@ -1,4 +1,13 @@
 ru:
+  activemodel:
+    models:
+      feedback: "Обратная связь"
+    attributes:
+      feedback:
+        name: "Имя"
+        email: "Email"
+        body: "Сообщение"
+
   activerecord:
     models:
       test: "Тест"

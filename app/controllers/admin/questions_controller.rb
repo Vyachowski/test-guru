@@ -14,7 +14,7 @@ class Admin::QuestionsController < Admin::BaseController
     @question = @test.questions.new(question_params)
 
     if @question.save
-      redirect_to admin_test_question_path(@test, @question), notice: "Вопрос успешно создан"
+      redirect_to admin_test_path(@test), notice: "Вопрос успешно создан"
     else
       render :new, status: :unprocessable_entity
     end

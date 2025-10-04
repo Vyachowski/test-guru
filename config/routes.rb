@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   devise_for :users, path: :gurus, path_names: { sign_in: :login, sign_out: :logout }
 
-  resources :tests, only: [:index, :show] do
+  resources :tests, only: %i[index show] do
     post :start, on: :member
   end
 
@@ -15,8 +15,10 @@ Rails.application.routes.draw do
         resources :answers, shallow: true
       end
     end
-    resources :gists, only: [:index, :show, :create]
+    resources :gists, only: %i[index show create]
   end
+
+  resources :feedbacks, only: %i[new create]
 
   root "tests#index"
 end

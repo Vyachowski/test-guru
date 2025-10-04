@@ -1,0 +1,21 @@
+<%= form_with model: @feedback, url: feedbacks_path, local: true, data: { turbo: false } do |form| %>
+  <%= flash_message(:alert) %>
+  <%= flash_message(:notice) %>
+
+  <p>
+    <%= form.label :name, class: "form-label" %><br>
+    <%= form.text_field :name, id: :name, value: @name, class: "form-control" %>
+  </p>
+
+  <p>
+    <%= form.label :email %><br>
+    <%= form.text_field :email, id: :email, value: @email, class: "form-control" %>
+  </p>
+
+  <fieldset class="mb-4">
+    <%= form.label :body, class: "form-label" %>
+    <%= form.text_area :body, id: "feedback_body", value: @body, rows: 4, required: true, class: "form-control" %>
+  </fieldset>
+
+  <p><%= form.submit t('feedbacks.submit'), class: "d-block btn btn-primary mx-auto" %></p>
+<% end %>

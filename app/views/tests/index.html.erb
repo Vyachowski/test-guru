@@ -20,3 +20,9 @@
     <%= render @tests %>
   </tbody>
 </table>
+
+<% unless current_user.is_a?(Admin) %>
+  <div class="container p-0 text-center">
+    <%= link_to t('feedbacks.link'), new_feedback_path %>
+  </div>
+<% end %>

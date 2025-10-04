@@ -1,4 +1,13 @@
 en:
+  activemodel:
+    models:
+      feedback: "Feedback"
+    attributes:
+      feedback:
+        name: "Name"
+        email: "Email"
+        body: "Message"
+
   activerecord:
     models:
       test: "Test"
