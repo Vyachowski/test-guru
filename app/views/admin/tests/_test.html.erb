@@ -1,5 +1,25 @@
 <tr>
-  <td class="align-content-center"><%= test.title %></td>
+  <td class="align-content-center">
+    <div class="d-flex flex-column" style="min-height: 3rem; min-width: 330px;">
+      <p class="d-flex gap-2">
+        <span><%= test.title %></span>
+        <button class="btn btn-outline w-auto h-auto p-0" id=<%=test.id%> type="button">
+          <%= octicon 'pencil' %>
+        </button>
+      </p>
+      <%= form_with model: [:admin, test], local: true, data: { turbo: false }, class: 'd-flex hide', id: "test-title-edit-form" do |form| %>
+        <%= form.label :title, class: "form-label hide" %>
+        <%= form.text_field :title, id: "test_title", required: true, class: "form-control" %>
+
+        <%= button_tag type: "button", id: "cancel-button", class: "btn btn-secondary" do %>
+          <%= octicon 'x' %>
+        <% end %>
+        <%= button_tag type: "submit", id: "submit-button", class: "btn btn-primary" do %>
+          <%= octicon 'check' %>
+        <% end %>
+      <% end %>
+    </div>
+  </td>
   <td class="align-content-center"><%= test_level(test) %></td>
   <td class="align-content-center"><%= test.questions.count %></td>
   <td class="align-content-center"><%= link_to t("common.actions.show"), admin_test_path(test), class: "btn btn-primary" %></td>
