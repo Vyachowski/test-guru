@@ -1,0 +1,19 @@
+<%= form_with model: [:admin, test],
+              url: update_inline_admin_test_path(test),
+              local: true,
+              class: 'd-flex hide',
+              data: { test_id: test.id, turbo: false } do |form| %>
+  <div class="d-flex gap-2">
+    <%= form.label :title, class: "form-label hide" %>
+    <%= form.text_field :title, id: "test_title", required: true, class: "form-control" %>
+
+    <div class="d-flex gap-1">
+      <%= button_tag type: "button", id: "cancel-button", class: "btn btn-secondary" do %>
+        <%= octicon 'x' %>
+      <% end %>
+      <%= button_tag type: "submit", id: "submit-button", class: "btn btn-primary" do %>
+        <%= octicon 'check' %>
+      <% end %>
+    </div>
+  </div>
+<% end %>

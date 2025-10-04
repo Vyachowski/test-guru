@@ -1,23 +1,13 @@
-<tr>
+<tr data-test-id=<%= test.id %>>
   <td class="align-content-center">
-    <div class="d-flex flex-column" style="min-height: 3rem; min-width: 330px;">
-      <p class="d-flex gap-2">
-        <span><%= test.title %></span>
-        <button class="btn btn-outline w-auto h-auto p-0" id=<%=test.id%> type="button">
-          <%= octicon 'pencil' %>
-        </button>
-      </p>
-      <%= form_with model: [:admin, test], local: true, data: { turbo: false }, class: 'd-flex hide', id: "test-title-edit-form" do |form| %>
-        <%= form.label :title, class: "form-label hide" %>
-        <%= form.text_field :title, id: "test_title", required: true, class: "form-control" %>
-
-        <%= button_tag type: "button", id: "cancel-button", class: "btn btn-secondary" do %>
-          <%= octicon 'x' %>
+    <div class="d-flex align-content-center" style="min-height: 3rem; min-width: 330px;">
+        <%= content_tag :p, class: 'd-flex flex-wrapa gap-2 test-title m-0 align-content-center', data: { test_id: test.id } do %>
+          <span><%= test.title %></span>
+          <button class="btn btn-outline w-auto h-auto p-0" id=<%=test.id%> type="button">
+            <%= octicon 'pencil' %>
+          </button>
         <% end %>
-        <%= button_tag type: "submit", id: "submit-button", class: "btn btn-primary" do %>
-          <%= octicon 'check' %>
-        <% end %>
-      <% end %>
+      <%= render 'form_inline', test: test == @test ? @test : test %>
     </div>
   </td>
   <td class="align-content-center"><%= test_level(test) %></td>

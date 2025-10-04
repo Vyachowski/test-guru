@@ -1,7 +1,7 @@
 class Admin::TestsController < Admin::BaseController
   rescue_from ActiveRecord::RecordNotFound, with: :render_not_found
 
-  before_action :set_test, only: %i[show edit update destroy]
+  before_action :set_test, only: %i[show edit update update_inline destroy]
 
   def index
     @tests = Test.all
@@ -30,6 +30,14 @@ class Admin::TestsController < Admin::BaseController
       redirect_to admin_test_path(@test), notice: "Тест успешно обновлен"
     else
       render :edit, status: :unprocessable_entity
+    end
+  end
+
+  def update_inline
+    if @test.update(test_params)
+      redirect_to admin_tests_path
+    else
+      render :index
     end
   end
 

@@ -5,6 +5,7 @@
   <%= link_to t(".view_gists"), admin_gists_path, class: "btn btn-secondary" %>
 </div>
 
+<%= render 'shared/errors', resource: @test %>
 
 <table class="table">
   <thead>
