@@ -1,5 +1,15 @@
-<tr>
-  <td class="align-content-center"><%= test.title %></td>
+<tr data-test-id=<%= test.id %>>
+  <td class="align-content-center">
+    <div class="d-flex align-content-center" style="min-height: 3rem; min-width: 330px;">
+        <%= content_tag :p, class: 'd-flex flex-wrap gap-2 test-title m-0 align-content-center', data: { test_id: test.id } do %>
+          <span><%= test.title %></span>
+          <button class="btn btn-outline w-auto h-auto p-0 edit-button" type="button">
+            <%= octicon 'pencil' %>
+          </button>
+        <% end %>
+      <%= render 'form_inline', test: test == @test ? @test : test %>
+    </div>
+  </td>
   <td class="align-content-center"><%= test_level(test) %></td>
   <td class="align-content-center"><%= test.questions.count %></td>
   <td class="align-content-center"><%= link_to t("common.actions.show"), admin_test_path(test), class: "btn btn-primary" %></td>

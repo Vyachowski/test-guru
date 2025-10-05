@@ -1,48 +1,54 @@
-# Создаем тестовые данные
-
-# == Создаем категории и сохраняем хэш с айди для создания тестов
 categories = ['Frontend', 'Backend', 'Mobile Development', 'DevOps', 'Game Development']
 
 category_records = categories.index_with do |title|
   Category.find_or_create_by!(title: title)
 end
 
-# == Создаем юзеров и сохраняем хэш с имейлами для создания вопросов
 users = [
-  { email: 'ivan@example.com' },
+  { email: 'user@user.com' },
   { email: 'petr@example.com' },
   { email: 'svetlana@example.com' }
 ]
 
 user_records = users.map do |user|
   [user[:email], User.find_or_create_by!(email: user[:email]) do |u|
-    u.password = "password"
-    u.password_confirmation = "password"
+    u.password = "useruser"
+    u.password_confirmation = "useruser"
+
+    u.confirmed_at = Time.current if Rails.env.production?
   end]
 end.to_h
 
-# == Создаем юзеров и сохраняем хэш с имейлами для создания тестов и результатов
+admin = Admin.find_or_create_by!(email: 'admin@admin.com') do |u|
+  u.password = 'adminadmin'
+  u.password_confirmation = 'adminadmin'
+  u.first_name = 'Admin'
+  u.last_name  = 'Admin'
+  u.confirmed_at = Time.current if Rails.env.production? # для Devise Admin
+end
+
+user_records['admin@admin.com'] = admin
+
 tests = [
   # === Уровень 1 ===
-  { title: 'Frontend Basics', level: 1, category: category_records['Frontend'], creator: user_records['ivan@example.com'] },
-  { title: 'Backend Basics', level: 1, category: category_records['Backend'], creator: user_records['ivan@example.com'] },
-  { title: 'Mobile Basics', level: 1, category: category_records['Mobile Development'], creator: user_records['ivan@example.com'] },
-  { title: 'DevOps Basics', level: 1, category: category_records['DevOps'], creator: user_records['ivan@example.com'] },
-  { title: 'Game Development Basics', level: 1, category: category_records['Game Development'], creator: user_records['ivan@example.com'] },
+  { title: 'Frontend Basics', level: 1, category: category_records['Frontend'], creator: admin },
+  { title: 'Backend Basics', level: 1, category: category_records['Backend'], creator: admin },
+  { title: 'Mobile Basics', level: 1, category: category_records['Mobile Development'], creator: admin },
+  { title: 'DevOps Basics', level: 1, category: category_records['DevOps'], creator: admin },
+  { title: 'Game Development Basics', level: 1, category: category_records['Game Development'], creator: admin },
 
   # === Уровень 2 ===
-  { title: 'Frontend Intermediate', level: 2, category: category_records['Frontend'], creator: user_records['svetlana@example.com'] },
-  { title: 'Backend Intermediate', level: 2, category: category_records['Backend'], creator: user_records['svetlana@example.com'] },
-  { title: 'Mobile Intermediate', level: 2, category: category_records['Mobile Development'], creator: user_records['svetlana@example.com'] },
-  { title: 'DevOps Intermediate', level: 2, category: category_records['DevOps'], creator: user_records['svetlana@example.com'] },
-  { title: 'Game Development Intermediate', level: 2, category: category_records['Game Development'], creator: user_records['svetlana@example.com'] }
+  { title: 'Frontend Intermediate', level: 2, category: category_records['Frontend'], creator: admin },
+  { title: 'Backend Intermediate', level: 2, category: category_records['Backend'], creator: admin },
+  { title: 'Mobile Intermediate', level: 2, category: category_records['Mobile Development'], creator: admin },
+  { title: 'DevOps Intermediate', level: 2, category: category_records['DevOps'], creator: admin },
+  { title: 'Game Development Intermediate', level: 2, category: category_records['Game Development'], creator: admin }
 ]
 
 test_records = tests.map do |test|
   [test[:title], Test.find_or_create_by!(title: test[:title]) { |t| t.assign_attributes(test) }]
 end.to_h
 
-# == Создаем вопросы и сохраняем хэш с имейлами для создания ответов
 questions = [
   # === Уровень 1 (базовый) ===
 
@@ -289,8 +295,8 @@ end
 
 # == Создаем результаты прохождения тестов
 test_passages_data = [
-  { user_email: 'ivan@example.com', test_title: 'Frontend Basics' },
-  { user_email: 'ivan@example.com', test_title: 'Backend Basics' },
+  { user_email: 'user@user.com', test_title: 'Frontend Basics' },
+  { user_email: 'user@user.com', test_title: 'Backend Basics' },
   { user_email: 'svetlana@example.com', test_title: 'Mobile Basics' }
 ]
 

@@ -79,6 +79,14 @@ en:
         success: "Gist was succesfully created! Link - %{link}"
         failure: "An error occured while saving gist"
 
+  feedbacks:
+    header: "Feedback form"
+    link: "Send feedback"
+    submit: "Submit"
+    message: "New feedback message"
+    sent: "Feedback sent!"
+    fill_all_fields: "Please, fill in all fields"
+
   test_passages:
     header: "Taking the test \"%{title}\""
     progress: "Question %{current} of %{total}"
