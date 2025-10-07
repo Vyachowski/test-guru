@@ -56,6 +56,7 @@ en:
         header: "Tricky Tests"
         add_test: "Add test"
         view_gists: "View gists"
+        view_badges: "View badges"
         table:
           questions_quantity_column: "Questions amount"
       show:

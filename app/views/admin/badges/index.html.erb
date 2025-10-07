@@ -1,2 +1,23 @@
-<h1>Admin::Badges#index</h1>
-<p>Find me in app/views/admin/badges/index.html.erb</p>
+<h1 class="mb-4"><%= t(".header") %></h1>
+
+<%= render 'shared/errors', resource: @test %>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">
+        <button class="btn btn-outline-dark sort-by-title pointer" type="button" id="test-table-sort">
+          <%=t("common.tables.name_column") %>
+          <%= octicon 'arrow-up', class: 'text-success hide' %>
+          <%= octicon 'arrow-down', class: 'text-danger hide' %>
+        </button>
+      <th scope="col"><%=t("common.tables.icon") %></th>
+      <th scope="col"><%=t(".table.questions_quantity_column") %></th>
+      <th scope="col" colspan="3"><%=t("common.tables.activation_column") %></th>
+    </tr>
+  </thead>
+
+  <tbody id="user-tests-rows">
+    <%= render @badges %>
+  </tbody>
+</table>

@@ -56,6 +56,7 @@ ru:
         header: "Доступные тесты"
         add_test: "Добавить тест"
         view_gists: "Показать gists"
+        view_badges: "Показать награды"
         table:
           questions_quantity_column: "Количество вопросов"
       show:
