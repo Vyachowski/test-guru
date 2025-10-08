@@ -9,9 +9,9 @@ class Admin::BadgesController < ApplicationController
 
   def update
     if @badge.update(badge_params)
-      notice_message = @badge.active ? t("badges.activated") : t("badges.deactivated")
+      notice_message = @badge.active ? t(".activated") : t(".deactivated")
 
-      redirect_to admin_badge_path(@badge), notice: notice_message
+      redirect_to admin_badges_path, notice: notice_message
     else
       render :show
     end

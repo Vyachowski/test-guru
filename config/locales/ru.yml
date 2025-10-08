@@ -51,6 +51,11 @@ ru:
       confirmation: "Вы уверены?"
 
   admin:
+    badges:
+      index:
+        header: "Награды" 
+      activated: "Награда доступна для выдачи"
+      deactivated: "Награды скрыты для пользователей"
     tests:
       index:
         header: "Доступные тесты"

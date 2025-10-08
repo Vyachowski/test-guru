@@ -51,6 +51,11 @@ en:
       confirmation: "Are you sure?"
 
   admin:
+    badges:
+      index: 
+        header: "Badges" 
+      activated: "Badge activated"
+      deactivated: "Badge deactivated"
     tests:
       index:
         header: "Tricky Tests"

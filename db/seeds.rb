@@ -309,7 +309,7 @@ end
 
 # == Создаем бейджики
 badges_data = [
-  { name: "Bull's eye", image_url: 'https://www.reshot.com/preview-assets/icons/NTS48ZM9FW/achievement-badge-NTS48ZM9FW.svg', rule_type: 'first_try', rule_value: nil, active: true },
+  { name: "Bull's eye", image_url: 'https://www.reshot.com/preview-assets/icons/T7WY4U2KHM/target-T7WY4U2KHM.svg', rule_type: 'first_try', rule_value: nil, active: true },
   { name: 'Backend Jedi', image_url: 'https://www.reshot.com/preview-assets/icons/8LNHUCP3R2/achievement-badge-8LNHUCP3R2.svg', rule_type: 'all_in_category', rule_value: 'backend', active: true },
   { name: 'Frontend Sith', image_url: 'https://www.reshot.com/preview-assets/icons/NTS48ZM9FW/achievement-badge-NTS48ZM9FW.svg', rule_type: 'all_in_category', rule_value: 'backend', active: true },
   { name: 'Padawan', image_url: 'https://www.reshot.com/preview-assets/icons/W8GFDP3L79/weight-lifting-person-W8GFDP3L79.svg', rule_type: 'all_of_level', rule_value: '1', active: true },
