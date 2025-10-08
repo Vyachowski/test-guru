@@ -9,9 +9,7 @@ class Admin::BadgesController < ApplicationController
 
   def update
     if @badge.update(badge_params)
-      notice_message = @badge.active ? t(".activated") : t(".deactivated")
-
-      redirect_to admin_badges_path, notice: notice_message
+      redirect_to admin_badges_path
     else
       render :show
     end
@@ -24,6 +22,6 @@ class Admin::BadgesController < ApplicationController
   end
 
   def badge_params
-    params.require(:badge).permit(:active)
+    params.require(:badge).permit([:active, :name])
   end
 end

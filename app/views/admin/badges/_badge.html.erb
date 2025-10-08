@@ -1,7 +1,13 @@
 <tr data-test-id=<%= badge.id %>>
   <td class="align-content-center">
     <div class="d-flex align-content-center" style="min-height: 3rem; min-width: 330px;">
-      <span><%= badge.name %></span>
+        <%= content_tag :p, class: 'd-flex flex-wrap gap-2 test-title m-0 align-content-center', data: { badge_id: badge.id } do %>
+          <span><%= badge.name %></span>
+          <button class="btn btn-outline w-auto h-auto p-0 edit-button" type="button">
+            <%= octicon 'pencil' %>
+          </button>
+        <% end %>
+      <%= render 'form_inline', badge: badge == @badge ? @badge : badge %>
     </div>
   </td>
   <td><img src=<%= badge.image_url %> width="50" height="50" /></td>
@@ -11,7 +17,7 @@
           admin_badge_path(badge),
           method: :patch,
           params: { badge: { active: !badge.active } },
-          class: "btn btn-secondary"
+          class: "btn #{badge.active ? 'btn-danger' : 'btn-success'}"
         ) %>
   </td>
 </tr>
