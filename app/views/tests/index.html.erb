@@ -3,7 +3,7 @@
 <h2 class="mb-4"><%= t("admin.badges.index.header") %></h2>
 
 <div class="row g-3">
-  <% active_badges = current_user.badges.select(&:active) %>
+  <% active_badges = current_user.badges.active %>
 
   <% if active_badges.any? %>
     <% active_badges.each do |badge| %>
