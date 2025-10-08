@@ -3,29 +3,33 @@
 <h2 class="mb-4"><%= t("admin.badges.index.header") %></h2>
 
 <div class="row g-3">
-  <% active_badges = current_user.badges.active %>
+  <% if @badges.any? %>
+    <% @badges.each do |badge| %>
+      <% status = @badge_status[badge] %>
+      <% filter_style = 'filter: grayscale(100%); opacity: 0.5;' unless status[:earned] && status[:active] %>
+      <% text_style = 'color: #6c757d;' unless status[:earned] && status[:active] %>
 
-  <% if active_badges.any? %>
-    <% active_badges.each do |badge| %>
       <div class="col-6 col-md-4 col-lg-3">
         <div class="card text-center h-100 border-0">
           <% if badge.image_url.present? %>
-            <div class="d-flex flex-wrap align-items-center justify-content-center mx-auto mt-3" style="width: 80px; height: 80px; border-radius: 50%; overflow: hidden; border: 2px solid #dee2e6;">
+            <div class="d-flex flex-wrap align-items-center justify-content-center mx-auto mt-3"
+                 style="width: 80px; height: 80px; border-radius: 50%; overflow: hidden; border: 2px solid #dee2e6; <%= filter_style %>">
               <img src="<%= badge.image_url %>" alt="<%= badge.name %>" style="width: 70%; height: 70%; object-fit: cover;">
             </div>
           <% end %>
           <div class="card-body p-2">
-            <h6 class="card-title mb-0"><%= badge.name %></h6>
+            <h6 class="card-title mb-0" style="<%= text_style %>"><%= badge.name %></h6>
           </div>
         </div>
       </div>
     <% end %>
   <% else %>
     <div class="col-12 text-center text-muted">
-      <%= t('badges.none_yet', default: "Нет полученных бейджей") %>
+      <%= t('badges.none_yet', default: "Нет бейджей в системе") %>
     </div>
   <% end %>
 </div>
+
 
 <table class="table">
   <thead>

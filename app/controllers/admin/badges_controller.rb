@@ -1,5 +1,5 @@
 class Admin::BadgesController < ApplicationController
-  before_action :set_badge, only: %i[show update]
+  before_action :set_badge, only: %i[update]
 
   def index
     @badges = Badge.all
