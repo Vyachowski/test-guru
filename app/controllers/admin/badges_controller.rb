@@ -5,8 +5,6 @@ class Admin::BadgesController < ApplicationController
     @badges = Badge.all
   end
 
-  def show; end
-
   def update
     if @badge.update(badge_params)
       redirect_to admin_badges_path

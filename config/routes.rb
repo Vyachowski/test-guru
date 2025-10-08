@@ -17,7 +17,7 @@ Rails.application.routes.draw do
       patch :update_inline, on: :member
     end
     resources :gists, only: %i[index show create]
-    resources :badges, only: %i[index show update]
+    resources :badges, only: %i[index update]
   end
 
   resources :feedbacks, only: %i[new create]
