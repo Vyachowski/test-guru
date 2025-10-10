@@ -94,6 +94,7 @@ en:
     header: "Taking the test \"%{title}\""
     progress: "Question %{current} of %{total}"
     next: "Next"
+    time_left: "Time Left"
     finished:
       header: "Test \"%{title}\" is finished!"
       success: "Test passed successfully — %{correct} correct answers (%{percent}%)"

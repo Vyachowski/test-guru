@@ -94,6 +94,7 @@ ru:
     header: "Проходим тест \"%{title}\""
     progress: "Вопрос номер %{current} из %{total}"
     next: "Дальше"
+    time_left: "Времени осталось"
     finished:
       header: "%{title} тест закончен!"
       success: "Тест успешно пройден — %{correct} правильных ответов (%{percent}%)"
