@@ -36,7 +36,7 @@ document.addEventListener("turbo:load", () => {
       })
       window.location.href = `/test_passages/${testPassageId}/result`
     } catch (e) {
-      console.error("Ошибка при завершении теста:", e)
+      console.error("Error while passing the test:", e)
       window.location.reload()
     }
   }
