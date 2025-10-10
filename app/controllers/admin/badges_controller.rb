@@ -20,6 +20,6 @@ class Admin::BadgesController < ApplicationController
   end
 
   def badge_params
-    params.require(:badge).permit([:active, :name])
+    params.require(:badge).permit(:active, :name, :image_url, :rule_type, :rule_value)
   end
 end

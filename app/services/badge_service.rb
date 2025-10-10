@@ -5,9 +5,20 @@ class BadgeService
   end
 
   def call
-    Badge.find_each do |badge|
-      give_badge(badge) if send("#{badge.rule_type}?", badge.rule_value)
+    new_badges = []
+
+    Badge.active.find_each do |badge|
+      rule_class = "BadgeRules::#{badge.rule_type.camelize}Rule".safe_constantize
+      next unless rule_class
+
+      rule = rule_class.new(@user, @test_passage, badge.rule_value)
+      if rule.satisfied?
+        @user.badges << badge
+        new_badges << badge
+      end
     end
+
+    new_badges
   end
 
   private
