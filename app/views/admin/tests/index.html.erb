@@ -2,7 +2,10 @@
 
 <div class="container p-0 d-flex justify-content-between mb-4">
   <%= link_to t(".add_test"), new_admin_test_path, class: "btn btn-info" %>
-  <%= link_to t(".view_gists"), admin_gists_path, class: "btn btn-secondary" %>
+  <div>
+    <%= link_to t(".view_gists"), admin_gists_path, class: "btn btn-secondary" %>
+    <%= link_to t(".view_badges"), admin_badges_path, class: "btn btn-secondary" %>
+  </div>
 </div>
 
 <%= render 'shared/errors', resource: @test %>

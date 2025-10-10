@@ -13,6 +13,8 @@ en:
       test: "Test"
       question: "Question"
       answer: "Answer"
+      user: "User"
+      badge: "Badge"
     attributes:
       test:
         title: "Name"
@@ -23,6 +25,13 @@ en:
       answer:
         body: "Body"
         correct: "Correct"
+      badge:
+        name: "Name"
+        image_url: "Image URL"
+        rule_type: "Rule Type"
+        rule_value: "Rule Value"
+        active: "Active?"
+
     errors:
       messages:
         blank: "Can't be blank"

@@ -51,11 +51,23 @@ en:
       confirmation: "Are you sure?"
 
   admin:
+    badges:
+      index:
+        created: "Badge created"
+        create_badge: "Create badge"
+        header: "Badges" 
+      activated: "Badge activated"
+      deactivated: "Badge deactivated"
+      form:
+        "image_hint": "Must be a valid image (jpg, png, gif, webp) under 1MB"
+      new:
+        header: "Create badge"
     tests:
       index:
         header: "Tricky Tests"
         add_test: "Add test"
         view_gists: "View gists"
+        view_badges: "View badges"
         table:
           questions_quantity_column: "Questions amount"
       show:

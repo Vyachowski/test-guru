@@ -51,11 +51,23 @@ ru:
       confirmation: "Вы уверены?"
 
   admin:
+    badges:
+      index:
+        created: "Награда создана"
+        create_badge: "Создать награду"
+        header: "Награды" 
+      activated: "Награда доступна для выдачи"
+      deactivated: "Награды скрыты для пользователей"
+      form:
+        "image_hint": "Должно быть ссылкой на изоражение подходяшего формата (jpg, png, gif, webp) меньше 1MB"
+      new:
+        header: "Создать награду"
     tests:
       index:
         header: "Доступные тесты"
         add_test: "Добавить тест"
         view_gists: "Показать gists"
+        view_badges: "Показать награды"
         table:
           questions_quantity_column: "Количество вопросов"
       show:

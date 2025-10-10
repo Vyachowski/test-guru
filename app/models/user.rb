@@ -16,6 +16,8 @@ class User < ApplicationRecord
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
 
   has_many :created_tests, class_name: "Test", foreign_key: :creator_id, dependent: :destroy
+  has_many :user_badges, dependent: :destroy
+  has_many :badges, through: :user_badges
   has_many :test_passages, dependent: :destroy
   has_many :tests, through: :test_passages
   has_many :gists, dependent: :destroy

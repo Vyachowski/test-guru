@@ -1,0 +1,19 @@
+<%= form_with model: [:admin, badge],
+              url: admin_badge_path(badge),
+              local: true,
+              class: 'd-flex hide',
+              data: { badge_id: badge.id, turbo: false } do |form| %>
+  <div class="d-flex gap-2">
+    <%= form.label :name, class: "form-label hide" %>
+    <%= form.text_field :name, id: "badge_name", required: true, class: "form-control" %>
+
+    <div class="d-flex gap-1">
+      <%= button_tag type: "button", class: "btn btn-secondary cancel-button", data: { badge_id: badge.id } do %>
+        <%= octicon 'x' %>
+      <% end %>
+      <%= button_tag type: "submit", class: "btn btn-primary submit-button" do %>
+        <%= octicon 'check' %>
+      <% end %>
+    </div>
+  </div>
+<% end %>

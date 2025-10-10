@@ -1,0 +1,5 @@
+<%= link_to t("common.back"), admin_badges_path, class: "btn btn-secondary mb-2" %>
+
+<h1 class="mb-4"><%= t("admin.badges.new.header", default: "Create new badge") %></h1>
+
+<%= render 'form', badge: @badge %>

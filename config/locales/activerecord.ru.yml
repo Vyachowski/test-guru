@@ -14,6 +14,7 @@ ru:
       question: "Вопрос"
       answer: "Ответ"
       user: "Пользователь"
+      badge: "Награда"
     attributes:
       test:
         title: "Название"
@@ -28,6 +29,12 @@ ru:
         email: "Email"
         password: "Пароль"
         password_confirmation: "Подтверждение пароля"
+      badge:
+        name: "Имя"
+        image_url: "Урл изображения"
+        rule_type: "Тип правила"
+        rule_value: "Значение правила"
+        active: "Активен?"
     errors:
       models:
         user:

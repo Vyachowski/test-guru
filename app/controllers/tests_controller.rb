@@ -6,6 +6,14 @@ class TestsController < ApplicationController
 
   def index
     @tests = Test.all
+
+    @badges = Badge.all
+    @user_badges = current_user.badges
+
+    @badge_status = @badges.each_with_object({}) do |badge, hash|
+      earned = @user_badges.include?(badge)
+      hash[badge] = { earned: earned, active: badge.active }
+    end
   end
 
   def start
