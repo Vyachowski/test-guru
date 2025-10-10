@@ -62,6 +62,9 @@ en:
         level: "Level"
         test_questions: "Test questions"
         new_question: "Add question"
+      form:
+        timer_placeholder:
+          "Enter time in minutes"
     nav:
       admin_panel: "Admin panel"
       welcome: "Welcome"
