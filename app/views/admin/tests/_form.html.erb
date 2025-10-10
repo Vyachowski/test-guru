@@ -10,6 +10,14 @@
 
     <%= form.label :category, class: "form-label" %>
     <%= form.collection_select :category_id, Category.all, :id, :title, { prompt: t('helpers.select.test.category_id') }, required: true, class: "form-control" %>
+
+    <%= form.label :timer, t('activerecord.attributes.test.timer'), class: "form-label" %>
+    <%= form.number_field :timer,
+                          id: "test_timer",
+                          min: 0,
+                          step: 1,
+                          placeholder: t('activerecord.attributes.test.timer'),
+                          class: "form-control" %>
   </fieldset>
 
   <div>

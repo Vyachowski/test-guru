@@ -58,6 +58,8 @@ class Admin::TestsController < Admin::BaseController
   end
 
   def test_params
-    params.require(:test).permit(:title, :level, :category_id)
+    permitted = params.require(:test).permit(:title, :level, :category_id, :timer)
+    permitted[:timer] = nil if permitted[:timer].to_i.zero?
+    permitted
   end
 end
