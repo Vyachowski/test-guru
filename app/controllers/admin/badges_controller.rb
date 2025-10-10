@@ -13,6 +13,20 @@ class Admin::BadgesController < ApplicationController
     end
   end
 
+  def create
+    @badge = Badge.new(badge_params)
+
+    if @badge.save
+      redirect_to admin_badges_path, notice: t("admin.badges.created")
+    else
+      render :new, status: :unprocessable_entity
+    end
+  end
+
+  def new
+    @badge = Badge.new
+  end
+
   private
 
   def set_badge

@@ -53,6 +53,7 @@ ru:
   admin:
     badges:
       index:
+        create_badge: "Создать награду"
         header: "Награды" 
       activated: "Награда доступна для выдачи"
       deactivated: "Награды скрыты для пользователей"

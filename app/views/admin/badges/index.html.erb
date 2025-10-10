@@ -1,20 +1,25 @@
 <%= link_to t("common.back"), admin_tests_path, class: "btn btn-secondary mb-2" %>
 
-<h1 class="mb-4"><%= t(".header") %></h1>
+<div class="d-flex justify-content-between align-items-center mb-3">
+  <h1 class="mb-0"><%= t(".header") %></h1>
+
+  <%= link_to t(".create_badge"), new_admin_badge_path, class: "btn btn-success" %>
+</div>
 
 <%= render 'shared/errors', resource: @test %>
 
-<table class="table">
+<table class="table table-striped">
   <thead>
     <tr>
       <th scope="col">
         <button class="btn btn-outline-dark sort-by-title pointer" type="button" id="test-table-sort">
-          <%=t("common.tables.name_column") %>
+          <%= t("common.tables.name_column") %>
           <%= octicon 'arrow-up', class: 'text-success hide' %>
           <%= octicon 'arrow-down', class: 'text-danger hide' %>
         </button>
-      <th scope="col"><%=t("common.tables.icon") %></th>
-      <th scope="col" colspan="3"><%=t("common.tables.activation_column") %></th>
+      </th>
+      <th scope="col"><%= t("common.tables.icon") %></th>
+      <th scope="col" colspan="3"><%= t("common.tables.activation_column") %></th>
     </tr>
   </thead>
 
