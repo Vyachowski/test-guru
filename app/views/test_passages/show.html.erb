@@ -17,6 +17,16 @@
   </div>
 </div>
 
+<% if @test_passage.time_left.present? %>
+  <div id="timer"
+      data-remaining="<%= @test_passage.time_left.to_i %>"
+      data-test-id="<%= @test_passage.id %>"
+      class="alert alert-warning text-center fw-bold">
+    <%= t('test_passages.time_left') %>:
+    <span id="timer-display"></span>
+  </div>
+<% end %>
+
 <em class="d-block mb-2">
   <%= t("test_passages.progress",
          current: @test_passage.current_question_number,

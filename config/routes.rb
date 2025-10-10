@@ -7,6 +7,9 @@ Rails.application.routes.draw do
 
   resources :test_passages, only: %i[show update] do
     get :result, on: :member
+    member do
+      patch :timeout
+    end
   end
 
   namespace :admin do

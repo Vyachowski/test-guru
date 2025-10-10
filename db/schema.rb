@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.2].define(version: 2025_09_30_182338) do
+ActiveRecord::Schema[7.2].define(version: 2025_10_09_203216) do
   create_table "answers", force: :cascade do |t|
     t.text "body", null: false
     t.boolean "correct", default: false, null: false
@@ -51,6 +51,7 @@ ActiveRecord::Schema[7.2].define(version: 2025_09_30_182338) do
     t.datetime "updated_at", null: false
     t.integer "current_question_id"
     t.integer "correct_questions", default: 0, null: false
+    t.boolean "timed_out", default: false, null: false
     t.index ["current_question_id"], name: "index_test_passages_on_current_question_id"
     t.index ["test_id"], name: "index_test_passages_on_test_id"
     t.index ["user_id", "test_id"], name: "index_test_passages_on_user_id_and_test_id"
@@ -64,6 +65,7 @@ ActiveRecord::Schema[7.2].define(version: 2025_09_30_182338) do
     t.integer "creator_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "timer"
     t.index ["category_id"], name: "index_tests_on_category_id"
     t.index ["creator_id"], name: "index_tests_on_creator_id"
     t.index ["title", "level"], name: "index_tests_on_title_and_level", unique: true
