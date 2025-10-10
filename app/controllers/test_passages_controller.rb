@@ -1,5 +1,5 @@
 class TestPassagesController < ApplicationController
-  before_action :set_test_passage, only: %i[show update result]
+  before_action :set_test_passage, only: %i[show update result timeout]
 
   def show; end
 
@@ -16,7 +16,6 @@ class TestPassagesController < ApplicationController
   end
 
   def timeout
-    @test_passage = TestPassage.find(params[:id])
     @test_passage.update!(timed_out: true)
 
     redirect_to result_test_passage_path(@test_passage)
