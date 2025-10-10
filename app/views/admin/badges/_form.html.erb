@@ -1,0 +1,40 @@
+<%= form_with model: [:admin, badge], local: true, data: { turbo: false } do |form| %>
+  <%= render "shared/errors", resource: badge %>
+
+  <fieldset class="mb-4">
+    <div class="mb-3">
+      <%= form.label :name, class: "form-label" %>
+      <%= form.text_field :name, required: true, class: "form-control" %>
+    </div>
+
+    <div class="mb-3">
+      <%= form.label :image_url, t("admin.badges.form.image_url", default: "Image URL"), class: "form-label" %>
+      <%= form.url_field :image_url, required: true, class: "form-control", placeholder: "https://example.com/badge.png" %>
+      <div class="form-text">
+        <%= t("admin.badges.form.image_hint", default: "Must be a valid image (jpg, png, gif, webp) under 1MB") %>
+      </div>
+    </div>
+
+    <div class="mb-3">
+      <%= form.label :rule_type, t("admin.badges.form.rule_type", default: "Rule type"), class: "form-label" %>
+      <%= form.select :rule_type,
+            Badge::RULE_TYPES.map { |rule| [t("admin.badges.rules.#{rule}", default: rule.humanize), rule] },
+            { prompt: t("helpers.select.prompt") },
+            required: true, class: "form-control" %>
+    </div>
+
+    <div class="mb-3">
+      <%= form.label :rule_value, t("admin.badges.form.rule_value", default: "Rule value"), class: "form-label" %>
+      <%= form.text_field :rule_value, class: "form-control", placeholder: "e.g. category name or level number" %>
+    </div>
+
+    <div class="form-check mb-3">
+      <%= form.check_box :active, class: "form-check-input", id: "badge_active" %>
+      <%= form.label :active, class: "form-check-label" %>
+    </div>
+  </fieldset>
+
+  <div>
+    <%= form.submit t("common.save", default: "Save"), id: "submit_button", class: "btn btn-primary" %>
+  </div>
+<% end %>
