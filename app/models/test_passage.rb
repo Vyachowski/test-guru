@@ -7,6 +7,27 @@ class TestPassage < ApplicationRecord
 
   before_validation :before_validation_set_first_question, on: :create
 
+  def timed?
+    test.timer.present?
+  end
+
+  def time_left
+    return nil unless timed?
+
+    time_passed = Time.current - created_at
+    total_time = test.timer.minutes
+    remaining = total_time - time_passed
+    remaining.positive? ? remaining : 0
+  end
+
+  def expired?
+    timed? && time_left <= 0
+  end
+
+  def expire!
+    update!(timed_out: true)
+  end
+
   def completed?
     current_question.nil?
   end
