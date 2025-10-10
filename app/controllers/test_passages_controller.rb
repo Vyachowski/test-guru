@@ -15,6 +15,13 @@ class TestPassagesController < ApplicationController
     end
   end
 
+  def timeout
+    @test_passage = TestPassage.find(params[:id])
+    @test_passage.update!(timed_out: true)
+
+    redirect_to result_test_passage_path(@test_passage)
+  end
+
   private
 
   def set_test_passage

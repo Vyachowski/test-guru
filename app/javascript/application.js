@@ -3,6 +3,7 @@ import "@hotwired/turbo-rails"
 import "controllers"
 
 import "bootstrap"
+import "utilities/timer"
 import "utilities/sorting"
 import "utilities/password_check"
 import "utilities/progress_bar"
