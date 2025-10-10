@@ -53,10 +53,15 @@ en:
   admin:
     badges:
       index:
+        created: "Badge created"
         create_badge: "Create badge"
         header: "Badges" 
       activated: "Badge activated"
       deactivated: "Badge deactivated"
+      form:
+        "image_hint": "Must be a valid image (jpg, png, gif, webp) under 1MB"
+      new:
+        header: "Create badge"
     tests:
       index:
         header: "Tricky Tests"

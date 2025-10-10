@@ -4,6 +4,7 @@ import "controllers"
 
 import "bootstrap"
 import "utilities/sorting"
+import "utilities/badge_form"
 import "utilities/password_check"
 import "utilities/progress_bar"
 import "utilities/toggle_test_title_form"
