@@ -308,25 +308,25 @@ end
 # end
 
 # == Создаем бейджики
-badges_data = [
-  { name: "Bull's eye", image_url: 'https://www.reshot.com/preview-assets/icons/T7WY4U2KHM/target-T7WY4U2KHM.svg', rule_type: 'first_try', rule_value: nil, active: true },
-  { name: 'Backend Jedi', image_url: 'https://www.reshot.com/preview-assets/icons/8LNHUCP3R2/achievement-badge-8LNHUCP3R2.svg', rule_type: 'all_in_category', rule_value: 'backend', active: true },
-  { name: 'Frontend Sith', image_url: 'https://www.reshot.com/preview-assets/icons/NTS48ZM9FW/achievement-badge-NTS48ZM9FW.svg', rule_type: 'all_in_category', rule_value: 'frontend', active: true },
-  { name: 'Padawan', image_url: 'https://www.reshot.com/preview-assets/icons/W8GFDP3L79/weight-lifting-person-W8GFDP3L79.svg', rule_type: 'all_of_level', rule_value: '1', active: true },
-  { name: 'Jedi', image_url: 'https://www.reshot.com/preview-assets/icons/XVPJZ9KWFB/chinese-male-XVPJZ9KWFB.svg', rule_type: 'all_of_level', rule_value: '2', active: true },
-  { name: 'Dark Lord', image_url: 'https://www.reshot.com/preview-assets/icons/RVGF2DCPUN/beach-RVGF2DCPUN.svg', rule_type: 'all_of_level', rule_value: '3', active: true }
-]
+# badges_data = [
+#   { name: "Bull's eye", image_url: 'https://www.reshot.com/preview-assets/icons/T7WY4U2KHM/target-T7WY4U2KHM.svg', rule_type: 'first_try', rule_value: nil, active: true },
+#   { name: 'Backend Jedi', image_url: 'https://www.reshot.com/preview-assets/icons/8LNHUCP3R2/achievement-badge-8LNHUCP3R2.svg', rule_type: 'all_in_category', rule_value: 'backend', active: true },
+#   { name: 'Frontend Sith', image_url: 'https://www.reshot.com/preview-assets/icons/NTS48ZM9FW/achievement-badge-NTS48ZM9FW.svg', rule_type: 'all_in_category', rule_value: 'frontend', active: true },
+#   { name: 'Padawan', image_url: 'https://www.reshot.com/preview-assets/icons/W8GFDP3L79/weight-lifting-person-W8GFDP3L79.svg', rule_type: 'all_of_level', rule_value: '1', active: true },
+#   { name: 'Jedi', image_url: 'https://www.reshot.com/preview-assets/icons/XVPJZ9KWFB/chinese-male-XVPJZ9KWFB.svg', rule_type: 'all_of_level', rule_value: '2', active: true },
+#   { name: 'Dark Lord', image_url: 'https://www.reshot.com/preview-assets/icons/RVGF2DCPUN/beach-RVGF2DCPUN.svg', rule_type: 'all_of_level', rule_value: '3', active: true }
+# ]
 
-badges_data.each do |attrs|
-  badge = Badge.find_by(name: attrs[:name])
+# badges_data.each do |attrs|
+#   badge = Badge.find_by(name: attrs[:name])
 
-  unless badge
-    Badge.create!(
-      name: attrs[:name],
-      image_url: attrs[:image_url],
-      rule_type: attrs[:rule_type],
-      rule_value: attrs[:rule_value],
-      active: attrs.fetch(:active, true)
-    )
-  end
-end
+#   unless badge
+#     Badge.create!(
+#       name: attrs[:name],
+#       image_url: attrs[:image_url],
+#       rule_type: attrs[:rule_type],
+#       rule_value: attrs[:rule_value],
+#       active: attrs.fetch(:active, true)
+#     )
+#   end
+# end

@@ -2,7 +2,7 @@ class Badge < ApplicationRecord
   has_many :user_badges
   has_many :users, through: :user_badges
 
-  RULE_TYPES = %w[all_in_category first_try all_of_level].freeze
+  RULE_TYPES = %w[all_in_category all_of_level passed_on_attempt].freeze
 
   scope :active, -> { where(active: true) }
 
