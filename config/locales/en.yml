@@ -64,6 +64,10 @@ en:
         create: "Create badge"
       new:
         header: "Create badge"
+      rules:
+        all_in_category: "All in category"
+        all_of_level: "All of level"
+        passed_on_attempt: "Passed on attempt"
     tests:
       index:
         header: "Tricky Tests"

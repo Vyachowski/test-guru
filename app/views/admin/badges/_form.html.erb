@@ -18,7 +18,7 @@
 
     <div class="mb-3">
       <%= form.label :rule_type, class: "form-label" %>
-      <%= form.text_field :rule_type, value: @rule_type.humanize, readonly: true, class: "form-control" %>
+      <%= form.text_field :rule_type, value: t("admin.badges.rules.#{@rule_type}", default: @rule_type.humanize), readonly: true, class: "form-control" %>
       <%= form.hidden_field :rule_type, value: @rule_type %>
     </div>
 

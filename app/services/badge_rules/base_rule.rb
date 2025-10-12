@@ -8,10 +8,6 @@ module BadgeRules
       @value = value
     end
 
-    def self.label
-      name.demodulize.underscore.humanize
-    end
-
     def satisfied?
       raise NotImplementedError
     end

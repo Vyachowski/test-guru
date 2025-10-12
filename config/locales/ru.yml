@@ -68,6 +68,10 @@ ru:
         create: "Создать награду"
       new:
         header: "Создать награду"
+      rules:
+        all_in_category: "Все в категории"
+        all_of_level: "Все одного уровня"
+        passed_on_attempt: "С определенной попытки"
     tests:
       index:
         header: "Доступные тесты"
