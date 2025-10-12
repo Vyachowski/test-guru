@@ -14,6 +14,8 @@ class TestPassagesController < ApplicationController
       flash[:notice] = "Вы получили новый бэйдж: #{new_badges.map(&:name).join(', ')}" if new_badges.any?
 
       redirect_to result_test_passage_path(@test_passage)
+    else
+      redirect_to test_passage_path(@test_passage)
     end
   end
 
