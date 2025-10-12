@@ -9,6 +9,9 @@ Rails.application.routes.draw do
     get :result, on: :member
   end
 
+  resources :feedbacks, only: %i[new create]
+  resources :badges, only: %i[index]
+
   namespace :admin do
     resources :tests do
       resources :questions, shallow: true do
@@ -19,9 +22,6 @@ Rails.application.routes.draw do
     resources :gists, only: %i[index show create]
     resources :badges, only: %i[index update edit new create destroy]
   end
-
-  resources :feedbacks, only: %i[new create]
-  resources :badges, only: %i[index]
 
   root "tests#index"
 end

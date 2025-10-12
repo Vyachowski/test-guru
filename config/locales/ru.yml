@@ -50,16 +50,22 @@ ru:
       delete: "Удалить"
       confirmation: "Вы уверены?"
 
+  badges:
+    index:
+      my_badges: "Мои награды"
+
   admin:
     badges:
       index:
         created: "Награда создана"
         create_badge: "Создать награду"
-        header: "Награды" 
+        header: "Награды"
       activated: "Награда доступна для выдачи"
       deactivated: "Награды скрыты для пользователей"
       form:
         image_hint: "Должно быть ссылкой на изоражение подходяшего формата (jpg, png, gif, webp) меньше 1MB"
+        save: "Сохранить награду"
+        create: "Создать награду"
       new:
         header: "Создать награду"
     tests:

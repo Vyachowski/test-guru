@@ -1,10 +1,9 @@
 <% if @rule_type.blank? %>
-  <!-- Шаг 1: выбор правила для нового бейджа -->
   <%= form_with url: new_admin_badge_path, method: :get, local: true do |form| %>
     <%= render "shared/errors", resource: @badge %>
 
     <div class="mb-3">
-      <%= form.label :rule_type, class: "form-label" %>
+      <%= form.label :rule_type, t('activerecord.attributes.badge.rule_type'), class: "form-label" %>
       <%= form.select :rule_type,
             Badge::RULE_TYPES.map { |r| [t("admin.badges.rules.#{r}", default: r.humanize), r] },
             { prompt: "Выберите правило" },
@@ -14,30 +13,25 @@
     <%= form.submit "Продолжить", class: "btn btn-primary" %>
   <% end %>
 <% else %>
-  <!-- Шаг 2: форма создания бейджа -->
   <%= form_with model: [:admin, @badge], local: true do |form| %>
     <%= render "shared/errors", resource: @badge %>
 
-    <!-- Тип правила (только на чтение) -->
     <div class="mb-3">
       <%= form.label :rule_type, class: "form-label" %>
       <%= form.text_field :rule_type, value: @rule_type.humanize, readonly: true, class: "form-control" %>
       <%= form.hidden_field :rule_type, value: @rule_type %>
     </div>
 
-    <!-- Название бейджа -->
     <div class="mb-3">
       <%= form.label :name, class: "form-label" %>
       <%= form.text_field :name, class: "form-control" %>
     </div>
 
-    <!-- Ссылка на иконку -->
     <div class="mb-3">
       <%= form.label :image_url, class: "form-label" %>
       <%= form.url_field :image_url, class: "form-control", placeholder: "https://example.com/badge.png" %>
     </div>
 
-    <!-- Поле, специфичное для правила -->
     <% if @form_field %>
       <div class="mb-3">
         <%= form.label @form_field[:name], @form_field[:label], class: "form-label" %>
@@ -49,13 +43,11 @@
       </div>
     <% end %>
 
-    <!-- Активность -->
     <div class="form-check mb-3">
       <%= form.check_box :active, class: "form-check-input" %>
       <%= form.label :active, class: "form-check-label" %>
     </div>
 
-    <!-- Кнопка отправки -->
-    <%= form.submit @badge.persisted? ? "Сохранить изменения" : "Создать бейдж", class: "btn btn-success" %>
+    <%= form.submit @badge.persisted? ? t('.save') : t('.create'), class: "btn btn-success" %>
   <% end %>
 <% end %>

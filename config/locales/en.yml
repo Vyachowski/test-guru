@@ -55,11 +55,13 @@ en:
       index:
         created: "Badge created"
         create_badge: "Create badge"
-        header: "Badges" 
+        header: "Badges"
       activated: "Badge activated"
       deactivated: "Badge deactivated"
       form:
         image_hint: "Must be a valid image (jpg, png, gif, webp) under 1MB"
+        save: "Save badge"
+        create: "Create badge"
       new:
         header: "Create badge"
     tests:
@@ -90,6 +92,10 @@ en:
       create:
         success: "Gist was succesfully created! Link - %{link}"
         failure: "An error occured while saving gist"
+
+  badges:
+    index:
+      my_badges: "My badges"
 
   feedbacks:
     header: "Feedback form"
