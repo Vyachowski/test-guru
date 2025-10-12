@@ -21,6 +21,7 @@ Rails.application.routes.draw do
   end
 
   resources :feedbacks, only: %i[new create]
+  resources :badges, only: %i[index]
 
   root "tests#index"
 end

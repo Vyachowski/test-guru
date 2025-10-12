@@ -14,6 +14,7 @@ class BadgeService
       rule = rule_class.new(@user, @test_passage, badge.rule_value)
       if rule.satisfied?
         give_badge(badge)
+
         new_badges << badge
       end
     end
@@ -24,6 +25,6 @@ class BadgeService
   private
 
   def give_badge(badge)
-    @user.badges << badge unless @user.badges.include?(badge)
+    @user.user_badges.create!(badge: badge)
   end
 end
