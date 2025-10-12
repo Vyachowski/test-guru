@@ -117,6 +117,10 @@ ru:
     gist:
       gist_button: "Сохранить вопрос в Gist"
       description: "Вопрос %{title} из приложения TestGuru"
+    new_badge_message:
+      one: "Вы получили новый бэйдж: %{badges}"
+      few: "Вы получили новые бэйджи: %{badges}"
+      many: "Вы получили новые бэйджи: %{badges}"
   
   shared:
     errors:

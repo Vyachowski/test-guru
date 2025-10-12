@@ -11,7 +11,13 @@ class TestPassagesController < ApplicationController
     if @test_passage.completed?
       new_badges = BadgeService.new(@test_passage.user, @test_passage).call
 
-      flash[:notice] = "Вы получили новый бэйдж: #{new_badges.map(&:name).join(', ')}" if new_badges.any?
+      if new_badges.any?
+        flash[:notice] = t(
+          "test_passages.new_badge_message",
+          count: new_badges.size,
+          badges: new_badges.map(&:name).join(", ")
+        )
+      end
 
       redirect_to result_test_passage_path(@test_passage)
     else

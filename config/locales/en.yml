@@ -117,6 +117,10 @@ en:
     gist:
       gist_button: "Gist Question"
       description: "A question about %{title} from TestGuru"
+    new_badge_message:
+      one: "You've got new badge: %{badges}"
+      few: "You've got new badges: %{badges}"
+      many: "You've got new badges: %{badges}"
 
   shared:
     errors:
