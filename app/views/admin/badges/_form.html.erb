@@ -1,54 +1,52 @@
-<%= form_with model: [:admin, badge], local: true, data: {
-      turbo: false,
-      categories: Category.all.map { |c| { value: c.title, text: t("categories.#{c.title}", default: c.title) } }.to_json,
-      levels: Test.distinct.pluck(:level).sort.map { |l| { value: l, text: t("admin.badges.levels.#{l}", default: l) } }.to_json,
-      prompt_text: t('helpers.select.prompt', default: 'Select...')
-    } do |form| %>
-  <%= render "shared/errors", resource: badge %>
+  <% if @rule_type.blank? %>
+    <%= form_with url: new_admin_badge_path, method: :get, local: true do |form| %>
+      <%= render "shared/errors", resource: badge %>
 
-  <fieldset class="mb-4">
-    <div class="mb-3">
-      <%= form.label :name, class: "form-label" %>
-      <%= form.text_field :name, required: true, class: "form-control" %>
-    </div>
-
-    <div class="mb-3">
-      <%= form.label :image_url, class: "form-label" %>
-      <%= form.url_field :image_url, required: true, class: "form-control", placeholder: "https://example.com/badge.png" %>
-      <div class="form-text">
-        <%= t("admin.badges.form.image_hint", default: "Must be a valid image (jpg, png, gif, webp) under 1MB") %>
+      <div class="mb-3">
+        <%= form.label :rule_type, "Тип правила", class: "form-label" %>
+        <%= form.select :rule_type,
+              Badge::RULE_TYPES.map { |r| [t("admin.badges.rules.#{r}", default: r.humanize), r] },
+              { prompt: "Выберите правило" },
+              class: "form-control" %>
       </div>
-    </div>
+      <%= form.submit "Продолжить", class: "btn btn-primary" %>
+    <% end %>
+  <% else %>
+    <%= form_with model: [:admin, @badge], local: true do |form| %>
+      <%= render "shared/errors", resource: badge %>
 
-    <div class="mb-3">
-      <%= form.label :rule_type, class: "form-label" %>
-      <%= form.select :rule_type,
-            Badge::RULE_TYPES.map { |rule| [t("admin.badges.rules.#{rule}", default: rule.humanize), rule] },
-            { prompt: t("helpers.select.prompt") },
-            required: true,
-            class: "form-control",
-            id: "badge_rule_type",
-            disabled: badge.persisted? %>
-    </div>
+      <div class="mb-3">
+        <%= form.label :rule_type, class: "form-label" %>
+        <%= form.text_field :rule_type, value: @rule_type.humanize, readonly: true, class: "form-control" %>
+        <%= form.hidden_field :rule_type, value: @rule_type %>
+      </div>
 
-    <div class="mb-3">
-      <%= form.label :rule_value, class: "form-label" %>
-      <%= form.select :rule_value,
-            [],
-            { prompt: t('helpers.select.prompt') },
-            required: true,
-            class: "form-control",
-            id: "badge_rule_value",
-            disabled: badge.persisted? %>
-    </div>
+      <div class="mb-3">
+        <%= form.label :name, class: "form-label" %>
+        <%= form.text_field :name, class: "form-control" %>
+      </div>
 
-    <div class="form-check mb-3">
-      <%= form.check_box :active, class: "form-check-input", id: "badge_active" %>
-      <%= form.label :active, class: "form-check-label" %>
-    </div>
-  </fieldset>
+      <div class="mb-3">
+        <%= form.label :image_url, class: "form-label" %>
+        <%= form.url_field :image_url, class: "form-control", placeholder: "https://example.com/badge.png" %>
+      </div>
 
-  <div>
-    <%= form.submit t("common.save", default: "Save"), class: "btn btn-primary" %>
-  </div>
-<% end %>
+      <% if @form_field %>
+        <div class="mb-3">
+          <%= form.label @form_field[:name], @form_field[:label], class: "form-label" %>
+          <% if @form_field[:type] == :select %>
+            <%= form.select @form_field[:name], @options, {}, class: "form-control" %>
+          <% elsif @form_field[:type] == :number %>
+            <%= form.number_field @form_field[:name], min: 1, class: "form-control" %>
+          <% end %>
+        </div>
+      <% end %>
+
+      <div class="form-check mb-3">
+        <%= form.check_box :active, class: "form-check-input" %>
+        <%= form.label :active, "Активен", class: "form-check-label" %>
+      </div>
+
+      <%= form.submit "Создать бейдж", class: "btn btn-success" %>
+    <% end %>
+  <% end %>

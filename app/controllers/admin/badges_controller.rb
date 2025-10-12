@@ -32,7 +32,14 @@ class Admin::BadgesController < ApplicationController
   end
 
   def new
-    @badge = Badge.new
+    @badge = Badge.new(rule_type: params[:rule_type])
+    @rule_type = params[:rule_type]
+
+    if @rule_type.present?
+      @rule_class = "BadgeRules::#{@rule_type.camelize}Rule".safe_constantize
+      @form_field = @rule_class&.form_field
+      @options = @rule_class&.options || []
+    end
   end
 
   private
@@ -42,12 +49,8 @@ class Admin::BadgesController < ApplicationController
   end
 
   def badge_params
-    params.require(:badge).permit(:active, :name, :image_url, :rule_type, :rule_value)
-  end
-
-  def badge_params
     allowed = [:name, :image_url, :active]
-    allowed << :rule << :rule_value if action_name == "create"
+    allowed << :rule_type << :rule_value if action_name == "create"
 
     params.require(:badge).permit(*allowed)
   end
