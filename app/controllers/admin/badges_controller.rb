@@ -1,11 +1,13 @@
-class Admin::BadgesController < ApplicationController
+class Admin::BadgesController < Admin::BaseController
   before_action :set_badge, only: %i[edit update destroy]
 
   def index
     @badges = Badge.all
   end
 
-  def edit; end
+  def edit
+    load_rule_data
+  end
 
   def update
     if @badge.update(badge_params)
@@ -33,13 +35,8 @@ class Admin::BadgesController < ApplicationController
 
   def new
     @badge = Badge.new(rule_type: params[:rule_type])
-    @rule_type = params[:rule_type]
 
-    if @rule_type.present?
-      @rule_class = "BadgeRules::#{@rule_type.camelize}Rule".safe_constantize
-      @form_field = @rule_class&.form_field
-      @options = @rule_class&.options || []
-    end
+    load_rule_data if params[:rule_type].present?
   end
 
   private
@@ -49,9 +46,13 @@ class Admin::BadgesController < ApplicationController
   end
 
   def badge_params
-    allowed = [:name, :image_url, :active]
-    allowed << :rule_type << :rule_value if action_name == "create"
+    params.require(:badge).permit([:name, :image_url, :active, :rule_type, :rule_value])
+  end
 
-    params.require(:badge).permit(*allowed)
+  def load_rule_data
+    @rule_type = @badge.rule_type
+    @rule_class = "BadgeRules::#{@rule_type.camelize}Rule".safe_constantize
+    @form_field = @rule_class&.form_field
+    @options = @rule_class&.options || []
   end
 end
