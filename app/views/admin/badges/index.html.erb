@@ -2,28 +2,27 @@
 
 <div class="d-flex justify-content-between align-items-center mb-3">
   <h1 class="mb-0"><%= t(".header") %></h1>
-
   <%= link_to t(".create_badge"), new_admin_badge_path, class: "btn btn-success" %>
 </div>
 
-<%= render 'shared/errors', resource: @test %>
+<%= render "shared/errors", resource: @badge %>
 
 <table class="table table-striped">
   <thead>
     <tr>
       <th scope="col">
-        <button class="btn btn-outline-dark sort-by-title pointer" type="button" id="test-table-sort">
+        <button class="btn btn-outline-dark sort-by-title pointer" type="button" id="badge-table-sort">
           <%= t("common.tables.name_column") %>
-          <%= octicon 'arrow-up', class: 'text-success hide' %>
-          <%= octicon 'arrow-down', class: 'text-danger hide' %>
+          <%= octicon "arrow-up", class: "text-success hide" %>
+          <%= octicon "arrow-down", class: "text-danger hide" %>
         </button>
       </th>
       <th scope="col"><%= t("common.tables.icon") %></th>
-      <th scope="col" colspan="3"><%= t("common.tables.activation_column") %></th>
+      <th scope="col" colspan="2"><%= t("common.tables.actions_column") %></th>
     </tr>
   </thead>
 
-  <tbody id="user-tests-rows">
+  <tbody id="user-badges-rows">
     <%= render @badges %>
   </tbody>
 </table>

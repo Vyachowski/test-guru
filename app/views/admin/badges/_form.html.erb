@@ -25,12 +25,21 @@
       <%= form.select :rule_type,
             Badge::RULE_TYPES.map { |rule| [t("admin.badges.rules.#{rule}", default: rule.humanize), rule] },
             { prompt: t("helpers.select.prompt") },
-            required: true, class: "form-control", id: "badge_rule_type" %>
+            required: true,
+            class: "form-control",
+            id: "badge_rule_type",
+            disabled: badge.persisted? %>
     </div>
 
     <div class="mb-3">
       <%= form.label :rule_value, class: "form-label" %>
-      <%= form.select :rule_value, [], { prompt: t('helpers.select.prompt') }, { required: true, class: "form-control", id: "badge_rule_value" } %>
+      <%= form.select :rule_value,
+            [],
+            { prompt: t('helpers.select.prompt') },
+            required: true,
+            class: "form-control",
+            id: "badge_rule_value",
+            disabled: badge.persisted? %>
     </div>
 
     <div class="form-check mb-3">

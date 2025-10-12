@@ -1,5 +1,6 @@
-document.addEventListener("DOMContentLoaded", () => {
+document.addEventListener("turbo:load", () => {
   const form = document.querySelector('form[data-categories][data-levels][data-prompt-text]');
+
   if (!form) return;
 
   const ruleTypeSelect = form.querySelector("#badge_rule_type");

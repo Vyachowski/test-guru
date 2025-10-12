@@ -1,9 +1,11 @@
 class Admin::BadgesController < ApplicationController
-  before_action :set_badge, only: %i[update]
+  before_action :set_badge, only: %i[edit update destroy]
 
   def index
     @badges = Badge.all
   end
+
+  def edit; end
 
   def update
     if @badge.update(badge_params)
@@ -23,6 +25,12 @@ class Admin::BadgesController < ApplicationController
     end
   end
 
+  def destroy
+    @badge.destroy
+
+    redirect_to admin_badges_path
+  end
+
   def new
     @badge = Badge.new
   end
@@ -35,5 +43,12 @@ class Admin::BadgesController < ApplicationController
 
   def badge_params
     params.require(:badge).permit(:active, :name, :image_url, :rule_type, :rule_value)
+  end
+
+  def badge_params
+    allowed = [:name, :image_url, :active]
+    allowed << :rule << :rule_value if action_name == "create"
+
+    params.require(:badge).permit(*allowed)
   end
 end
