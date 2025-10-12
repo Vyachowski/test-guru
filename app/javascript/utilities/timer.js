@@ -1,43 +1,28 @@
 document.addEventListener("turbo:load", () => {
-  const timerElement = document.getElementById("timer")
-  if (!timerElement) return
+  const timerEl = document.getElementById("timer");
+  if (!timerEl) return;
 
-  let timeLeft = parseInt(timerElement.dataset.remaining, 10)
-  if (isNaN(timeLeft)) return
+  let timeLeft = parseInt(timerEl.dataset.remaining, 10);
+  if (isNaN(timeLeft)) return;
 
-  const display = timerElement.querySelector("#timer-display")
-  const testPassageId = timerElement.dataset.testId
+  const display = timerEl.querySelector("#timer-display");
+  const form = document.querySelector("form");
 
   const updateDisplay = () => {
-    const minutes = Math.floor(timeLeft / 60)
-    const seconds = timeLeft % 60
-    display.textContent = `${minutes}:${seconds.toString().padStart(2, "0")}`
-  }
+    const minutes = Math.floor(timeLeft / 60);
+    const seconds = timeLeft % 60;
+    display.textContent = `${minutes}:${seconds.toString().padStart(2, "0")}`;
+  };
 
-  updateDisplay()
+  updateDisplay();
 
   const interval = setInterval(() => {
-    timeLeft -= 1
-    updateDisplay()
+    timeLeft -= 1;
+    updateDisplay();
 
     if (timeLeft <= 0) {
-      clearInterval(interval)
-      handleTimeout()
+      clearInterval(interval);
+      form.submit();
     }
-  }, 1000)
-
-  const handleTimeout = async () => {
-    try {
-      await fetch(`/test_passages/${testPassageId}/timeout`, {
-        method: "PATCH",
-        headers: {
-          "X-CSRF-Token": document.querySelector('meta[name="csrf-token"]').content
-        }
-      })
-      window.location.href = `/test_passages/${testPassageId}/result`
-    } catch (e) {
-      console.error("Error while passing the test:", e)
-      window.location.reload()
-    }
-  }
-})
+  }, 1000);
+});

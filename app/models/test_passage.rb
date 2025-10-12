@@ -11,6 +11,10 @@ class TestPassage < ApplicationRecord
     test.timer.present?
   end
 
+  def timed_out?
+    timed? && time_left <= 0
+  end
+
   def time_left
     return nil unless timed?
 
@@ -21,14 +25,13 @@ class TestPassage < ApplicationRecord
   end
 
   def completed?
-    current_question.nil?
+    current_question.nil? || timed_out?
   end
 
   def accept!(answer_ids)
-    if correct_answer?(answer_ids)
-      self.correct_questions += 1
-    end
+    return if timed_out?
 
+    self.correct_questions += 1 if correct_answer?(answer_ids)
     self.current_question = next_question
     save!
   end
