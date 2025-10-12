@@ -20,14 +20,6 @@ class TestPassage < ApplicationRecord
     remaining.positive? ? remaining : 0
   end
 
-  def expired?
-    timed? && time_left <= 0
-  end
-
-  def expire!
-    update!(timed_out: true)
-  end
-
   def completed?
     current_question.nil?
   end
