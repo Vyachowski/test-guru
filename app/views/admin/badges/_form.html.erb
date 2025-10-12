@@ -10,7 +10,7 @@
             class: "form-control" %>
     </div>
 
-    <%= form.submit "Продолжить", class: "btn btn-primary" %>
+    <%= form.submit t("common.next"), class: "btn btn-primary" %>
   <% end %>
 <% else %>
   <%= form_with model: [:admin, @badge], local: true do |form| %>
