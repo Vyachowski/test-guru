@@ -31,6 +31,7 @@ en:
     guru: "Guru"
     start: "Start"
     logout: "Logout"
+    next: "Next"
     yes: "Yes"
     no: "No"
     project:
@@ -51,11 +52,29 @@ en:
       confirmation: "Are you sure?"
 
   admin:
+    badges:
+      index:
+        created: "Badge created"
+        create_badge: "Create badge"
+        header: "Badges"
+      activated: "Badge activated"
+      deactivated: "Badge deactivated"
+      form:
+        image_hint: "Must be a valid image (jpg, png, gif, webp) under 1MB"
+        save: "Save badge"
+        create: "Create badge"
+      new:
+        header: "Create badge"
+      rules:
+        all_in_category: "All in category"
+        all_of_level: "All of level"
+        passed_on_attempt: "Passed on attempt"
     tests:
       index:
         header: "Tricky Tests"
         add_test: "Add test"
         view_gists: "View gists"
+        view_badges: "View badges"
         table:
           questions_quantity_column: "Questions amount"
       show:
@@ -82,6 +101,10 @@ en:
         success: "Gist was succesfully created! Link - %{link}"
         failure: "An error occured while saving gist"
 
+  badges:
+    index:
+      my_badges: "My badges"
+
   feedbacks:
     header: "Feedback form"
     link: "Send feedback"
@@ -103,6 +126,10 @@ en:
     gist:
       gist_button: "Gist Question"
       description: "A question about %{title} from TestGuru"
+    new_badge_message:
+      one: "You've got new badge: %{badges}"
+      few: "You've got new badges: %{badges}"
+      many: "You've got new badges: %{badges}"
 
   shared:
     errors:

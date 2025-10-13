@@ -1,13 +1,12 @@
 document.addEventListener('turbo:load', () => {
   document.querySelectorAll('tr').forEach(row => {
-    const testId = row.dataset.testId
 
-    if (!testId) return
+    const entityId = row.dataset.testId || row.dataset.badgeId
+    if (!entityId) return
 
     const editButton = row.querySelector('.edit-button')
-
-    const titleSpan = row.querySelector(`.test-title[data-test-id="${testId}"]`)
-    const form = row.querySelector(`form[data-test-id="${testId}"]`)
+    const titleSpan = row.querySelector(`[data-test-id="${entityId}"], [data-badge-id="${entityId}"]`)
+    const form = row.querySelector(`form[data-test-id="${entityId}"], form[data-badge-id="${entityId}"]`)
     const cancelButton = form?.querySelector('.cancel-button')
 
     if (!editButton || !titleSpan || !form || !cancelButton) return
