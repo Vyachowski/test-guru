@@ -7,15 +7,31 @@ class TestPassage < ApplicationRecord
 
   before_validation :before_validation_set_first_question, on: :create
 
+  def timed?
+    test.timer.present?
+  end
+
+  def timed_out?
+    timed? && time_left <= 0
+  end
+
+  def time_left
+    return nil unless timed?
+
+    time_passed = Time.current - created_at
+    total_time = test.timer.minutes
+    remaining = total_time - time_passed
+    remaining.positive? ? remaining : 0
+  end
+
   def completed?
-    current_question.nil?
+    current_question.nil? || timed_out?
   end
 
   def accept!(answer_ids)
-    if correct_answer?(answer_ids)
-      self.correct_questions += 1
-    end
+    return if timed_out?
 
+    self.correct_questions += 1 if correct_answer?(answer_ids)
     self.current_question = next_question
     save!
   end

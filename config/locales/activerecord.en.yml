@@ -20,6 +20,7 @@ en:
         title: "Name"
         level: "Level"
         category: "Category"
+        timer: "Timer"
       question:
         body: "Body"
       answer:

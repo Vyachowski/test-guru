@@ -6,7 +6,7 @@ class TestPassagesController < ApplicationController
   def result; end
 
   def update
-    @test_passage.accept!(params[:answer_ids])
+    @test_passage.accept!(params[:answer_ids]) unless @test_passage.timed_out?
 
     if @test_passage.completed?
       new_badges = BadgeService.new(@test_passage.user, @test_passage).call
