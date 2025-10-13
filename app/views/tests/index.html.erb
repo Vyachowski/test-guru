@@ -1,5 +1,11 @@
 <h1 class="mb-4"><%= t("admin.tests.index.header") %></h1>
 
+<% unless current_user.is_a?(Admin) %>
+  <div class="container p-0 text-end mt-4">
+    <%= link_to t("badges.index.my_badges"), badges_path, class: "btn btn-outline-primary" %>
+  </div>
+<% end %>
+
 <table class="table">
   <thead>
     <tr>

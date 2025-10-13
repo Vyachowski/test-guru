@@ -1,0 +1,53 @@
+<% if @rule_type.blank? %>
+  <%= form_with url: new_admin_badge_path, method: :get, local: true do |form| %>
+    <%= render "shared/errors", resource: @badge %>
+
+    <div class="mb-3">
+      <%= form.label :rule_type, t('activerecord.attributes.badge.rule_type'), class: "form-label" %>
+      <%= form.select :rule_type,
+            Badge::RULE_TYPES.map { |r| [t("admin.badges.rules.#{r}", default: r.humanize), r] },
+            { prompt: "Выберите правило" },
+            class: "form-control" %>
+    </div>
+
+    <%= form.submit t("common.next"), class: "btn btn-primary" %>
+  <% end %>
+<% else %>
+  <%= form_with model: [:admin, @badge], local: true do |form| %>
+    <%= render "shared/errors", resource: @badge %>
+
+    <div class="mb-3">
+      <%= form.label :rule_type, class: "form-label" %>
+      <%= form.text_field :rule_type, value: t("admin.badges.rules.#{@rule_type}", default: @rule_type.humanize), readonly: true, class: "form-control" %>
+      <%= form.hidden_field :rule_type, value: @rule_type %>
+    </div>
+
+    <div class="mb-3">
+      <%= form.label :name, class: "form-label" %>
+      <%= form.text_field :name, class: "form-control" %>
+    </div>
+
+    <div class="mb-3">
+      <%= form.label :image_url, class: "form-label" %>
+      <%= form.url_field :image_url, class: "form-control", placeholder: "https://example.com/badge.png" %>
+    </div>
+
+    <% if @form_field %>
+      <div class="mb-3">
+        <%= form.label @form_field[:name], @form_field[:label], class: "form-label" %>
+        <% if @form_field[:type] == :select %>
+          <%= form.select @form_field[:name], @options, {}, class: "form-control" %>
+        <% elsif @form_field[:type] == :number %>
+          <%= form.number_field @form_field[:name], min: 1, class: "form-control" %>
+        <% end %>
+      </div>
+    <% end %>
+
+    <div class="form-check mb-3">
+      <%= form.check_box :active, class: "form-check-input" %>
+      <%= form.label :active, class: "form-check-label" %>
+    </div>
+
+    <%= form.submit @badge.persisted? ? t('.save') : t('.create'), class: "btn btn-success" %>
+  <% end %>
+<% end %>

@@ -31,6 +31,7 @@ ru:
     guru: "Гуру"
     start: "Начать"
     logout: "Выйти"
+    next: "Дальше"
     yes: "Да"
     no: "Нет"
     project:
@@ -50,12 +51,34 @@ ru:
       delete: "Удалить"
       confirmation: "Вы уверены?"
 
+  badges:
+    index:
+      my_badges: "Мои награды"
+
   admin:
+    badges:
+      index:
+        created: "Награда создана"
+        create_badge: "Создать награду"
+        header: "Награды"
+      activated: "Награда доступна для выдачи"
+      deactivated: "Награды скрыты для пользователей"
+      form:
+        image_hint: "Должно быть ссылкой на изоражение подходяшего формата (jpg, png, gif, webp) меньше 1MB"
+        save: "Сохранить награду"
+        create: "Создать награду"
+      new:
+        header: "Создать награду"
+      rules:
+        all_in_category: "Все в категории"
+        all_of_level: "Все одного уровня"
+        passed_on_attempt: "С определенной попытки"
     tests:
       index:
         header: "Доступные тесты"
         add_test: "Добавить тест"
         view_gists: "Показать gists"
+        view_badges: "Показать награды"
         table:
           questions_quantity_column: "Количество вопросов"
       show:
@@ -99,6 +122,10 @@ ru:
     gist:
       gist_button: "Сохранить вопрос в Gist"
       description: "Вопрос %{title} из приложения TestGuru"
+    new_badge_message:
+      one: "Вы получили новый бэйдж: %{badges}"
+      few: "Вы получили новые бэйджи: %{badges}"
+      many: "Вы получили новые бэйджи: %{badges}"
   
   shared:
     errors:

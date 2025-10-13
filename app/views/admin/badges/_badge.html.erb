@@ -1,0 +1,22 @@
+<tr data-badge-id="<%= badge.id %>">
+  <td class="align-content-center">
+    <div class="d-flex align-content-center" style="min-height: 3rem; min-width: 330px;">
+      <span class="d-flex flex-wrap gap-2 badge-title m-0 align-content-center"><%= badge.name %></span>
+    </div>
+  </td>
+
+  <td>
+    <img src="<%= badge.image_url %>" width="50" height="50" alt="<%= badge.name %>">
+  </td>
+
+  <td class="align-content-center">
+    <%= link_to t("common.actions.edit"), edit_admin_badge_path(badge), class: "btn btn-secondary" %>
+  </td>
+
+  <td class="align-content-center">
+    <%= link_to t("common.actions.delete"),
+          admin_badge_path(badge),
+          data: { "turbo-method": :delete, turbo_confirm: t("common.actions.confirmation") },
+          class: "btn btn-danger" %>
+  </td>
+</tr>
